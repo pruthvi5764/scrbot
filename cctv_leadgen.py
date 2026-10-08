@@ -766,27 +766,30 @@ def audit(lead):
 # ==============================================================================
 
 PITCH_SYSTEM_PROMPT = f"""You write concise, high-converting B2B outreach for Atrya Solutions.
-Atrya builds high-converting websites and an operations/admin panel for CCTV and electronic security companies.
-Key capabilities:
-- Professional lead-generation website with instant 1-click WhatsApp quote buttons.
-- Operations admin panel: job tracking, AMC maintenance schedules, technician dispatch, customer warranty & service history.
-- Live demo site: {DEMO_URL}
-- Live demo admin panel: {DEMO_ADMIN_URL}
+Atrya builds turnkey digital systems for CCTV and electronic security companies across India.
+We provide two core tools:
+1. High-Converting Customer Website: Instant 1-click WhatsApp quote buttons & online lead forms to capture direct Google customers instead of paying commissions to Justdial/IndiaMart. Live Demo: {DEMO_URL}
+2. Operations & Field Admin Panel: Technician job dispatch, AMC maintenance schedules, customer warranty records & service renewal alerts. Live Demo Admin: {DEMO_ADMIN_URL}
 
 Rules:
-1. Refer to the links strictly as a DEMO of what we customize and build for CCTV businesses.
-2. Tone: Professional, direct, consultative.
-3. If NO website: Focus on capturing direct Google customers instead of paying commissions on Justdial.
-4. If BROKEN/INSECURE: Mention their exact issue politely and offer a free revamp.
+1. Refer to the links strictly as a LIVE DEMO of what we customize and launch for CCTV companies.
+2. Tone: Consultative, professional, persuasive, high ROI focus.
+3. If NO WEBSITE (relies only on Google Maps or directory listings):
+   - Highlight that they are losing direct Google customers to competitors and paying heavy directory commissions.
+   - You MUST include BOTH demo links:
+     * Customer Website Demo: {DEMO_URL}
+     * Operations & AMC Dispatch Admin: {DEMO_ADMIN_URL}
+   - Emphasize how this combo gives them direct high-value customer inquiries on WhatsApp AND automates their technician & AMC management.
+4. If BROKEN/INSECURE: Mention their exact technical issue politely and offer a free revamp.
 5. If OUTDATED: Focus on boosting customer enquiries with a modern WhatsApp quote widget.
-6. If HEALTHY: Focus exclusively on the OPERATIONS & AMC DISPATCH ADMIN PANEL to streamline field technicians.
-7. Offer a 15-minute walkthrough.
+6. If HEALTHY: Focus primarily on the OPERATIONS & AMC DISPATCH ADMIN PANEL to streamline field technicians.
+7. Always invite them for a quick 10-15 minute walkthrough.
 8. Email must end with: "Reply STOP and I won't contact you again."
 9. Output STRICT JSON only:
 {{
-  "whatsapp": "Message under 55 words formatted with line breaks for WhatsApp",
+  "whatsapp": "Message under 65 words with clear line breaks for WhatsApp",
   "email_subject": "Catchy, relevant 4-7 word subject",
-  "email_body": "Clean body under 120 words"
+  "email_body": "Clean body under 140 words"
 }}"""
 
 
@@ -796,16 +799,27 @@ def get_rule_based_fallback(lead):
     segment = lead.get("segment", "no_website")
 
     if segment == "no_website":
-        wa = (f"Hi {name},\nNoticed your CCTV business in {city} gets great reviews but doesn't have a direct website.\n"
-              f"We build websites and technician dispatch panels for CCTV installers.\n"
-              f"Check out our demo: {DEMO_URL}\nOpen for a quick 10-min demo?")
-        subject = f"Direct website & AMC panel for {name}"
-        body = (f"Hi {name},\n\nI noticed you have strong customer reviews in {city}, but potential clients searching Google "
-                f"might not find a direct website to request CCTV quotes.\n\n"
-                f"At Atrya Solutions, we set up turnkey websites with instant WhatsApp quote buttons and an operations panel "
-                f"to manage AMC maintenance contracts and field technicians.\n\n"
-                f"Live demo: {DEMO_URL}\n"
-                f"Would you be open to a 10-minute walkthrough this week?\n\n"
+        wa = (f"Hi {name},\n"
+              f"Noticed your CCTV business in {city} gets great reviews, but you don't have a direct website yet!\n\n"
+              f"You might be losing direct Google customers or paying high commissions on Justdial. "
+              f"We build complete turnkey setups for CCTV companies:\n"
+              f"👉 Customer Website (1-Click WhatsApp Quotes): {DEMO_URL}\n"
+              f"👉 Operations Admin (Technician & AMC Dispatch): {DEMO_ADMIN_URL}\n\n"
+              f"Open for a quick 10-min walkthrough this week?")
+        subject = f"Direct Customer Website & AMC Admin Panel for {name}"
+        body = (f"Hi {name} Team,\n\n"
+                f"I came across your CCTV business in {city} and saw your positive customer ratings. "
+                f"However, I noticed that potential clients searching Google cannot find a direct website to request CCTV quotes.\n\n"
+                f"Relying solely on local directories means you share leads with 4–5 competitors and pay ongoing commissions.\n\n"
+                f"At Atrya Solutions, we build complete turnkey systems specifically for CCTV and security installers:\n\n"
+                f"1. Customer-Facing Website (captures direct leads with 1-click WhatsApp quotes):\n"
+                f"   👉 Demo: {DEMO_URL}\n\n"
+                f"2. Operations Admin Panel (tracks jobs, AMC maintenance contracts, and technician dispatch):\n"
+                f"   👉 Demo Admin: {DEMO_ADMIN_URL}\n\n"
+                f"We customize and deliver the complete setup in 48 hours.\n\n"
+                f"Would you be open to a brief 10-minute walkthrough this week to see how this can grow your direct inquiries?\n\n"
+                f"Best regards,\n"
+                f"Atrya Solutions Team\n\n"
                 f"Reply STOP and I won't contact you again.")
     elif segment == "amc_operations":
         wa = (f"Hi {name},\nSaw your CCTV website in {city}. How do you currently manage your AMC service renewals and technician dispatch?\n"
@@ -1005,11 +1019,26 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
     .badge-high {{ background: #7f1d1d; color: #fecaca; }}
     .badge-med {{ background: #78350f; color: #fde68a; }}
     .badge-low {{ background: #14532d; color: #bbf7d0; }}
-    .btn-wa {{ display: inline-flex; align-items: center; gap: 6px; background: #15803d; color: #fff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 600; transition: background 0.2s; }}
+    .btn-wa {{ display: inline-flex; align-items: center; gap: 6px; background: #15803d; color: #fff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 600; transition: background 0.2s; white-space: nowrap; }}
     .btn-wa:hover {{ background: #16a34a; }}
+    .btn-pitch {{ background: #334155; border: 1px solid #475569; color: #f8fafc; padding: 6px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; transition: background 0.2s; white-space: nowrap; }}
+    .btn-pitch:hover {{ background: #475569; }}
     .link {{ color: #38bdf8; text-decoration: none; }}
     .link:hover {{ text-decoration: underline; }}
     .empty {{ text-align: center; padding: 40px; color: #94a3b8; }}
+    /* Modal styles */
+    .modal-overlay {{ display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }}
+    .modal-overlay.active {{ display: flex; }}
+    .modal-box {{ background: #1e293b; border: 1px solid #475569; border-radius: 12px; max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 24px; position: relative; }}
+    .modal-header {{ display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; }}
+    .modal-title {{ font-size: 18px; font-weight: 700; color: #38bdf8; }}
+    .close-btn {{ background: transparent; border: none; color: #94a3b8; font-size: 20px; cursor: pointer; line-height: 1; }}
+    .close-btn:hover {{ color: #fff; }}
+    .pitch-section {{ margin-bottom: 18px; }}
+    .pitch-label {{ font-size: 12px; font-weight: 600; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.5px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }}
+    .pitch-content {{ background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; font-family: monospace; font-size: 12px; line-height: 1.5; color: #e2e8f0; white-space: pre-wrap; }}
+    .copy-btn {{ background: #0284c7; border: none; color: #fff; border-radius: 4px; padding: 4px 8px; font-size: 11px; cursor: pointer; font-weight: 600; }}
+    .copy-btn:hover {{ background: #0369a1; }}
   </style>
 </head>
 <body>
@@ -1017,7 +1046,7 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
     <div class="header">
       <div>
         <div class="title">CCTV Lead Intelligence Dossier</div>
-        <div class="subtitle">Discovered, Audited & Enriched Leads with 1-Click WhatsApp Outreach</div>
+        <div class="subtitle">Discovered, Audited & Enriched Leads with 1-Click WhatsApp & Demo Outreach</div>
       </div>
     </div>
 
@@ -1035,18 +1064,18 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
         <div class="stat-lbl">Scraped Emails</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val" id="highPriorityCount">0</div>
-        <div class="stat-lbl">High Priority Upgrades</div>
+        <div class="stat-val" id="noWebsiteCount">0</div>
+        <div class="stat-lbl">No Website (Prime Demos)</div>
       </div>
     </div>
 
     <div class="controls">
       <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search by company, city, phone, issues...">
       <button class="filter-btn active" data-filter="all">All Leads</button>
+      <button class="filter-btn" data-filter="nowebsite">🔥 No Website (Prime Demos)</button>
       <button class="filter-btn" data-filter="high">High Priority</button>
       <button class="filter-btn" data-filter="whatsapp">Has WhatsApp</button>
       <button class="filter-btn" data-filter="email">Has Email</button>
-      <button class="filter-btn" data-filter="nowebsite">No Website</button>
     </div>
 
     <div class="table-card">
@@ -1062,11 +1091,48 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
               <th>Website & SSL</th>
               <th>Emails</th>
               <th>Issues</th>
-              <th>WhatsApp Action</th>
+              <th>Outreach Actions</th>
             </tr>
           </thead>
           <tbody id="tableBody"></tbody>
         </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Pitch View & 1-Click Copy -->
+  <div id="pitchModal" class="modal-overlay" onclick="closePitch(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="mCompanyName">Company Outreach Pack</div>
+          <div style="font-size: 12px; color: #94a3b8; margin-top: 4px;" id="mDetails">Target Lead Pitch</div>
+        </div>
+        <button class="close-btn" onclick="closePitch()">&times;</button>
+      </div>
+
+      <div class="pitch-section">
+        <div class="pitch-label">
+          <span>WhatsApp Message</span>
+          <button class="copy-btn" onclick="copyText('mWaPitch', this)">Copy WhatsApp</button>
+        </div>
+        <div class="pitch-content" id="mWaPitch"></div>
+      </div>
+
+      <div class="pitch-section">
+        <div class="pitch-label">
+          <span>Cold Email Subject</span>
+          <button class="copy-btn" onclick="copyText('mEmailSubj', this)">Copy Subject</button>
+        </div>
+        <div class="pitch-content" id="mEmailSubj"></div>
+      </div>
+
+      <div class="pitch-section">
+        <div class="pitch-label">
+          <span>Cold Email Body</span>
+          <button class="copy-btn" onclick="copyText('mEmailBody', this)">Copy Email</button>
+        </div>
+        <div class="pitch-content" id="mEmailBody"></div>
       </div>
     </div>
   </div>
@@ -1079,7 +1145,7 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
       document.getElementById('totalCount').innerText = leads.length;
       document.getElementById('mobileCount').innerText = leads.filter(l => l.whatsapp_number).length;
       document.getElementById('emailCount').innerText = leads.filter(l => l.email).length;
-      document.getElementById('highPriorityCount').innerText = leads.filter(l => l.lead_priority === 'High').length;
+      document.getElementById('noWebsiteCount').innerText = leads.filter(l => l.site_status === 'no_website' || !l.website).length;
     }}
 
     function renderTable() {{
@@ -1091,7 +1157,7 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
         if (currentFilter === 'high' && l.lead_priority !== 'High') return false;
         if (currentFilter === 'whatsapp' && !l.whatsapp_number) return false;
         if (currentFilter === 'email' && !l.email) return false;
-        if (currentFilter === 'nowebsite' && l.site_status !== 'no_website') return false;
+        if (currentFilter === 'nowebsite' && l.site_status !== 'no_website' && l.website) return false;
 
         if (query) {{
           const txt = [l.name, l.city, l.phone, l.issues, l.email, l.website].join(' ').toLowerCase();
@@ -1108,10 +1174,11 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
       filtered.forEach((l, idx) => {{
         const tr = document.createElement('tr');
         const prioBadge = l.lead_priority === 'High' ? 'badge-high' : (l.lead_priority === 'Medium' ? 'badge-med' : 'badge-low');
-        const siteLink = l.website ? `<a href="${{l.website}}" target="_blank" class="link">${{l.domain || 'Visit'}}</a> (${{l.ssl_status}})` : '<span style="color:#ef4444">None</span>';
+        const siteLink = l.website ? `<a href="${{l.website}}" target="_blank" class="link">${{l.domain || 'Visit'}}</a> (${{l.ssl_status}})` : '<span style="color:#ef4444;font-weight:600">No Website</span>';
         const waBtn = l.whatsapp_click_link 
-          ? `<a href="${{l.whatsapp_click_link}}" target="_blank" class="btn-wa">💬 WhatsApp</a>` 
+          ? `<a href="${{l.whatsapp_click_link}}" target="_blank" class="btn-wa">💬 Chat</a>` 
           : '<span style="color:#64748b">—</span>';
+        const pitchBtn = `<button class="btn-pitch" onclick="openPitch(${{leads.indexOf(l)}})">📋 Pitch</button>`;
 
         tr.innerHTML = `
           <td>${{idx + 1}}</td>
@@ -1125,9 +1192,37 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
           <td>${{siteLink}}</td>
           <td><small>${{l.email ? l.email.replace(/;/g, '<br>') : '—'}}</small></td>
           <td><small style="color:#cbd5e1">${{l.issues || 'None'}}</small></td>
-          <td>${{waBtn}}</td>
+          <td><div style="display:flex;gap:6px;align-items:center;">${{waBtn}} ${{pitchBtn}}</div></td>
         `;
         tbody.appendChild(tr);
+      }});
+    }}
+
+    function openPitch(index) {{
+      const l = leads[index];
+      if (!l) return;
+      document.getElementById('mCompanyName').innerText = l.name || 'Target Prospect';
+      document.getElementById('mDetails').innerText = `${{l.city || ''}} | ${{l.lead_priority || 'Standard'}} Priority | Phone: ${{l.phone || 'N/A'}}`;
+      document.getElementById('mWaPitch').innerText = l.whatsapp_pitch || 'No pitch drafted.';
+      document.getElementById('mEmailSubj').innerText = l.email_subject || 'No subject.';
+      document.getElementById('mEmailBody').innerText = l.email_body || 'No email drafted.';
+      document.getElementById('pitchModal').classList.add('active');
+    }}
+
+    function closePitch(e) {{
+      document.getElementById('pitchModal').classList.remove('active');
+    }}
+
+    function copyText(elementId, btn) {{
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {{
+        const oldText = btn.innerText;
+        btn.innerText = 'Copied!';
+        btn.style.background = '#15803d';
+        setTimeout(() => {{
+          btn.innerText = oldText;
+          btn.style.background = '#0284c7';
+        }}, 1800);
       }});
     }}
 
