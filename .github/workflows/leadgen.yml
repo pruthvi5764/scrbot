@@ -1,0 +1,95 @@
+name: CCTV Lead Generation & Outreach Engine
+
+on:
+  # Allows triggering manually anytime from GitHub Web UI or Mobile App
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Target number of leads to discover"
+        required: true
+        default: "50"
+      pitch_top:
+        description: "Number of top prospects to generate AI pitches for"
+        required: true
+        default: "25"
+      cities:
+        description: "Comma-separated cities (e.g. 'Bengaluru,Mumbai') or leave blank for all"
+        required: false
+        default: ""
+      resume:
+        description: "Append to existing leads (resume)"
+        type: boolean
+        default: true
+
+  # Optional: Automatic daily schedule at 9:30 AM IST (4:00 AM UTC)
+  # Uncomment the lines below to enable automated daily runs:
+  # schedule:
+  #   - cron: "0 4 * * *"
+
+jobs:
+  run-lead-generator:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to commit updated leads.csv back to the repo
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Lead Discovery, Audit & Pitch Engine
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GEMINI_KEYS: ${{ secrets.GEMINI_KEYS }}
+          GROQ_KEYS: ${{ secrets.GROQ_KEYS }}
+          OPENAI_KEYS: ${{ secrets.OPENAI_KEYS }}
+        run: |
+          TARGET="${{ github.event.inputs.target || '50' }}"
+          PITCH_TOP="${{ github.event.inputs.pitch_top || '25' }}"
+          CITIES="${{ github.event.inputs.cities || '' }}"
+          RESUME="${{ github.event.inputs.resume }}"
+
+          CMD="python cctv_leadgen.py --target $TARGET --pitch-top $PITCH_TOP"
+
+          if [ -n "$CITIES" ]; then
+            CMD="$CMD --cities \"$CITIES\""
+          fi
+
+          if [ "$RESUME" = "true" ]; then
+            CMD="$CMD --resume"
+          fi
+
+          echo "[*] Executing: $CMD"
+          eval $CMD
+
+      - name: Upload Output Spreadsheets as Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cctv-leads-${{ github.run_number }}
+          path: |
+            leads.csv
+            company_details.json
+          retention-days: 30
+
+      - name: Commit & Push Updated Leads to Repository
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add leads.csv company_details.json || true
+          if git diff --staged --quiet; then
+            echo "No new changes to commit."
+          else
+            git commit -m "Auto-update leads.csv & company_details.json [skip ci]"
+            git push
+          fi

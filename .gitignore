@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+keys.json
+test_*.py
+gemini_raw_out.txt
+.vscode/
