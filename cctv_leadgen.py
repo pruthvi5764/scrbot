@@ -898,23 +898,297 @@ def load_checkpoint(filename):
     return seen_ids
 
 
+def export_to_excel(leads, filename="leads.xlsx"):
+    """Exports structured data to Excel (.xlsx) with styled headers, frozen panes, and auto-adjusted widths."""
+    try:
+        from openpyxl import Workbook
+        from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+        from openpyxl.utils import get_column_letter
+
+        wb = Workbook()
+        ws = wb.active
+        ws.title = "CCTV Leads"
+
+        headers = [c.replace("_", " ").title() for c in COLS]
+        ws.append(headers)
+
+        header_fill = PatternFill(start_color="1E293B", end_color="1E293B", fill_type="solid")
+        header_font = Font(name="Segoe UI", size=10, bold=True, color="FFFFFF")
+        header_align = Alignment(horizontal="center", vertical="center", wrap_text=False)
+
+        for col_num, cell in enumerate(ws[1], 1):
+            cell.fill = header_fill
+            cell.font = header_font
+            cell.alignment = header_align
+        ws.row_dimensions[1].height = 26
+        ws.freeze_panes = "A2"
+
+        thin_border = Border(
+            left=Side(style="thin", color="E2E8F0"),
+            right=Side(style="thin", color="E2E8F0"),
+            top=Side(style="thin", color="E2E8F0"),
+            bottom=Side(style="thin", color="E2E8F0")
+        )
+        zebra_fill = PatternFill(start_color="F8FAFC", end_color="F8FAFC", fill_type="solid")
+
+        for r_idx, lead in enumerate(leads, start=2):
+            row_data = [str(lead.get(col, "") or "") for col in COLS]
+            ws.append(row_data)
+            is_zebra = (r_idx % 2 == 0)
+            ws.row_dimensions[r_idx].height = 20
+
+            for c_idx, cell in enumerate(ws[r_idx], 1):
+                cell.border = thin_border
+                cell.font = Font(name="Segoe UI", size=9)
+                cell.alignment = Alignment(vertical="center")
+                if is_zebra:
+                    cell.fill = zebra_fill
+
+                val = str(cell.value or "")
+                if val.startswith("http://") or val.startswith("https://"):
+                    cell.hyperlink = val
+                    cell.font = Font(name="Segoe UI", size=9, color="2563EB", underline="single")
+
+        for col in ws.columns:
+            max_len = 0
+            col_letter = get_column_letter(col[0].column)
+            for cell in col:
+                val = str(cell.value or "")
+                first_line = val.split("\n")[0]
+                if len(first_line) > max_len:
+                    max_len = len(first_line)
+            ws.column_dimensions[col_letter].width = min(max(max_len + 3, 12), 40)
+
+        wb.save(filename)
+    except Exception as ex:
+        print(f"[!] Note: Excel export skipped ({ex})")
+
+
+def export_html_dashboard(leads, filename="leads_dashboard.html"):
+    """Generates an interactive, modern HTML dashboard with search, filter, and 1-click WhatsApp buttons."""
+    try:
+        leads_json = json.dumps(leads, ensure_ascii=False)
+        html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CCTV Company Lead Intelligence Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{ font-family: 'Inter', -apple-system, sans-serif; background: #0f172a; color: #f8fafc; padding: 24px; }}
+    .container {{ max-width: 1440px; margin: 0 auto; }}
+    .header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }}
+    .title {{ font-size: 24px; font-weight: 700; color: #38bdf8; }}
+    .subtitle {{ font-size: 13px; color: #94a3b8; margin-top: 4px; }}
+    .stats-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }}
+    .stat-card {{ background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 18px; }}
+    .stat-val {{ font-size: 26px; font-weight: 700; color: #f1f5f9; }}
+    .stat-lbl {{ font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }}
+    .controls {{ display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }}
+    .search-box {{ flex: 1; min-width: 280px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 10px 16px; color: #f8fafc; font-size: 14px; outline: none; }}
+    .search-box:focus {{ border-color: #38bdf8; }}
+    .filter-btn {{ background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 10px 16px; color: #cbd5e1; font-size: 13px; cursor: pointer; font-weight: 500; transition: all 0.2s; }}
+    .filter-btn.active, .filter-btn:hover {{ background: #0284c7; color: #fff; border-color: #0284c7; }}
+    .table-card {{ background: #1e293b; border: 1px solid #334155; border-radius: 12px; overflow: hidden; }}
+    .table-wrapper {{ overflow-x: auto; max-height: 70vh; }}
+    table {{ width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }}
+    thead th {{ background: #0f172a; color: #94a3b8; padding: 12px 16px; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; position: sticky; top: 0; z-index: 10; border-bottom: 1px solid #334155; }}
+    tbody tr {{ border-bottom: 1px solid #334155; transition: background 0.15s; }}
+    tbody tr:hover {{ background: #243248; }}
+    td {{ padding: 14px 16px; vertical-align: middle; }}
+    .company-name {{ font-weight: 600; color: #f8fafc; font-size: 14px; display: block; }}
+    .company-city {{ font-size: 11px; color: #94a3b8; margin-top: 2px; }}
+    .badge {{ display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; }}
+    .badge-high {{ background: #7f1d1d; color: #fecaca; }}
+    .badge-med {{ background: #78350f; color: #fde68a; }}
+    .badge-low {{ background: #14532d; color: #bbf7d0; }}
+    .btn-wa {{ display: inline-flex; align-items: center; gap: 6px; background: #15803d; color: #fff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 600; transition: background 0.2s; }}
+    .btn-wa:hover {{ background: #16a34a; }}
+    .link {{ color: #38bdf8; text-decoration: none; }}
+    .link:hover {{ text-decoration: underline; }}
+    .empty {{ text-align: center; padding: 40px; color: #94a3b8; }}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="title">CCTV Lead Intelligence Dossier</div>
+        <div class="subtitle">Discovered, Audited & Enriched Leads with 1-Click WhatsApp Outreach</div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-val" id="totalCount">0</div>
+        <div class="stat-lbl">Total Prospects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="mobileCount">0</div>
+        <div class="stat-lbl">WhatsApp-Ready Mobiles</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="emailCount">0</div>
+        <div class="stat-lbl">Scraped Emails</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="highPriorityCount">0</div>
+        <div class="stat-lbl">High Priority Upgrades</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search by company, city, phone, issues...">
+      <button class="filter-btn active" data-filter="all">All Leads</button>
+      <button class="filter-btn" data-filter="high">High Priority</button>
+      <button class="filter-btn" data-filter="whatsapp">Has WhatsApp</button>
+      <button class="filter-btn" data-filter="email">Has Email</button>
+      <button class="filter-btn" data-filter="nowebsite">No Website</button>
+    </div>
+
+    <div class="table-card">
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Company</th>
+              <th>Priority</th>
+              <th>Rating</th>
+              <th>Phone</th>
+              <th>Website & SSL</th>
+              <th>Emails</th>
+              <th>Issues</th>
+              <th>WhatsApp Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const leads = {leads_json};
+    let currentFilter = 'all';
+
+    function initStats() {{
+      document.getElementById('totalCount').innerText = leads.length;
+      document.getElementById('mobileCount').innerText = leads.filter(l => l.whatsapp_number).length;
+      document.getElementById('emailCount').innerText = leads.filter(l => l.email).length;
+      document.getElementById('highPriorityCount').innerText = leads.filter(l => l.lead_priority === 'High').length;
+    }}
+
+    function renderTable() {{
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = '';
+
+      const filtered = leads.filter(l => {{
+        if (currentFilter === 'high' && l.lead_priority !== 'High') return false;
+        if (currentFilter === 'whatsapp' && !l.whatsapp_number) return false;
+        if (currentFilter === 'email' && !l.email) return false;
+        if (currentFilter === 'nowebsite' && l.site_status !== 'no_website') return false;
+
+        if (query) {{
+          const txt = [l.name, l.city, l.phone, l.issues, l.email, l.website].join(' ').toLowerCase();
+          return txt.includes(query);
+        }}
+        return true;
+      }});
+
+      if (!filtered.length) {{
+        tbody.innerHTML = '<tr><td colspan="9" class="empty">No matching companies found.</td></tr>';
+        return;
+      }}
+
+      filtered.forEach((l, idx) => {{
+        const tr = document.createElement('tr');
+        const prioBadge = l.lead_priority === 'High' ? 'badge-high' : (l.lead_priority === 'Medium' ? 'badge-med' : 'badge-low');
+        const siteLink = l.website ? `<a href="${{l.website}}" target="_blank" class="link">${{l.domain || 'Visit'}}</a> (${{l.ssl_status}})` : '<span style="color:#ef4444">None</span>';
+        const waBtn = l.whatsapp_click_link 
+          ? `<a href="${{l.whatsapp_click_link}}" target="_blank" class="btn-wa">💬 WhatsApp</a>` 
+          : '<span style="color:#64748b">—</span>';
+
+        tr.innerHTML = `
+          <td>${{idx + 1}}</td>
+          <td>
+            <span class="company-name">${{l.name || 'Unnamed'}}</span>
+            <div class="company-city">${{l.city || ''}} • ${{l.pincode || ''}}</div>
+          </td>
+          <td><span class="badge ${{prioBadge}}">${{l.lead_priority || 'Standard'}}</span></td>
+          <td>⭐ ${{l.rating || '—'}} (${{l.reviews || '0'}})</td>
+          <td>${{l.phone || '—'}}<br><small style="color:#94a3b8">${{l.phone_type || ''}}</small></td>
+          <td>${{siteLink}}</td>
+          <td><small>${{l.email ? l.email.replace(/;/g, '<br>') : '—'}}</small></td>
+          <td><small style="color:#cbd5e1">${{l.issues || 'None'}}</small></td>
+          <td>${{waBtn}}</td>
+        `;
+        tbody.appendChild(tr);
+      }});
+    }}
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {{
+      btn.addEventListener('click', () => {{
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderTable();
+      }});
+    }});
+
+    document.getElementById('searchInput').addEventListener('input', renderTable);
+
+    initStats();
+    renderTable();
+  </script>
+</body>
+</html>"""
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(html)
+    except Exception as ex:
+        print(f"[!] Note: HTML Dashboard skipped ({ex})")
+
+
 def export_company_data(leads, csv_filename="leads.csv", json_filename="company_details.json", append=False):
     """
     Exports all discovered company data into:
-    1. CSV Spreadsheet (ready for Excel / Google Sheets / CRM import)
-    2. Deep JSON Dossier (structured metadata for integrations)
+    1. CSV Spreadsheet (strictly 1 single row per company with sanitized text)
+    2. Excel Spreadsheet (.xlsx styled with colors, frozen panes & hyperlinks)
+    3. Interactive HTML Dashboard (searchable table with 1-click WhatsApp buttons)
+    4. Deep JSON Dossier (structured metadata)
     """
-    # 1. Export CSV
+    # 1. Clean leads so each CSV record is strictly 1 single horizontal line
+    clean_csv_leads = []
+    for l in leads:
+        row_copy = {}
+        for col in COLS:
+            val = str(l.get(col, "") or "")
+            # Sanitize newlines so CSV text viewers show 1 clean row per lead
+            val_clean = val.replace("\r\n", " \\n ").replace("\n", " \\n ").replace("\r", " ").strip()
+            row_copy[col] = val_clean
+        clean_csv_leads.append(row_copy)
+
     file_exists = os.path.exists(csv_filename) and os.path.getsize(csv_filename) > 0
     mode = "a" if append else "w"
     with open(csv_filename, mode, newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=COLS, extrasaction="ignore")
         if not append or not file_exists:
             writer.writeheader()
-        writer.writerows(leads)
+        writer.writerows(clean_csv_leads)
 
-    # 2. Export Full Company Dossiers JSON
-    # Format leads into rich structured dossiers
+    # 2. Export Excel (.xlsx)
+    xlsx_file = csv_filename.replace(".csv", ".xlsx")
+    export_to_excel(leads, xlsx_file)
+
+    # 3. Export Interactive HTML Dashboard
+    html_file = "leads_dashboard.html"
+    export_html_dashboard(leads, html_file)
+
+    # 4. Export Full Company Dossiers JSON
     dossiers = []
     for l in leads:
         dossiers.append({
