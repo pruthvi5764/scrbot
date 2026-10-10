@@ -13,6 +13,7 @@ Stores Comprehensive Company Data:
 import argparse
 import csv
 import json
+import logging
 import os
 import re
 import sys
@@ -28,11 +29,47 @@ import urllib3
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+# Structured Logging to Console & leadgen.log
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.StreamHandler(sys.stdout),
+        logging.FileHandler("leadgen.log", encoding="utf-8")
+    ]
+)
+logger = logging.getLogger("CCTVLeadGen")
+
+
+def load_dotenv(filepath=".env"):
+    """Native zero-dependency .env loader supporting comments, quotes, and whitespace."""
+    if os.path.exists(filepath):
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if not line or line.startswith("#") or "=" not in line:
+                        continue
+                    k, v = line.split("=", 1)
+                    k = k.strip()
+                    v = v.strip().strip("'\"")
+                    if k and k not in os.environ:
+                        os.environ[k] = v
+        except Exception as ex:
+            logger.warning(f"Warning reading .env file: {ex}")
+
+# Auto-load local .env if present
+load_dotenv()
+
 # ==============================================================================
 # 1. API KEY CONFIGURATION & MULTI-LLM ROTATING POOL
 # ==============================================================================
 
-GOOGLE_PLACES_KEY = os.environ.get("GOOGLE_API_KEY", "")
+GOOGLE_PLACES_KEY = (
+    os.environ.get("GOOGLE_API_KEY", "")
+    or os.environ.get("GOOGLE_PLACES_KEY", "")
+    or os.environ.get("GOOGLE_PLACES_API_KEY", "")
+)
 
 ANTHROPIC_KEYS = []
 OPENAI_KEYS = []
@@ -45,7 +82,7 @@ class MultiLLMRotator:
     """
     Thread-safe rotating pool for multiple LLM API keys across
     Anthropic, OpenAI, Gemini, Groq, and xAI (Grok).
-    Rotates in a loop. If a key falls (quota, rate limit, error), it switches to the next.
+    Rotates in a loop with automatic rate-limit backoff and key failover.
     """
 
     def __init__(self):
@@ -64,7 +101,7 @@ class MultiLLMRotator:
                 with open(keys_file, "r", encoding="utf-8") as f:
                     data = json.load(f)
             except Exception as ex:
-                print(f"[!] Warning reading keys.json: {ex}")
+                logger.warning(f"Warning reading keys.json: {ex}")
 
         # Check for Google Places key
         global GOOGLE_PLACES_KEY
@@ -73,11 +110,14 @@ class MultiLLMRotator:
             if g_key and "YOUR_GOOGLE" not in g_key:
                 GOOGLE_PLACES_KEY = g_key
 
-        def collect(env_name, inline_list, json_key):
+        def collect(env_names, inline_list, json_key):
             keys = []
-            env_val = os.environ.get(env_name, "")
-            if env_val:
-                keys.extend([k.strip() for k in env_val.split(",") if k.strip()])
+            if isinstance(env_names, str):
+                env_names = [env_names]
+            for env_name in env_names:
+                env_val = os.environ.get(env_name, "")
+                if env_val:
+                    keys.extend([k.strip() for k in env_val.split(",") if k.strip()])
             keys.extend([k.strip() for k in inline_list if k.strip() and not k.startswith("#")])
             json_list = data.get(json_key, [])
             if isinstance(json_list, list):
@@ -91,30 +131,35 @@ class MultiLLMRotator:
                     clean.append(k)
             return clean
 
-        anth_keys = collect("ANTHROPIC_KEYS", ANTHROPIC_KEYS, "anthropic_keys")
-        openai_keys = collect("OPENAI_KEYS", OPENAI_KEYS, "openai_keys")
-        gemini_keys = collect("GEMINI_KEYS", GEMINI_KEYS, "gemini_keys")
-        groq_keys = collect("GROQ_KEYS", GROQ_KEYS, "groq_keys")
-        grok_keys = collect("XAI_GROK_KEYS", XAI_GROK_KEYS, "xai_grok_keys")
+        anth_keys = collect(["ANTHROPIC_KEYS", "ANTHROPIC_API_KEY"], ANTHROPIC_KEYS, "anthropic_keys")
+        openai_keys = collect(["OPENAI_KEYS", "OPENAI_API_KEY"], OPENAI_KEYS, "openai_keys")
+        gemini_keys = collect(["GEMINI_KEYS", "GEMINI_API_KEY"], GEMINI_KEYS, "gemini_keys")
+        groq_keys = collect(["GROQ_KEYS", "GROQ_API_KEY"], GROQ_KEYS, "groq_keys")
+        grok_keys = collect(["XAI_GROK_KEYS", "XAI_API_KEY", "GROK_API_KEY"], XAI_GROK_KEYS, "xai_grok_keys")
+
+        anth_model = os.environ.get("ANTHROPIC_MODEL", "claude-3-5-haiku-20241022")
+        openai_model = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+        gemini_model = os.environ.get("GEMINI_MODEL", "gemini-1.5-flash")
+        groq_model = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+        grok_model = os.environ.get("XAI_GROK_MODEL", "grok-beta")
 
         for k in anth_keys:
-            self.pool.append({"provider": "Anthropic", "key": k, "model": "claude-3-5-haiku-20241022"})
+            self.pool.append({"provider": "Anthropic", "key": k, "model": anth_model})
         for k in openai_keys:
-            self.pool.append({"provider": "OpenAI", "key": k, "model": "gpt-4o-mini"})
+            self.pool.append({"provider": "OpenAI", "key": k, "model": openai_model})
         for k in gemini_keys:
-            self.pool.append({"provider": "Gemini", "key": k, "model": "gemini-2.5-flash"})
+            self.pool.append({"provider": "Gemini", "key": k, "model": gemini_model})
         for k in groq_keys:
-            self.pool.append({"provider": "Groq", "key": k, "model": "openai/gpt-oss-120b"})
+            self.pool.append({"provider": "Groq", "key": k, "model": groq_model})
         for k in grok_keys:
-            self.pool.append({"provider": "xAI_Grok", "key": k, "model": "grok-beta"})
+            self.pool.append({"provider": "xAI_Grok", "key": k, "model": grok_model})
 
-        print(f"[*] Multi-LLM Key Pool Initialized:")
-        print(f"    - Anthropic keys: {len(anth_keys)}")
-        print(f"    - OpenAI keys:    {len(openai_keys)}")
-        print(f"    - Gemini keys:    {len(gemini_keys)}")
-        print(f"    - Groq keys:      {len(groq_keys)}")
-        print(f"    - xAI Grok keys:  {len(grok_keys)}")
-        print(f"    => Total Active Key Pool: {len(self.pool)} keys")
+        logger.info(
+            f"Multi-LLM Key Pool Initialized: "
+            f"Anthropic={len(anth_keys)}, OpenAI={len(openai_keys)}, "
+            f"Gemini={len(gemini_keys)}, Groq={len(groq_keys)}, xAI={len(grok_keys)} "
+            f"=> Total Active: {len(self.pool)} keys"
+        )
 
     def _mask_key(self, key):
         return f"...{key[-6:]}" if len(key) >= 8 else "..."
@@ -156,6 +201,10 @@ class MultiLLMRotator:
                     )
                     if r.status_code == 200:
                         return self._parse_json(r.json()["content"][0]["text"], provider)
+                    elif r.status_code == 429:
+                        logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
+                        time.sleep(2.0)
+                        continue
                     else:
                         self._mark_key_fallen(current_item, f"HTTP {r.status_code}: {r.text[:100]}")
                         continue
@@ -171,6 +220,10 @@ class MultiLLMRotator:
                     )
                     if r.status_code == 200:
                         return self._parse_json(r.json()["choices"][0]["message"]["content"], provider)
+                    elif r.status_code == 429:
+                        logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
+                        time.sleep(2.0)
+                        continue
                     else:
                         self._mark_key_fallen(current_item, f"HTTP {r.status_code}: {r.text[:100]}")
                         continue
@@ -188,6 +241,10 @@ class MultiLLMRotator:
                     )
                     if r.status_code == 200:
                         return self._parse_json(r.json()["candidates"][0]["content"]["parts"][0]["text"], provider)
+                    elif r.status_code == 429:
+                        logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
+                        time.sleep(2.0)
+                        continue
                     else:
                         self._mark_key_fallen(current_item, f"HTTP {r.status_code}: {r.text[:100]}")
                         continue
@@ -203,6 +260,10 @@ class MultiLLMRotator:
                     )
                     if r.status_code == 200:
                         return self._parse_json(r.json()["choices"][0]["message"]["content"], provider)
+                    elif r.status_code == 429:
+                        logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
+                        time.sleep(2.0)
+                        continue
                     else:
                         self._mark_key_fallen(current_item, f"HTTP {r.status_code}: {r.text[:100]}")
                         continue
@@ -218,6 +279,10 @@ class MultiLLMRotator:
                     )
                     if r.status_code == 200:
                         return self._parse_json(r.json()["choices"][0]["message"]["content"], provider)
+                    elif r.status_code == 429:
+                        logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
+                        time.sleep(2.0)
+                        continue
                     else:
                         self._mark_key_fallen(current_item, f"HTTP {r.status_code}: {r.text[:100]}")
                         continue
@@ -296,23 +361,77 @@ session.mount("http://", HTTPAdapter(max_retries=retries, pool_connections=25, p
 # 3. HELPER UTILITIES
 # ==============================================================================
 
-def clean_indian_phone(raw_phone):
-    """Parses phone numbers and classifies into Mobile (WhatsApp-ready) vs Landline."""
+NON_INDIAN_INDICATORS = [
+    ", USA", ", United States", " USA", "United States", ", UK", ", United Kingdom", " UK",
+    ", Canada", ", Australia", ", FL ", ", IL ", ", NY ", ", CA ", ", TX ", ", NJ ",
+    ", FL,", ", IL,", ", NY,", ", CA,", "Hialeah", "Chicago", "Cicero", "Miami", "Middlesbrough"
+]
+
+
+def is_in_india_bbox(lat=None, lon=None):
+    """
+    Validates coordinates against India's geographic bounding box.
+    India roughly spans:
+    Latitude:  6.0 to 38.0 N
+    Longitude: 68.0 to 98.0 E
+    """
+    if lat is None or lon is None:
+        return True
+    try:
+        lat_str = str(lat).strip()
+        lon_str = str(lon).strip()
+        if not lat_str or not lon_str:
+            return True
+        lat_f = float(lat_str)
+        lon_f = float(lon_str)
+        return (6.0 <= lat_f <= 38.0) and (68.0 <= lon_f <= 98.0)
+    except (ValueError, TypeError):
+        return True
+
+
+def is_indian_entity(address="", phone="", lat=None, lon=None):
+    """Validates that a lead belongs to India via bounding box, address, and phone."""
+    if lat is not None and lon is not None and not is_in_india_bbox(lat, lon):
+        return False
+    if not address and not phone:
+        return True
+    addr_str = f" {str(address)} "
+    addr_lower = addr_str.lower()
+    for ind in NON_INDIAN_INDICATORS:
+        if ind.lower() in addr_lower:
+            return False
+    phone_clean = str(phone).strip()
+    if phone_clean.startswith("+1") or phone_clean.startswith("001"):
+        return False
+    return True
+
+
+def clean_indian_phone(raw_phone, address="", lat=None, lon=None):
+    """Parses phone numbers and classifies into Mobile (WhatsApp-ready) vs Landline for Indian context."""
     if not raw_phone:
         return "", "None", ""
-    digits = re.sub(r"\D", "", str(raw_phone))
+    if not is_indian_entity(address, raw_phone, lat, lon):
+        return "", "International", raw_phone
+
+    # If multiple numbers listed (e.g. "9876543210 / 080..."), take primary
+    primary = str(raw_phone).split(",")[0].split("/")[0].strip()
+    digits = re.sub(r"\D", "", primary)
     if not digits:
         return "", "Unknown", raw_phone
 
+    # Detect explicit STD landline formatting like "080-22234567", "(080) 22234567", or known STD landline patterns
+    if re.match(r"^(?:0\d{2,4}[\-\s]|\(0\d{2,4}\))", primary) or re.match(r"^0(?:80|20|40|44|11|22|33|79)[2346]\d{7}$", digits):
+        return "", "Landline", primary
+
     mobile_pattern = r"^[6-9]\d{9}$"
     if len(digits) == 10 and re.match(mobile_pattern, digits):
-        return f"91{digits}", "Mobile", raw_phone
+        return f"91{digits}", "Mobile", primary
     elif len(digits) == 11 and digits.startswith("0") and re.match(mobile_pattern, digits[1:]):
-        return f"91{digits[1:]}", "Mobile", raw_phone
+        return f"91{digits[1:]}", "Mobile", primary
     elif len(digits) == 12 and digits.startswith("91") and re.match(mobile_pattern, digits[2:]):
-        return digits, "Mobile", raw_phone
+        return digits, "Mobile", primary
 
-    return "", "Landline", raw_phone
+    return "", "Landline", primary
 
 
 def extract_pincode(address_str):
@@ -346,7 +465,19 @@ def make_whatsapp_chat_url(whatsapp_number, pitch_text):
 # 4. DISCOVERY ENGINE (GOOGLE PLACES + FREE OSM FALLBACK)
 # ==============================================================================
 
-def discover_openstreetmap(target, selected_cities, seen_ids):
+def sanitize_cities(input_cities):
+    """Filters out numeric garbage inputs like '50' and returns valid city names."""
+    if not input_cities:
+        return []
+    clean = []
+    for c in input_cities:
+        val = str(c).strip()
+        if val and not val.isdigit() and len(val) > 1:
+            clean.append(val)
+    return clean
+
+
+def discover_openstreetmap(target, selected_cities=None, db=None, seen_ids=None):
     """
     Free fallback discovery engine using OpenStreetMap Overpass API.
     Used if Google Places API key is missing or exhausted.
@@ -354,7 +485,8 @@ def discover_openstreetmap(target, selected_cities, seen_ids):
     print("[*] Using Free Discovery Engine (OpenStreetMap Overpass API)...")
     leads = []
     seen = seen_ids.copy() if seen_ids else set()
-    cities = selected_cities if selected_cities else ["Bengaluru", "Mumbai", "Delhi", "Hyderabad", "Chennai", "Pune"]
+    valid_cities = sanitize_cities(selected_cities)
+    cities = valid_cities if valid_cities else ["Bengaluru", "Mumbai", "Delhi", "Hyderabad", "Chennai", "Pune"]
 
     overpass_url = "https://overpass-api.de/api/interpreter"
 
@@ -382,15 +514,23 @@ def discover_openstreetmap(target, selected_cities, seen_ids):
                     phone = tags.get("phone") or tags.get("contact:phone") or tags.get("contact:mobile") or ""
                     website = tags.get("website") or tags.get("contact:website") or ""
                     addr_parts = [tags.get(k) for k in ("addr:street", "addr:suburb", "addr:city", "addr:postcode") if tags.get(k)]
-                    address = ", ".join(addr_parts) or f"{name}, {clean_city}"
+                    address = ", ".join(addr_parts) or f"{name}, {clean_city}, India"
+                    lat = str(el.get("lat", ""))
+                    lon = str(el.get("lon", ""))
+
+                    if not is_indian_entity(address, phone, lat, lon):
+                        continue
 
                     pid = f"osm_{el.get('id')}"
                     if pid in seen or (phone and phone in seen):
+                        continue
+                    if db and db.find(place_id=pid, phone=phone, website=website, name=name, city=clean_city):
                         continue
                     seen.add(pid)
 
                     leads.append({
                         "place_id": pid,
+                        "outreach_status": "NEW",
                         "name": name,
                         "category": "CCTV & Security Systems",
                         "address": address,
@@ -403,9 +543,9 @@ def discover_openstreetmap(target, selected_cities, seen_ids):
                         "rating": "4.5",
                         "reviews": "10+",
                         "business_status": "OPERATIONAL",
-                        "latitude": str(el.get("lat", "")),
-                        "longitude": str(el.get("lon", "")),
-                        "google_maps_url": f"https://maps.google.com/?q={el.get('lat')},{el.get('lon')}"
+                        "latitude": lat,
+                        "longitude": lon,
+                        "google_maps_url": f"https://maps.google.com/?q={lat},{lon}"
                     })
                     if len(leads) >= target:
                         return leads[:target]
@@ -416,7 +556,7 @@ def discover_openstreetmap(target, selected_cities, seen_ids):
     return leads
 
 
-def discover(target, selected_cities=None, seen_ids=None):
+def discover(target, selected_cities=None, db=None, seen_ids=None):
     """Primary discovery via Google Places (New) with automatic OSM fallback."""
     leads = []
     seen = seen_ids.copy() if seen_ids else set()
@@ -424,7 +564,7 @@ def discover(target, selected_cities=None, seen_ids=None):
     # If Google API key is missing or placeholder, use OSM
     if not GOOGLE_PLACES_KEY or "YOUR_GOOGLE" in GOOGLE_PLACES_KEY:
         print("[!] Note: Google Places API key not configured in keys.json.")
-        return discover_openstreetmap(target, selected_cities, seen)
+        return discover_openstreetmap(target, selected_cities, db=db, seen_ids=seen)
 
     url = "https://places.googleapis.com/v1/places:searchText"
     mask = (
@@ -433,14 +573,17 @@ def discover(target, selected_cities=None, seen_ids=None):
         "places.businessStatus,places.googleMapsUri,nextPageToken"
     )
 
-    cities_to_search = selected_cities if selected_cities else CITIES
-    print(f"[*] Starting discovery via Google Places API across {len(cities_to_search)} zones...")
+    valid_cities = sanitize_cities(selected_cities)
+    cities_to_search = valid_cities if valid_cities else CITIES
+    print(f"[*] Starting discovery via Google Places API across {len(cities_to_search)} Indian zones...")
 
     for city in cities_to_search:
         for q in QUERIES:
             token = None
             for _ in range(3):
-                body = {"textQuery": f"{q} in {city}", "pageSize": 20}
+                # Explicitly append India to ensure geographic accuracy
+                search_query = f"{q} in {city}, India"
+                body = {"textQuery": search_query, "pageSize": 20}
                 if token:
                     body["pageToken"] = token
 
@@ -454,7 +597,7 @@ def discover(target, selected_cities=None, seen_ids=None):
                     if r.status_code != 200:
                         if "RESOURCE_EXHAUSTED" in r.text:
                             print(f"[!] Google Places quota exhausted. Switching to fallback...")
-                            fallback = discover_openstreetmap(target - len(leads), selected_cities, seen)
+                            fallback = discover_openstreetmap(target - len(leads), selected_cities, db=db, seen_ids=seen)
                             return leads + fallback
                         print(f"[!] Places API error ({r.status_code}): {r.text[:120]}")
                         break
@@ -464,27 +607,44 @@ def discover(target, selected_cities=None, seen_ids=None):
                         pid = p.get("id")
                         if not pid or pid in seen:
                             continue
-                        seen.add(pid)
 
                         addr = p.get("formattedAddress", "").strip()
+                        raw_phone = p.get("nationalPhoneNumber", "").strip()
                         loc = p.get("location", {})
+                        lat = str(loc.get("latitude", ""))
+                        lon = str(loc.get("longitude", ""))
+
+                        # Strictly exclude foreign / non-Indian companies
+                        if not is_indian_entity(addr, raw_phone, lat, lon):
+                            continue
+
+                        name = p.get("displayName", {}).get("text", "").strip()
+                        website_uri = p.get("websiteUri", "").strip()
+                        clean_city_name = city.split()[0]
+
+                        # Multi-index check against existing database
+                        if db and db.find(place_id=pid, phone=raw_phone, website=website_uri, name=name, city=clean_city_name):
+                            continue
+
+                        seen.add(pid)
 
                         leads.append({
                             "place_id": pid,
-                            "name": p.get("displayName", {}).get("text", "").strip(),
+                            "outreach_status": "NEW",
+                            "name": name,
                             "category": "CCTV & Security Systems Dealer",
                             "address": addr,
                             "pincode": extract_pincode(addr),
-                            "city": city.split()[0],
+                            "city": clean_city_name,
                             "state": "",
                             "search_locality": city,
-                            "phone": p.get("nationalPhoneNumber", "").strip(),
-                            "website": p.get("websiteUri", "").strip(),
+                            "phone": raw_phone,
+                            "website": website_uri,
                             "rating": str(p.get("rating", "")),
                             "reviews": str(p.get("userRatingCount", "")),
                             "business_status": p.get("businessStatus", "OPERATIONAL"),
-                            "latitude": str(loc.get("latitude", "")),
-                            "longitude": str(loc.get("longitude", "")),
+                            "latitude": lat,
+                            "longitude": lon,
                             "google_maps_url": p.get("googleMapsUri", "")
                         })
 
@@ -500,7 +660,7 @@ def discover(target, selected_cities=None, seen_ids=None):
                 print(f"[+] Reached target of {target} leads.")
                 return leads[:target]
 
-        print(f"[*] Total unique leads collected so far: {len(leads)}")
+        print(f"[*] Total unique Indian leads collected so far: {len(leads)}")
 
     return leads
 
@@ -567,21 +727,56 @@ def check_subpage_contacts(base_url):
     return found_emails, found_phones, found_socials, found_wa
 
 
-def audit(lead):
+def audit(lead, audit_cache=None):
     """
-    Comprehensive company audit:
+    Comprehensive company audit with persistent cache support:
     - Extracts clean domain, pincode, state
+    - Reuses cached results if domain or phone was already audited (zero waste!)
     - Validates SSL, mobile responsiveness, load time
     - Collects alternate phones, emails, and social profiles
     - Computes need score and priority (High, Medium, Low)
     """
     site = (lead.get("website") or "").strip()
     raw_phone = lead.get("phone", "")
-    wa_num, phone_type, _ = clean_indian_phone(raw_phone)
+    addr = lead.get("address", "")
+    wa_num, phone_type, _ = clean_indian_phone(raw_phone, address=addr)
 
-    lead["domain"] = extract_clean_domain(site)
+    domain = extract_clean_domain(site)
+    lead["domain"] = domain
     lead["whatsapp_number"] = wa_num
     lead["phone_type"] = phone_type
+
+    # Zero-waste caching check: avoid re-auditing already-scanned companies
+    if audit_cache:
+        cached = None
+        if hasattr(audit_cache, "find"):
+            cached = audit_cache.find(
+                place_id=lead.get("place_id"),
+                phone=lead.get("phone") or lead.get("whatsapp_number"),
+                website=lead.get("website") or domain,
+                name=lead.get("name"),
+                city=lead.get("city")
+            )
+        elif isinstance(audit_cache, dict):
+            cached = (
+                audit_cache.get(lead.get("place_id"))
+                or (audit_cache.get(domain) if domain else None)
+                or (audit_cache.get(raw_phone) if raw_phone else None)
+            )
+        if cached and cached.get("site_status"):
+            for k in [
+                "additional_phones", "facebook_url", "instagram_url", "linkedin_url",
+                "youtube_url", "twitter_url", "load_time_sec", "ssl_status",
+                "mobile_friendly", "has_enquiry_form", "has_whatsapp_widget",
+                "cms_platform", "copyright_year", "email", "site_status",
+                "need_score", "lead_priority", "segment", "issues", "scraped_at",
+                "whatsapp_pitch", "email_subject", "email_body", "whatsapp_click_link",
+                "outreach_status"
+            ]:
+                if cached.get(k) is not None and cached.get(k) != "":
+                    lead[k] = cached[k]
+            return lead
+
     lead["additional_phones"] = ""
     lead["facebook_url"] = ""
     lead["instagram_url"] = ""
@@ -848,6 +1043,13 @@ def get_rule_based_fallback(lead):
 
 
 def pitch(lead):
+    # Zero-waste caching check: if pitch is already generated, reuse it
+    if lead.get("whatsapp_pitch") and lead.get("email_subject"):
+        if not lead.get("whatsapp_click_link") and lead.get("whatsapp_number"):
+            lead["whatsapp_click_link"] = make_whatsapp_chat_url(lead.get("whatsapp_number"), lead["whatsapp_pitch"])
+        lead["outreach_status"] = "PITCH_DRAFTED"
+        return lead
+
     prompt = (
         f"Company Name: {lead.get('name')}\n"
         f"City: {lead.get('city')}\n"
@@ -866,6 +1068,7 @@ def pitch(lead):
     lead["email_subject"] = data.get("email_subject", "").strip()
     lead["email_body"] = data.get("email_body", "").strip()
     lead["whatsapp_click_link"] = make_whatsapp_chat_url(lead.get("whatsapp_number"), whatsapp_msg)
+    lead["outreach_status"] = "PITCH_DRAFTED"
     return lead
 
 
@@ -875,6 +1078,9 @@ def pitch(lead):
 
 # Complete Company Details Column Specification
 COLS = [
+    # Identity & Status
+    "place_id", "outreach_status",
+
     # Business Profile
     "name", "category", "address", "pincode", "city", "state", "search_locality",
     "latitude", "longitude", "google_maps_url", "rating", "reviews", "business_status",
@@ -896,20 +1102,259 @@ COLS = [
 ]
 
 
-def load_checkpoint(filename):
-    seen_ids = set()
-    if os.path.exists(filename):
+class LeadDatabase:
+    """
+    Multi-indexed lead database providing 100% airtight deduplication and zero-waste caching.
+    Indexes every lead simultaneously across:
+    1. place_id (Google / OSM Place ID)
+    2. clean 10-digit / 12-digit phone numbers (primary, whatsapp, alternate)
+    3. clean base domain
+    4. normalized (company_name, city) tuple
+    """
+
+    def __init__(self):
+        self._leads = []
+        self.by_place_id = {}
+        self.by_phone = {}
+        self.by_domain = {}
+        self.by_name_city = {}
+
+    def _normalize_name(self, name):
+        if not name:
+            return ""
+        clean = re.sub(r"[^a-zA-Z0-9\s]", "", str(name).lower())
+        return " ".join(clean.split())
+
+    def _normalize_city(self, city):
+        if not city:
+            return ""
+        return str(city).strip().lower().split()[0]
+
+    def _extract_phone_keys(self, lead):
+        keys = set()
+        for field in ("phone", "whatsapp_number", "additional_phones"):
+            val = str(lead.get(field, "") or "")
+            for raw_chunk in val.replace(";", ",").replace("/", ",").split(","):
+                digits = re.sub(r"\D", "", raw_chunk)
+                if len(digits) == 10:
+                    keys.add(digits)
+                    keys.add(f"91{digits}")
+                elif len(digits) == 12 and digits.startswith("91"):
+                    keys.add(digits)
+                    keys.add(digits[2:])
+                elif len(digits) >= 7:
+                    keys.add(digits)
+        return keys
+
+    def find(self, place_id=None, phone=None, website=None, name=None, city=None):
+        """Searches across all indexes to find an existing canonical lead record."""
+        if place_id:
+            pid = str(place_id).strip()
+            if pid and pid in self.by_place_id:
+                return self.by_place_id[pid]
+
+        if phone:
+            digits = re.sub(r"\D", "", str(phone))
+            if digits:
+                if len(digits) == 10:
+                    candidates = [digits, f"91{digits}"]
+                elif len(digits) == 12 and digits.startswith("91"):
+                    candidates = [digits, digits[2:]]
+                else:
+                    candidates = [digits]
+                for c in candidates:
+                    if c in self.by_phone:
+                        return self.by_phone[c]
+
+        if website:
+            dom = extract_clean_domain(website)
+            if dom and dom not in SOCIAL_DOMAINS and dom in self.by_domain:
+                return self.by_domain[dom]
+
+        if name and city:
+            nc_key = (self._normalize_name(name), self._normalize_city(city))
+            if nc_key[0] and nc_key in self.by_name_city:
+                return self.by_name_city[nc_key]
+
+        return None
+
+    def upsert(self, lead):
+        """
+        Inserts or merges lead record into canonical storage and updates all indexes.
+        Preserves existing audit and outreach data if already present.
+        """
+        incoming_place_id = str(lead.get("place_id", "") or "").strip()
+        incoming_domain = extract_clean_domain(lead.get("website") or lead.get("domain"))
+        incoming_phone_keys = self._extract_phone_keys(lead)
+        incoming_name_key = self._normalize_name(lead.get("name"))
+        incoming_city_key = self._normalize_city(lead.get("city"))
+
+        existing = self.find(
+            place_id=lead.get("place_id"),
+            phone=lead.get("phone") or lead.get("whatsapp_number"),
+            website=lead.get("website") or lead.get("domain"),
+            name=lead.get("name"),
+            city=lead.get("city")
+        )
+
+        if existing:
+            # Merge fields: preserve existing audit/pitch if already populated
+            for k, v in lead.items():
+                if v is not None and v != "":
+                    if k in ("whatsapp_pitch", "email_subject", "email_body", "whatsapp_click_link"):
+                        if not existing.get(k):
+                            existing[k] = v
+                    elif k == "outreach_status":
+                        if v == "PITCH_DRAFTED" or not existing.get(k):
+                            existing[k] = v
+                    elif k in ("site_status", "need_score", "lead_priority", "issues"):
+                        if not existing.get("site_status") or existing.get("site_status") == "unknown":
+                            existing[k] = v
+                    else:
+                        if not existing.get(k):
+                            existing[k] = v
+            canonical = existing
+        else:
+            canonical = dict(lead)
+            self._leads.append(canonical)
+
+        # Set default outreach_status if missing
+        if canonical.get("whatsapp_pitch") and canonical.get("email_subject"):
+            canonical["outreach_status"] = "PITCH_DRAFTED"
+        elif not canonical.get("outreach_status"):
+            canonical["outreach_status"] = "PITCH_DRAFTED" if canonical.get("whatsapp_pitch") else "NEW"
+
+        # Update all indexes pointing to canonical
+        pid = str(canonical.get("place_id", "") or "").strip()
+        if pid:
+            self.by_place_id[pid] = canonical
+        if incoming_place_id:
+            self.by_place_id[incoming_place_id] = canonical
+
+        dom = extract_clean_domain(canonical.get("website") or canonical.get("domain"))
+        if dom and dom not in SOCIAL_DOMAINS:
+            self.by_domain[dom] = canonical
+        if incoming_domain and incoming_domain not in SOCIAL_DOMAINS:
+            self.by_domain[incoming_domain] = canonical
+
+        for ph_key in self._extract_phone_keys(canonical):
+            self.by_phone[ph_key] = canonical
+        for ph_key in incoming_phone_keys:
+            self.by_phone[ph_key] = canonical
+
+        n_key = self._normalize_name(canonical.get("name"))
+        c_key = self._normalize_city(canonical.get("city"))
+        if n_key:
+            self.by_name_city[(n_key, c_key)] = canonical
+        if incoming_name_key:
+            self.by_name_city[(incoming_name_key, incoming_city_key)] = canonical
+
+        return canonical
+
+    def get_all(self):
+        return list(self._leads)
+
+    def __len__(self):
+        return len(self._leads)
+
+
+def load_existing_database(csv_filename="leads.csv", json_filename="company_details.json"):
+    """
+    Loads all previously accumulated leads from JSON and CSV into a LeadDatabase.
+    Filters out non-Indian entities to keep the database clean and high quality.
+    Multi-indexes across place_id, phone numbers, domain, and name+city.
+    """
+    db = LeadDatabase()
+
+    # 1. Try loading from JSON dossier
+    if os.path.exists(json_filename) and os.path.getsize(json_filename) > 0:
         try:
-            with open(filename, "r", encoding="utf-8") as f:
+            with open(json_filename, "r", encoding="utf-8") as f:
+                dossiers = json.load(f)
+                if isinstance(dossiers, list):
+                    for d in dossiers:
+                        prof = d.get("company_profile", {})
+                        contacts = d.get("contacts", {})
+                        audit_data = d.get("digital_audit", {})
+                        outreach = d.get("outreach_pack", {})
+                        coords = prof.get("coordinates", {})
+                        socials = contacts.get("social_media", {})
+
+                        addr = prof.get("address", "")
+                        phone = contacts.get("primary_phone", "")
+                        lat = coords.get("latitude")
+                        lon = coords.get("longitude")
+                        if not is_indian_entity(addr, phone, lat, lon):
+                            continue
+
+                        pid = prof.get("place_id") or d.get("place_id") or ""
+                        lead = {
+                            "place_id": pid,
+                            "outreach_status": outreach.get("outreach_status", "PITCH_DRAFTED" if outreach.get("whatsapp_pitch") else "NEW"),
+                            "name": prof.get("name", ""),
+                            "category": prof.get("category", "CCTV & Security Systems Dealer"),
+                            "address": addr,
+                            "pincode": prof.get("pincode", ""),
+                            "city": prof.get("city", ""),
+                            "state": prof.get("state", ""),
+                            "search_locality": prof.get("search_zone", ""),
+                            "latitude": str(coords.get("latitude", "") or ""),
+                            "longitude": str(coords.get("longitude", "") or ""),
+                            "google_maps_url": prof.get("google_maps_url", ""),
+                            "rating": str(prof.get("rating", "")),
+                            "reviews": str(prof.get("reviews", "")),
+                            "business_status": prof.get("business_status", "OPERATIONAL"),
+                            "phone": phone,
+                            "phone_type": contacts.get("phone_type", ""),
+                            "whatsapp_number": contacts.get("whatsapp_number", ""),
+                            "whatsapp_click_link": contacts.get("whatsapp_click_to_chat", ""),
+                            "additional_phones": "; ".join(contacts.get("alternate_phones", [])),
+                            "email": "; ".join(contacts.get("emails", [])),
+                            "website": contacts.get("website", ""),
+                            "domain": contacts.get("domain", ""),
+                            "facebook_url": socials.get("facebook", ""),
+                            "instagram_url": socials.get("instagram", ""),
+                            "linkedin_url": socials.get("linkedin", ""),
+                            "youtube_url": socials.get("youtube", ""),
+                            "twitter_url": socials.get("twitter", ""),
+                            "lead_priority": audit_data.get("lead_priority", "Standard"),
+                            "need_score": int(audit_data.get("need_score", 0) or 0),
+                            "site_status": audit_data.get("site_status", ""),
+                            "segment": audit_data.get("segment", ""),
+                            "issues": audit_data.get("audit_issues", ""),
+                            "ssl_status": audit_data.get("ssl_status", ""),
+                            "mobile_friendly": audit_data.get("mobile_friendly", ""),
+                            "load_time_sec": str(audit_data.get("page_speed_sec", "0.0")),
+                            "has_enquiry_form": audit_data.get("has_enquiry_form", "No"),
+                            "has_whatsapp_widget": audit_data.get("has_whatsapp_widget", "No"),
+                            "cms_platform": audit_data.get("cms_platform", "None"),
+                            "copyright_year": str(audit_data.get("copyright_year", "")),
+                            "whatsapp_pitch": outreach.get("whatsapp_pitch", ""),
+                            "email_subject": outreach.get("email_subject", ""),
+                            "email_body": outreach.get("email_body", ""),
+                            "scraped_at": d.get("scraped_at", "")
+                        }
+                        db.upsert(lead)
+        except Exception as ex:
+            logger.warning(f"Warning reading {json_filename}: {ex}")
+
+    # 2. Augment from CSV if available
+    if os.path.exists(csv_filename) and os.path.getsize(csv_filename) > 0:
+        try:
+            with open(csv_filename, "r", encoding="utf-8") as f:
                 reader = csv.DictReader(f)
                 for row in reader:
-                    if row.get("phone"):
-                        seen_ids.add(row.get("phone"))
-                    if row.get("website"):
-                        seen_ids.add(row.get("website"))
-        except Exception:
-            pass
-    return seen_ids
+                    addr = row.get("address", "")
+                    phone = row.get("phone", "")
+                    lat = row.get("latitude")
+                    lon = row.get("longitude")
+                    if not is_indian_entity(addr, phone, lat, lon):
+                        continue
+                    db.upsert(dict(row))
+        except Exception as ex:
+            logger.warning(f"Warning reading {csv_filename}: {ex}")
+
+    return db
 
 
 def export_to_excel(leads, filename="leads.xlsx"):
@@ -1141,11 +1586,21 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
     const leads = {leads_json};
     let currentFilter = 'all';
 
+    function escapeHtml(str) {{
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }}
+
     function initStats() {{
-      document.getElementById('totalCount').innerText = leads.length;
-      document.getElementById('mobileCount').innerText = leads.filter(l => l.whatsapp_number).length;
-      document.getElementById('emailCount').innerText = leads.filter(l => l.email).length;
-      document.getElementById('noWebsiteCount').innerText = leads.filter(l => l.site_status === 'no_website' || !l.website).length;
+      document.getElementById('totalCount').textContent = leads.length;
+      document.getElementById('mobileCount').textContent = leads.filter(l => l.whatsapp_number).length;
+      document.getElementById('emailCount').textContent = leads.filter(l => l.email).length;
+      document.getElementById('noWebsiteCount').textContent = leads.filter(l => l.site_status === 'no_website' || !l.website).length;
     }}
 
     function renderTable() {{
@@ -1174,24 +1629,33 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
       filtered.forEach((l, idx) => {{
         const tr = document.createElement('tr');
         const prioBadge = l.lead_priority === 'High' ? 'badge-high' : (l.lead_priority === 'Medium' ? 'badge-med' : 'badge-low');
-        const siteLink = l.website ? `<a href="${{l.website}}" target="_blank" class="link">${{l.domain || 'Visit'}}</a> (${{l.ssl_status}})` : '<span style="color:#ef4444;font-weight:600">No Website</span>';
-        const waBtn = l.whatsapp_click_link 
-          ? `<a href="${{l.whatsapp_click_link}}" target="_blank" class="btn-wa">💬 Chat</a>` 
-          : '<span style="color:#64748b">—</span>';
+        
+        let siteLink = '<span style="color:#ef4444;font-weight:600">No Website</span>';
+        if (l.website && (l.website.startsWith('http://') || l.website.startsWith('https://'))) {{
+          const safeUrl = encodeURI(l.website);
+          siteLink = `<a href="${{safeUrl}}" target="_blank" rel="noopener noreferrer" class="link">${{escapeHtml(l.domain || 'Visit')}}</a> (${{escapeHtml(l.ssl_status || 'none')}})`;
+        }}
+
+        let waBtn = '<span style="color:#64748b">—</span>';
+        if (l.whatsapp_click_link && l.whatsapp_click_link.startsWith('https://wa.me/')) {{
+          waBtn = `<a href="${{encodeURI(l.whatsapp_click_link)}}" target="_blank" rel="noopener noreferrer" class="btn-wa">💬 Chat</a>`;
+        }}
+
         const pitchBtn = `<button class="btn-pitch" onclick="openPitch(${{leads.indexOf(l)}})">📋 Pitch</button>`;
+        const safeEmails = (l.email || '').split(';').map(e => escapeHtml(e.trim())).filter(Boolean).join('<br>') || '—';
 
         tr.innerHTML = `
           <td>${{idx + 1}}</td>
           <td>
-            <span class="company-name">${{l.name || 'Unnamed'}}</span>
-            <div class="company-city">${{l.city || ''}} • ${{l.pincode || ''}}</div>
+            <span class="company-name">${{escapeHtml(l.name || 'Unnamed')}}</span>
+            <div class="company-city">${{escapeHtml(l.city || '')}} • ${{escapeHtml(l.pincode || '')}}</div>
           </td>
-          <td><span class="badge ${{prioBadge}}">${{l.lead_priority || 'Standard'}}</span></td>
-          <td>⭐ ${{l.rating || '—'}} (${{l.reviews || '0'}})</td>
-          <td>${{l.phone || '—'}}<br><small style="color:#94a3b8">${{l.phone_type || ''}}</small></td>
+          <td><span class="badge ${{prioBadge}}">${{escapeHtml(l.lead_priority || 'Standard')}}</span></td>
+          <td>⭐ ${{escapeHtml(l.rating || '—')}} (${{escapeHtml(l.reviews || '0')}})</td>
+          <td>${{escapeHtml(l.phone || '—')}}<br><small style="color:#94a3b8">${{escapeHtml(l.phone_type || '')}}</small></td>
           <td>${{siteLink}}</td>
-          <td><small>${{l.email ? l.email.replace(/;/g, '<br>') : '—'}}</small></td>
-          <td><small style="color:#cbd5e1">${{l.issues || 'None'}}</small></td>
+          <td><small>${{safeEmails}}</small></td>
+          <td><small style="color:#cbd5e1">${{escapeHtml(l.issues || 'None')}}</small></td>
           <td><div style="display:flex;gap:6px;align-items:center;">${{waBtn}} ${{pitchBtn}}</div></td>
         `;
         tbody.appendChild(tr);
@@ -1201,11 +1665,11 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
     function openPitch(index) {{
       const l = leads[index];
       if (!l) return;
-      document.getElementById('mCompanyName').innerText = l.name || 'Target Prospect';
-      document.getElementById('mDetails').innerText = `${{l.city || ''}} | ${{l.lead_priority || 'Standard'}} Priority | Phone: ${{l.phone || 'N/A'}}`;
-      document.getElementById('mWaPitch').innerText = l.whatsapp_pitch || 'No pitch drafted.';
-      document.getElementById('mEmailSubj').innerText = l.email_subject || 'No subject.';
-      document.getElementById('mEmailBody').innerText = l.email_body || 'No email drafted.';
+      document.getElementById('mCompanyName').textContent = l.name || 'Target Prospect';
+      document.getElementById('mDetails').textContent = `${{l.city || ''}} | ${{l.lead_priority || 'Standard'}} Priority | Phone: ${{l.phone || 'N/A'}}`;
+      document.getElementById('mWaPitch').textContent = l.whatsapp_pitch || 'No pitch drafted.';
+      document.getElementById('mEmailSubj').textContent = l.email_subject || 'No subject.';
+      document.getElementById('mEmailBody').textContent = l.email_body || 'No email drafted.';
       document.getElementById('pitchModal').classList.add('active');
     }}
 
@@ -1248,7 +1712,7 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
         print(f"[!] Note: HTML Dashboard skipped ({ex})")
 
 
-def export_company_data(leads, csv_filename="leads.csv", json_filename="company_details.json", append=False):
+def export_company_data(leads, csv_filename="leads.csv", json_filename="company_details.json"):
     """
     Exports all discovered company data into:
     1. CSV Spreadsheet (strictly 1 single row per company with sanitized text)
@@ -1267,12 +1731,9 @@ def export_company_data(leads, csv_filename="leads.csv", json_filename="company_
             row_copy[col] = val_clean
         clean_csv_leads.append(row_copy)
 
-    file_exists = os.path.exists(csv_filename) and os.path.getsize(csv_filename) > 0
-    mode = "a" if append else "w"
-    with open(csv_filename, mode, newline="", encoding="utf-8") as f:
+    with open(csv_filename, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=COLS, extrasaction="ignore")
-        if not append or not file_exists:
-            writer.writeheader()
+        writer.writeheader()
         writer.writerows(clean_csv_leads)
 
     # 2. Export Excel (.xlsx)
@@ -1287,7 +1748,10 @@ def export_company_data(leads, csv_filename="leads.csv", json_filename="company_
     dossiers = []
     for l in leads:
         dossiers.append({
+            "place_id": l.get("place_id"),
+            "outreach_status": l.get("outreach_status", "PITCH_DRAFTED" if l.get("whatsapp_pitch") else "NEW"),
             "company_profile": {
+                "place_id": l.get("place_id"),
                 "name": l.get("name"),
                 "category": l.get("category"),
                 "address": l.get("address"),
@@ -1335,6 +1799,7 @@ def export_company_data(leads, csv_filename="leads.csv", json_filename="company_
                 "copyright_year": l.get("copyright_year")
             },
             "outreach_pack": {
+                "outreach_status": l.get("outreach_status", "PITCH_DRAFTED" if l.get("whatsapp_pitch") else "NEW"),
                 "whatsapp_pitch": l.get("whatsapp_pitch"),
                 "email_subject": l.get("email_subject"),
                 "email_body": l.get("email_body")
@@ -1359,87 +1824,120 @@ def main():
     parser.add_argument("--workers-pitch", type=int, default=5, help="Concurrent threads for pitch generation (default: 5)")
     parser.add_argument("--output", type=str, default="leads.csv", help="Output CSV filename (default: leads.csv)")
     parser.add_argument("--json-output", type=str, default="company_details.json", help="Output JSON filename (default: company_details.json)")
-    parser.add_argument("--resume", action="store_true", help="Resume previous run and append new leads")
+    parser.add_argument("--resume", action="store_true", help="Accumulate and merge with existing leads database")
+    parser.add_argument("--reset", action="store_true", help="Start fresh and overwrite existing database")
     parser.add_argument("--skip-pitch", action="store_true", help="Skip LLM pitch drafting")
     args = parser.parse_args()
 
     selected_cities = [c.strip() for c in args.cities.split(",")] if args.cities else None
 
     print("=" * 80)
-    print(" CCTV LEAD GENERATION & COMPANY INTELLIGENCE ENGINE")
-    print(f" Target Leads: {args.target} | Pitch Top: {args.pitch_top}")
-    print(f" CSV Output:   {args.output}")
-    print(f" JSON Dossier: {args.json_output}")
+    print(" CCTV LEAD GENERATION & COMPANY INTELLIGENCE ENGINE (INDIA)")
+    print(f" Target New Leads: {args.target} | Pitch Top: {args.pitch_top}")
+    print(f" Master CSV:       {args.output}")
+    print(f" Master JSON:      {args.json_output}")
+    print(f" Mode:             {'RESUME (Merge Existing)' if (args.resume and not args.reset) else 'FRESH RUN'}")
     print("=" * 80)
 
-    seen_ids = set()
-    if args.resume:
-        seen_ids = load_checkpoint(args.output)
-        print(f"[*] Resuming from existing CSV. Found {len(seen_ids)} previously indexed leads.")
+    # 1. Load previously accumulated database only if --resume is explicitly specified (truthful --resume!)
+    if args.resume and not args.reset:
+        lead_db = load_existing_database(args.output, args.json_output)
+        print(f"[*] [RESUME MODE] Loaded {len(lead_db)} verified Indian leads from existing database.")
+    else:
+        lead_db = LeadDatabase()
+        print("[*] [FRESH RUN] Starting with clean lead database (--resume not specified).")
 
     # Phase 1: Discovery
     t_start = time.time()
-    leads = discover(target=args.target, selected_cities=selected_cities, seen_ids=seen_ids)
-    if not leads:
-        print("[!] No leads discovered. Exiting.")
-        return
+    discovered_leads = discover(target=args.target, selected_cities=selected_cities, db=lead_db)
+    
+    # Filter to truly new leads
+    new_leads = []
+    for l in discovered_leads:
+        if lead_db.find(place_id=l.get("place_id"), phone=l.get("phone"), website=l.get("website"), name=l.get("name"), city=l.get("city")):
+            continue
+        new_leads.append(l)
 
-    print(f"\n[+] Successfully discovered {len(leads)} leads. Starting deep audit across {args.workers_audit} threads...")
+    print(f"\n[+] Discovered {len(new_leads)} brand new unique Indian leads.")
 
-    # Phase 2: Deep Audit
-    audited_leads = []
-    with ThreadPoolExecutor(max_workers=args.workers_audit) as executor:
-        futures = {executor.submit(audit, lead): lead for lead in leads}
-        completed = 0
-        for f in as_completed(futures):
-            try:
-                audited_leads.append(f.result())
-            except Exception as ex:
-                print(f"[!] Audit error: {ex}")
-            completed += 1
-            if completed % 50 == 0 or completed == len(leads):
-                sys.stdout.write(f"\r[*] Audited {completed}/{len(leads)} leads...")
-                sys.stdout.flush()
+    # Phase 2: Deep Audit (auditing new leads, utilizing lead_db for zero-waste cache)
+    if new_leads:
+        print(f"[*] Starting deep audit across {args.workers_audit} threads (with zero-waste cache)...")
+        audited_new_leads = []
+        with ThreadPoolExecutor(max_workers=args.workers_audit) as executor:
+            futures = {executor.submit(audit, lead, lead_db): lead for lead in new_leads}
+            completed = 0
+            for f in as_completed(futures):
+                try:
+                    audited_new_leads.append(f.result())
+                except Exception as ex:
+                    print(f"[!] Audit error: {ex}")
+                completed += 1
+                if completed % 25 == 0 or completed == len(new_leads):
+                    sys.stdout.write(f"\r[*] Audited {completed}/{len(new_leads)} leads...")
+                    sys.stdout.flush()
+        print("\n[+] Audit complete.")
+        
+        # Merge new leads into master LeadDatabase
+        for l in audited_new_leads:
+            lead_db.upsert(l)
 
-    print("\n[+] Audit complete. Sorting leads by need score...")
-    audited_leads.sort(key=lambda x: x.get("need_score", 0), reverse=True)
+    # Master list of all leads sorted by need_score
+    master_leads = lead_db.get_all()
+    for l in master_leads:
+        try:
+            l["need_score"] = int(l.get("need_score", 0) or 0)
+        except Exception:
+            l["need_score"] = 0
+    master_leads.sort(key=lambda x: x.get("need_score", 0), reverse=True)
 
-    # Save initial checkpoint
-    export_company_data(audited_leads, csv_filename=args.output, json_filename=args.json_output, append=args.resume)
-    print(f"[+] Saved checkpoint to {args.output} and {args.json_output}")
+    # Initial export of master database
+    export_company_data(master_leads, csv_filename=args.output, json_filename=args.json_output)
+    print(f"[+] Saved updated master database ({len(master_leads)} leads) to {args.output} and {args.json_output}")
 
     # Phase 3: Multi-LLM Rotating Pitch Generation
     if not args.skip_pitch:
-        top_n = min(args.pitch_top, len(audited_leads))
-        print(f"\n[*] Generating pitches for top {top_n} prospects using rotating LLM pool...")
-        with ThreadPoolExecutor(max_workers=args.workers_pitch) as executor:
-            top_leads = audited_leads[:top_n]
-            results = list(executor.map(pitch, top_leads))
-            audited_leads[:top_n] = results
+        # Find leads that don't have pitches yet
+        unpitched_leads = [l for l in master_leads if not l.get("whatsapp_pitch")]
+        top_unpitched = unpitched_leads[:args.pitch_top]
 
-        export_company_data(audited_leads, csv_filename=args.output, json_filename=args.json_output, append=False)
-        print(f"[+] Updated {args.output} and {args.json_output} with personalized pitches and 1-click WhatsApp links!")
+        if top_unpitched:
+            print(f"\n[*] Generating pitches for {len(top_unpitched)} new prospects using rotating LLM pool...")
+            with ThreadPoolExecutor(max_workers=args.workers_pitch) as executor:
+                pitched_results = list(executor.map(pitch, top_unpitched))
+                for pl in pitched_results:
+                    lead_db.upsert(pl)
+
+            master_leads = lead_db.get_all()
+            master_leads.sort(key=lambda x: x.get("need_score", 0), reverse=True)
+            export_company_data(master_leads, csv_filename=args.output, json_filename=args.json_output)
+            print(f"[+] Master database fully enriched with pitches and 1-click WhatsApp links!")
+        else:
+            print("[*] All current top prospects already have generated pitches cached!")
 
     # Summary Statistics
     total_time = time.time() - t_start
-    mobiles = sum(1 for l in audited_leads if l.get("phone_type") == "Mobile")
-    emails = sum(1 for l in audited_leads if l.get("email"))
-    high_priority = sum(1 for l in audited_leads if l.get("lead_priority") == "High")
+    mobiles = sum(1 for l in master_leads if l.get("phone_type") == "Mobile")
+    emails = sum(1 for l in master_leads if l.get("email"))
+    high_priority = sum(1 for l in master_leads if l.get("lead_priority") == "High")
+    no_website = sum(1 for l in master_leads if l.get("site_status") == "no_website" or not l.get("website"))
 
     print("\n" + "=" * 80)
-    print(" RUN COMPLETE - COMPANY INTELLIGENCE REPORT")
-    print(f" Total Companies Indexed:   {len(audited_leads)}")
-    print(f" High-Priority Prospects:   {high_priority}")
-    print(f" WhatsApp-Ready Mobiles:    {mobiles}")
-    print(f" Verified Emails Scraped:   {emails}")
-    print(f" LLM Success Counts:        {llm_rotator.success_counts}")
+    print(" RUN COMPLETE - CUMULATIVE INTELLIGENCE REPORT")
+    print(f" Total Indian Companies in Master DB: {len(master_leads)}")
+    print(f" High-Priority Prospects:              {high_priority}")
+    print(f" Prime No-Website Prospects:           {no_website}")
+    print(f" WhatsApp-Ready Mobiles:               {mobiles}")
+    print(f" Verified Emails Scraped:              {emails}")
+    print(f" LLM Success Counts:                   {llm_rotator.success_counts}")
     if llm_rotator.fallen_keys:
         print(f" Keys that fell during run ({len(llm_rotator.fallen_keys)}):")
         for fk in llm_rotator.fallen_keys:
             print(f"   - {fk['provider']} ({fk['key_snippet']}): {fk['reason'][:80]}")
-    print(f" Total Time:                {total_time:.1f}s")
-    print(f" CSV Spreadsheet Saved to:  {os.path.abspath(args.output)}")
-    print(f" JSON Dossier Saved to:      {os.path.abspath(args.json_output)}")
+    print(f" Total Execution Time:                 {total_time:.1f}s")
+    print(f" Master CSV Spreadsheet:               {os.path.abspath(args.output)}")
+    print(f" Master JSON Dossier:                  {os.path.abspath(args.json_output)}")
+    print(f" Interactive Dashboard:                {os.path.abspath('leads_dashboard.html')}")
     print("=" * 80)
 
 

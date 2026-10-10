@@ -21,10 +21,9 @@ on:
         type: boolean
         default: true
 
-  # Optional: Automatic daily schedule at 9:30 AM IST (4:00 AM UTC)
-  # Uncomment the lines below to enable automated daily runs:
-  # schedule:
-  #   - cron: "0 4 * * *"
+  # Automatic daily schedule at 9:30 AM IST (4:00 AM UTC)
+  schedule:
+    - cron: "0 4 * * *"
 
 jobs:
   run-lead-generator:
@@ -47,6 +46,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Run Unit Tests
+        run: |
+          python -m unittest test_cctv_leadgen.py
+
       - name: Run Lead Discovery, Audit & Pitch Engine
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
@@ -57,20 +60,20 @@ jobs:
           TARGET="${{ github.event.inputs.target || '50' }}"
           PITCH_TOP="${{ github.event.inputs.pitch_top || '25' }}"
           CITIES="${{ github.event.inputs.cities || '' }}"
-          RESUME="${{ github.event.inputs.resume }}"
+          RESUME="${{ github.event.inputs.resume || 'true' }}"
 
-          CMD="python cctv_leadgen.py --target $TARGET --pitch-top $PITCH_TOP"
+          ARGS=("--target" "$TARGET" "--pitch-top" "$PITCH_TOP")
 
           if [ -n "$CITIES" ]; then
-            CMD="$CMD --cities \"$CITIES\""
+            ARGS+=("--cities" "$CITIES")
           fi
 
-          if [ "$RESUME" = "true" ]; then
-            CMD="$CMD --resume"
+          if [ "$RESUME" != "false" ]; then
+            ARGS+=("--resume")
           fi
 
-          echo "[*] Executing: $CMD"
-          eval $CMD
+          echo "[*] Executing: python cctv_leadgen.py ${ARGS[*]}"
+          python cctv_leadgen.py "${ARGS[@]}"
 
       - name: Upload Output Spreadsheets as Artifacts
         uses: actions/upload-artifact@v4

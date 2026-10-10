@@ -2,6 +2,6 @@ __pycache__/
 *.pyc
 .env
 keys.json
-test_*.py
+*.log
 gemini_raw_out.txt
 .vscode/
