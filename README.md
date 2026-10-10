@@ -4,7 +4,7 @@ Automated, production-grade lead generation engine for CCTV and electronic secur
 
 ---
 
-## 🚀 Running in the Cloud (Automated with Laptop Off)
+##  Running in the Cloud (Automated with Laptop Off)
 
 This repository includes a preconfigured **GitHub Actions Workflow** that runs entirely on GitHub's cloud servers on a daily schedule or on-demand.
 
@@ -20,7 +20,7 @@ git remote add origin https://github.com/<your-username>/<your-repo-name>.git
 git push -u origin main
 ```
 
-*(Make sure to keep your GitHub repository **Private** so your leads and details remain confidential).*
+
 
 ---
 

@@ -139,8 +139,8 @@ class MultiLLMRotator:
 
         anth_model = os.environ.get("ANTHROPIC_MODEL", "claude-3-5-haiku-20241022")
         openai_model = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
-        gemini_model = os.environ.get("GEMINI_MODEL", "gemini-1.5-flash")
-        groq_model = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+        gemini_model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+        groq_model = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
         grok_model = os.environ.get("XAI_GROK_MODEL", "grok-beta")
 
         for k in anth_keys:
@@ -163,6 +163,27 @@ class MultiLLMRotator:
 
     def _mask_key(self, key):
         return f"...{key[-6:]}" if len(key) >= 8 else "..."
+
+    def _try_switch_fallback_model(self, key_item):
+        """Automatically fails over to alternate model names on 404 before marking key fallen."""
+        provider = key_item["provider"]
+        fallback_map = {
+            "Gemini": ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.0-flash", "gemini-1.5-flash"],
+            "Groq": ["openai/gpt-oss-120b", "qwen/qwen3.8-27b", "llama-3.3-70b-versatile", "llama-3.1-8b-instant", "llama-3.1-70b-versatile"],
+            "OpenAI": ["gpt-4o-mini", "gpt-4o", "gpt-3.5-turbo"],
+            "Anthropic": ["claude-3-5-haiku-20241022", "claude-3-haiku-20240307"],
+            "xAI_Grok": ["grok-beta", "grok-2-latest"]
+        }
+        candidates = fallback_map.get(provider, [])
+        tried = key_item.setdefault("tried_models", set())
+        for c in candidates:
+            if c not in tried:
+                tried.add(c)
+                old_m = key_item["model"]
+                key_item["model"] = c
+                logger.info(f"[*] Model '{old_m}' not available on {provider}. Automatically falling over to '{c}'...")
+                return True
+        return False
 
     def _mark_key_fallen(self, key_item, reason):
         with self.lock:
@@ -201,6 +222,8 @@ class MultiLLMRotator:
                     )
                     if r.status_code == 200:
                         return self._parse_json(r.json()["content"][0]["text"], provider)
+                    elif r.status_code == 404 and self._try_switch_fallback_model(current_item):
+                        continue
                     elif r.status_code == 429:
                         logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
                         time.sleep(2.0)
@@ -220,6 +243,8 @@ class MultiLLMRotator:
                     )
                     if r.status_code == 200:
                         return self._parse_json(r.json()["choices"][0]["message"]["content"], provider)
+                    elif r.status_code == 404 and self._try_switch_fallback_model(current_item):
+                        continue
                     elif r.status_code == 429:
                         logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
                         time.sleep(2.0)
@@ -241,6 +266,8 @@ class MultiLLMRotator:
                     )
                     if r.status_code == 200:
                         return self._parse_json(r.json()["candidates"][0]["content"]["parts"][0]["text"], provider)
+                    elif r.status_code == 404 and self._try_switch_fallback_model(current_item):
+                        continue
                     elif r.status_code == 429:
                         logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
                         time.sleep(2.0)
@@ -260,6 +287,8 @@ class MultiLLMRotator:
                     )
                     if r.status_code == 200:
                         return self._parse_json(r.json()["choices"][0]["message"]["content"], provider)
+                    elif r.status_code == 404 and self._try_switch_fallback_model(current_item):
+                        continue
                     elif r.status_code == 429:
                         logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
                         time.sleep(2.0)
@@ -279,6 +308,8 @@ class MultiLLMRotator:
                     )
                     if r.status_code == 200:
                         return self._parse_json(r.json()["choices"][0]["message"]["content"], provider)
+                    elif r.status_code == 404 and self._try_switch_fallback_model(current_item):
+                        continue
                     elif r.status_code == 429:
                         logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
                         time.sleep(2.0)
