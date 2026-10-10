@@ -9,7 +9,7 @@ on:
         required: true
         default: "50"
       pitch_top:
-        description: "Number of top prospects to generate AI pitches for"
+        description: "Number of top prospects to draft outreach pitches for"
         required: true
         default: "25"
       cities:
@@ -20,6 +20,10 @@ on:
         description: "Append to existing leads (resume)"
         type: boolean
         default: true
+      enable_llm:
+        description: "Enable experimental external LLM calls (default: false, LLM disconnected)"
+        type: boolean
+        default: false
 
   # Automatic daily schedule at 9:30 AM IST (4:00 AM UTC)
   schedule:
@@ -64,6 +68,7 @@ jobs:
           PITCH_TOP="${{ github.event.inputs.pitch_top || '25' }}"
           CITIES="${{ github.event.inputs.cities || '' }}"
           RESUME="${{ github.event.inputs.resume || 'true' }}"
+          ENABLE_LLM="${{ github.event.inputs.enable_llm || 'false' }}"
 
           ARGS=("--target" "$TARGET" "--pitch-top" "$PITCH_TOP")
 
@@ -73,6 +78,10 @@ jobs:
 
           if [ "$RESUME" != "false" ]; then
             ARGS+=("--resume")
+          fi
+
+          if [ "$ENABLE_LLM" = "true" ]; then
+            ARGS+=("--enable-llm")
           fi
 
           echo "[*] Executing: python cctv_leadgen.py ${ARGS[*]}"

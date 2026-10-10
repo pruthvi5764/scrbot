@@ -1103,7 +1103,10 @@ def get_rule_based_fallback(lead):
     return {"whatsapp": wa, "email_subject": subject, "email_body": body}
 
 
-def pitch(lead):
+ENABLE_LLM = False  # External LLM is disconnected by default. Enable via --enable-llm if needed.
+
+
+def pitch(lead, use_llm=None):
     # Zero-waste caching check: if pitch is already generated, reuse it
     if lead.get("whatsapp_pitch") and lead.get("email_subject"):
         if not lead.get("whatsapp_click_link") and lead.get("whatsapp_number"):
@@ -1111,17 +1114,22 @@ def pitch(lead):
         lead["outreach_status"] = "PITCH_DRAFTED"
         return lead
 
-    prompt = (
-        f"Company Name: {lead.get('name')}\n"
-        f"City: {lead.get('city')}\n"
-        f"Website: {lead.get('website') or 'None'}\n"
-        f"Segment: {lead.get('segment')}\n"
-        f"Audit Findings: {lead.get('issues')}\n"
-        f"Rating: {lead.get('rating')} ({lead.get('reviews')} reviews)"
-    )
+    should_call_llm = ENABLE_LLM if use_llm is None else use_llm
+    data = None
 
-    data = llm_rotator.call_with_failover(PITCH_SYSTEM_PROMPT, prompt)
+    if should_call_llm:
+        prompt = (
+            f"Company Name: {lead.get('name')}\n"
+            f"City: {lead.get('city')}\n"
+            f"Website: {lead.get('website') or 'None'}\n"
+            f"Segment: {lead.get('segment')}\n"
+            f"Audit Findings: {lead.get('issues')}\n"
+            f"Rating: {lead.get('rating')} ({lead.get('reviews')} reviews)"
+        )
+        data = llm_rotator.call_with_failover(PITCH_SYSTEM_PROMPT, prompt)
+
     if not data:
+        # Fast, deterministic rule-based pitch generation (zero network delay, zero rate limits)
         data = get_rule_based_fallback(lead)
 
     whatsapp_msg = data.get("whatsapp", "").strip()
@@ -1319,6 +1327,35 @@ class LeadDatabase:
         return len(self._leads)
 
 
+def normalize_lead_city(city, address=""):
+    c = str(city or "").strip()
+    if not c or c.isdigit() or c in ("50", "500"):
+        if address:
+            parts = [p.strip() for p in address.split(",") if p.strip()]
+            for p in reversed(parts):
+                p_clean = re.sub(r"\b(India|Karnataka|Maharashtra|Punjab|Telangana|Tamil Nadu|Delhi|Gujarat|Haryana)\b", "", p, flags=re.I).strip()
+                p_clean = re.sub(r"\d{6}", "", p_clean).strip()
+                if p_clean and len(p_clean) > 2 and not p_clean.isdigit():
+                    return p_clean
+        return "India"
+    return c
+
+
+def resolve_clean_place_id(place_id, google_maps_url="", name="", city=""):
+    pid = str(place_id or "").strip()
+    if pid:
+        return pid
+    if google_maps_url:
+        cid_m = re.search(r"cid=([0-9]+)", google_maps_url)
+        if cid_m:
+            return f"cid_{cid_m.group(1)}"
+    clean_name = re.sub(r"\W+", "", str(name or ""))
+    clean_city = re.sub(r"\W+", "", str(city or ""))
+    if clean_name:
+        return f"lead_{clean_name[:12].lower()}_{clean_city[:6].lower()}"
+    return f"lead_{int(time.time() * 1000)}"
+
+
 def load_existing_database(csv_filename="leads.csv", json_filename="company_details.json"):
     """
     Loads all previously accumulated leads from JSON and CSV into a LeadDatabase.
@@ -1348,7 +1385,13 @@ def load_existing_database(csv_filename="leads.csv", json_filename="company_deta
                         if not is_indian_entity(addr, phone, lat, lon):
                             continue
 
-                        pid = prof.get("place_id") or d.get("place_id") or ""
+                        clean_city = normalize_lead_city(prof.get("city", ""), addr)
+                        pid = resolve_clean_place_id(
+                            prof.get("place_id") or d.get("place_id"),
+                            google_maps_url=prof.get("google_maps_url", ""),
+                            name=prof.get("name", ""),
+                            city=clean_city
+                        )
                         lead = {
                             "place_id": pid,
                             "outreach_status": outreach.get("outreach_status", "PITCH_DRAFTED" if outreach.get("whatsapp_pitch") else "NEW"),
@@ -1356,7 +1399,7 @@ def load_existing_database(csv_filename="leads.csv", json_filename="company_deta
                             "category": prof.get("category", "CCTV & Security Systems Dealer"),
                             "address": addr,
                             "pincode": prof.get("pincode", ""),
-                            "city": prof.get("city", ""),
+                            "city": clean_city,
                             "state": prof.get("state", ""),
                             "search_locality": prof.get("search_zone", ""),
                             "latitude": str(coords.get("latitude", "") or ""),
@@ -1411,7 +1454,15 @@ def load_existing_database(csv_filename="leads.csv", json_filename="company_deta
                     lon = row.get("longitude")
                     if not is_indian_entity(addr, phone, lat, lon):
                         continue
-                    db.upsert(dict(row))
+                    row_dict = dict(row)
+                    row_dict["city"] = normalize_lead_city(row_dict.get("city", ""), addr)
+                    row_dict["place_id"] = resolve_clean_place_id(
+                        row_dict.get("place_id"),
+                        google_maps_url=row_dict.get("google_maps_url", ""),
+                        name=row_dict.get("name", ""),
+                        city=row_dict.get("city", "")
+                    )
+                    db.upsert(row_dict)
         except Exception as ex:
             logger.warning(f"Warning reading {csv_filename}: {ex}")
 
@@ -1773,7 +1824,7 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
         print(f"[!] Note: HTML Dashboard skipped ({ex})")
 
 
-def export_company_data(leads, csv_filename="leads.csv", json_filename="company_details.json"):
+def export_company_data(leads, csv_filename="leads.csv", json_filename="company_details.json", html_filename="leads_dashboard.html"):
     """
     Exports all discovered company data into:
     1. CSV Spreadsheet (strictly 1 single row per company with sanitized text)
@@ -1802,8 +1853,7 @@ def export_company_data(leads, csv_filename="leads.csv", json_filename="company_
     export_to_excel(leads, xlsx_file)
 
     # 3. Export Interactive HTML Dashboard
-    html_file = "leads_dashboard.html"
-    export_html_dashboard(leads, html_file)
+    export_html_dashboard(leads, html_filename)
 
     # 4. Export Full Company Dossiers JSON
     dossiers = []
@@ -1885,11 +1935,15 @@ def main():
     parser.add_argument("--workers-pitch", type=int, default=3, help="Concurrent threads for pitch generation (default: 3)")
     parser.add_argument("--output", type=str, default="leads.csv", help="Output CSV filename (default: leads.csv)")
     parser.add_argument("--json-output", type=str, default="company_details.json", help="Output JSON filename (default: company_details.json)")
+    parser.add_argument("--html-output", type=str, default="leads_dashboard.html", help="Output HTML dashboard filename (default: leads_dashboard.html)")
     parser.add_argument("--resume", action="store_true", help="Accumulate and merge with existing leads database")
     parser.add_argument("--reset", action="store_true", help="Start fresh and overwrite existing database")
-    parser.add_argument("--skip-pitch", action="store_true", help="Skip LLM pitch drafting")
+    parser.add_argument("--enable-llm", action="store_true", help="Enable experimental external LLM API calls (default: False, LLM is disconnected)")
+    parser.add_argument("--skip-pitch", action="store_true", help="Skip outreach pitch drafting")
     args = parser.parse_args()
 
+    global ENABLE_LLM
+    ENABLE_LLM = args.enable_llm
     selected_cities = [c.strip() for c in args.cities.split(",")] if args.cities else None
 
     print("=" * 80)
@@ -1897,6 +1951,8 @@ def main():
     print(f" Target New Leads: {args.target} | Pitch Top: {args.pitch_top}")
     print(f" Master CSV:       {args.output}")
     print(f" Master JSON:      {args.json_output}")
+    print(f" HTML Dashboard:   {args.html_output}")
+    print(f" Pitch Engine:     {'Multi-LLM Pool' if ENABLE_LLM else 'Fast Template Engine (LLM Disconnected)'}")
     print(f" Mode:             {'RESUME (Merge Existing)' if (args.resume and not args.reset) else 'FRESH RUN'}")
     print("=" * 80)
 
@@ -1953,17 +2009,23 @@ def main():
     master_leads.sort(key=lambda x: x.get("need_score", 0), reverse=True)
 
     # Initial export of master database
-    export_company_data(master_leads, csv_filename=args.output, json_filename=args.json_output)
-    print(f"[+] Saved updated master database ({len(master_leads)} leads) to {args.output} and {args.json_output}")
+    export_company_data(
+        master_leads,
+        csv_filename=args.output,
+        json_filename=args.json_output,
+        html_filename=args.html_output
+    )
+    print(f"[+] Saved updated master database ({len(master_leads)} leads) to {args.output}, {args.json_output}, and {args.html_output}")
 
-    # Phase 3: Multi-LLM Rotating Pitch Generation
+    # Phase 3: Outreach Pitch Generation
     if not args.skip_pitch:
         # Find leads that don't have pitches yet
         unpitched_leads = [l for l in master_leads if not l.get("whatsapp_pitch")]
         top_unpitched = unpitched_leads[:args.pitch_top]
 
         if top_unpitched:
-            print(f"\n[*] Generating pitches for {len(top_unpitched)} new prospects using rotating LLM pool...")
+            mode_desc = "Multi-LLM Rotating Pool" if ENABLE_LLM else "Fast Template Engine (LLM Disconnected)"
+            print(f"\n[*] Generating outreach pitches for {len(top_unpitched)} new prospects [{mode_desc}]...")
             with ThreadPoolExecutor(max_workers=args.workers_pitch) as executor:
                 pitched_results = list(executor.map(pitch, top_unpitched))
                 for pl in pitched_results:
@@ -1971,8 +2033,13 @@ def main():
 
             master_leads = lead_db.get_all()
             master_leads.sort(key=lambda x: x.get("need_score", 0), reverse=True)
-            export_company_data(master_leads, csv_filename=args.output, json_filename=args.json_output)
-            print(f"[+] Master database fully enriched with pitches and 1-click WhatsApp links!")
+            export_company_data(
+                master_leads,
+                csv_filename=args.output,
+                json_filename=args.json_output,
+                html_filename=args.html_output
+            )
+            print(f"[+] Master database & HTML dashboard fully enriched with pitches and 1-click WhatsApp links!")
         else:
             print("[*] All current top prospects already have generated pitches cached!")
 
@@ -1990,15 +2057,18 @@ def main():
     print(f" Prime No-Website Prospects:           {no_website}")
     print(f" WhatsApp-Ready Mobiles:               {mobiles}")
     print(f" Verified Emails Scraped:              {emails}")
-    print(f" LLM Success Counts:                   {llm_rotator.success_counts}")
-    if llm_rotator.fallen_keys:
-        print(f" Keys that fell during run ({len(llm_rotator.fallen_keys)}):")
-        for fk in llm_rotator.fallen_keys:
-            print(f"   - {fk['provider']} ({fk['key_snippet']}): {fk['reason'][:80]}")
+    if ENABLE_LLM:
+        print(f" LLM Success Counts:                   {llm_rotator.success_counts}")
+        if llm_rotator.fallen_keys:
+            print(f" Keys that fell during run ({len(llm_rotator.fallen_keys)}):")
+            for fk in llm_rotator.fallen_keys:
+                print(f"   - {fk['provider']} ({fk['key_snippet']}): {fk['reason'][:80]}")
+    else:
+        print(" Pitch Generation Engine:              Instant Rule-Based Templates (LLM Disconnected)")
     print(f" Total Execution Time:                 {total_time:.1f}s")
     print(f" Master CSV Spreadsheet:               {os.path.abspath(args.output)}")
     print(f" Master JSON Dossier:                  {os.path.abspath(args.json_output)}")
-    print(f" Interactive Dashboard:                {os.path.abspath('leads_dashboard.html')}")
+    print(f" Interactive Dashboard:                {os.path.abspath(args.html_output)}")
     print("=" * 80)
 
 
