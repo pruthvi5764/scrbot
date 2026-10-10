@@ -199,7 +199,12 @@ class MultiLLMRotator:
                 print(f"    => Remaining active keys in loop: {len(self.pool)}")
 
     def call_with_failover(self, system_prompt, user_prompt):
-        while True:
+        attempts = 0
+        with self.lock:
+            max_attempts = max(len(self.pool) * 3, 6)
+
+        while attempts < max_attempts:
+            attempts += 1
             with self.lock:
                 if not self.pool:
                     return None
@@ -321,6 +326,8 @@ class MultiLLMRotator:
             except Exception as ex:
                 self._mark_key_fallen(current_item, f"Connection Error: {str(ex)[:90]}")
                 continue
+
+        return None
 
     def _parse_json(self, txt, provider):
         cleaned = re.sub(r"```(?:json)?", "", txt).strip()

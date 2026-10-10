@@ -54,8 +54,11 @@ jobs:
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           GEMINI_KEYS: ${{ secrets.GEMINI_KEYS }}
+          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL || 'gemini-2.5-flash' }}
           GROQ_KEYS: ${{ secrets.GROQ_KEYS }}
+          GROQ_MODEL: ${{ secrets.GROQ_MODEL || 'openai/gpt-oss-120b' }}
           OPENAI_KEYS: ${{ secrets.OPENAI_KEYS }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || 'gpt-4o-mini' }}
         run: |
           TARGET="${{ github.event.inputs.target || '50' }}"
           PITCH_TOP="${{ github.event.inputs.pitch_top || '25' }}"
