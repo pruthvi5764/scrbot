@@ -21,6 +21,7 @@ from cctv_leadgen import (
     LeadDatabase,
     load_dotenv,
     get_rule_based_fallback,
+    MultiLLMRotator,
     COLS,
     DEMO_URL,
     DEMO_ADMIN_URL
@@ -206,6 +207,13 @@ class TestCCTVLeadGen(unittest.TestCase):
             if os.path.exists(test_env_file):
                 os.remove(test_env_file)
 
+    def test_rotator_bounded_failover(self):
+        rotator = MultiLLMRotator()
+        rotator.pool = []  # Empty pool
+        result = rotator.call_with_failover("sys", "user")
+        self.assertIsNone(result)
+
 
 if __name__ == "__main__":
     unittest.main()
+

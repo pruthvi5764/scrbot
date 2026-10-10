@@ -15,6 +15,7 @@ import csv
 import json
 import logging
 import os
+import random
 import re
 import sys
 import threading
@@ -205,11 +206,23 @@ class MultiLLMRotator:
 
         while attempts < max_attempts:
             attempts += 1
+            now = time.time()
+            sleep_dur = 0
             with self.lock:
                 if not self.pool:
                     return None
-                self.current_idx = (self.current_idx + 1) % len(self.pool)
-                current_item = self.pool[self.current_idx]
+                available = [item for item in self.pool if item.get("cool_down_until", 0) <= now]
+                if available:
+                    self.current_idx = (self.current_idx + 1) % len(available)
+                    current_item = available[self.current_idx]
+                else:
+                    min_cooldown = min(item.get("cool_down_until", 0) for item in self.pool)
+                    sleep_dur = max(0.5, min(min_cooldown - now, 3.0)) + random.uniform(0.2, 0.8)
+                    self.current_idx = (self.current_idx + 1) % len(self.pool)
+                    current_item = self.pool[self.current_idx]
+
+            if sleep_dur > 0:
+                time.sleep(sleep_dur)
 
             provider = current_item["provider"]
             key = current_item["key"]
@@ -230,8 +243,10 @@ class MultiLLMRotator:
                     elif r.status_code == 404 and self._try_switch_fallback_model(current_item):
                         continue
                     elif r.status_code == 429:
-                        logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
-                        time.sleep(2.0)
+                        jitter = random.uniform(1.0, 2.5)
+                        current_item["cool_down_until"] = time.time() + 8.0 + jitter
+                        logger.warning(f"Rate limit (429) on {provider}. Marking cooldown for 10s and rotating...")
+                        time.sleep(jitter)
                         continue
                     else:
                         self._mark_key_fallen(current_item, f"HTTP {r.status_code}: {r.text[:100]}")
@@ -251,8 +266,10 @@ class MultiLLMRotator:
                     elif r.status_code == 404 and self._try_switch_fallback_model(current_item):
                         continue
                     elif r.status_code == 429:
-                        logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
-                        time.sleep(2.0)
+                        jitter = random.uniform(1.0, 2.5)
+                        current_item["cool_down_until"] = time.time() + 8.0 + jitter
+                        logger.warning(f"Rate limit (429) on {provider}. Marking cooldown for 10s and rotating...")
+                        time.sleep(jitter)
                         continue
                     else:
                         self._mark_key_fallen(current_item, f"HTTP {r.status_code}: {r.text[:100]}")
@@ -274,8 +291,10 @@ class MultiLLMRotator:
                     elif r.status_code == 404 and self._try_switch_fallback_model(current_item):
                         continue
                     elif r.status_code == 429:
-                        logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
-                        time.sleep(2.0)
+                        jitter = random.uniform(1.0, 2.5)
+                        current_item["cool_down_until"] = time.time() + 8.0 + jitter
+                        logger.warning(f"Rate limit (429) on {provider}. Marking cooldown for 10s and rotating...")
+                        time.sleep(jitter)
                         continue
                     else:
                         self._mark_key_fallen(current_item, f"HTTP {r.status_code}: {r.text[:100]}")
@@ -295,8 +314,10 @@ class MultiLLMRotator:
                     elif r.status_code == 404 and self._try_switch_fallback_model(current_item):
                         continue
                     elif r.status_code == 429:
-                        logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
-                        time.sleep(2.0)
+                        jitter = random.uniform(1.0, 2.5)
+                        current_item["cool_down_until"] = time.time() + 8.0 + jitter
+                        logger.warning(f"Rate limit (429) on {provider}. Marking cooldown for 10s and rotating...")
+                        time.sleep(jitter)
                         continue
                     else:
                         self._mark_key_fallen(current_item, f"HTTP {r.status_code}: {r.text[:100]}")
@@ -316,8 +337,10 @@ class MultiLLMRotator:
                     elif r.status_code == 404 and self._try_switch_fallback_model(current_item):
                         continue
                     elif r.status_code == 429:
-                        logger.warning(f"Rate limit (429) on {provider}. Rotating and backing off 2s...")
-                        time.sleep(2.0)
+                        jitter = random.uniform(1.0, 2.5)
+                        current_item["cool_down_until"] = time.time() + 8.0 + jitter
+                        logger.warning(f"Rate limit (429) on {provider}. Marking cooldown for 10s and rotating...")
+                        time.sleep(jitter)
                         continue
                     else:
                         self._mark_key_fallen(current_item, f"HTTP {r.status_code}: {r.text[:100]}")
@@ -1859,7 +1882,7 @@ def main():
     parser.add_argument("--pitch-top", type=int, default=300, help="Generate pitches for top-N leads (default: 300)")
     parser.add_argument("--cities", type=str, default="", help="Comma-separated cities/zones (e.g. 'Bengaluru,Mumbai')")
     parser.add_argument("--workers-audit", type=int, default=15, help="Concurrent threads for website auditing (default: 15)")
-    parser.add_argument("--workers-pitch", type=int, default=5, help="Concurrent threads for pitch generation (default: 5)")
+    parser.add_argument("--workers-pitch", type=int, default=3, help="Concurrent threads for pitch generation (default: 3)")
     parser.add_argument("--output", type=str, default="leads.csv", help="Output CSV filename (default: leads.csv)")
     parser.add_argument("--json-output", type=str, default="company_details.json", help="Output JSON filename (default: company_details.json)")
     parser.add_argument("--resume", action="store_true", help="Accumulate and merge with existing leads database")
