@@ -213,6 +213,35 @@ class TestCCTVLeadGen(unittest.TestCase):
         result = rotator.call_with_failover("sys", "user")
         self.assertIsNone(result)
 
+    def test_clean_company_name(self):
+        from cctv_leadgen import clean_company_name
+        raw = "Mahadev Enterprises - Cctv installation, Camera installation, security camera repair"
+        cleaned = clean_company_name(raw)
+        self.assertEqual(cleaned, "Mahadev Enterprises")
+
+    def test_classify_business_profile(self):
+        from cctv_leadgen import classify_business_profile
+        self.assertEqual(classify_business_profile("MY CHOICE IT HUB"), "it_hardware_hub")
+        self.assertEqual(classify_business_profile("CP Plus World Store"), "brand_distributor")
+        self.assertEqual(classify_business_profile("Matrix Biometrics & Access"), "access_control_security")
+        self.assertEqual(classify_business_profile("Indo Spy Camera World"), "spy_surveillance")
+        self.assertEqual(classify_business_profile("Bharat Security Surveillance"), "cctv_installer")
+
+    def test_rule_based_pitch_with_sender_phone(self):
+        from cctv_leadgen import get_rule_based_fallback
+        lead = {
+            "name": "MY CHOICE IT HUB - Computer & CCTV dealer",
+            "city": "Bengaluru",
+            "segment": "no_website",
+            "category": "Computer store",
+            "issues": "no website found",
+        }
+        res = get_rule_based_fallback(lead, sender_phone="+919988776655")
+        self.assertIn("MY CHOICE IT HUB", res["whatsapp"])
+        self.assertIn("+919988776655", res["whatsapp"])
+        self.assertIn("+919988776655", res["email_body"])
+
+
 
 if __name__ == "__main__":
     unittest.main()

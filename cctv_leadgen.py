@@ -411,6 +411,8 @@ HEADERS = {
 
 DEMO_URL = "https://atryasolutions.netlify.app/"
 DEMO_ADMIN_URL = "https://atryasolutions.netlify.app/admin"
+MY_PHONE_NUMBER = os.environ.get("MY_PHONE_NUMBER", "").strip()
+SENDER_NAME = os.environ.get("SENDER_NAME", "Atrya Solutions").strip()
 
 session = requests.Session()
 retries = Retry(total=2, backoff_factor=0.3, status_forcelist=[500, 502, 503, 504])
@@ -1049,66 +1051,193 @@ Rules:
 }}"""
 
 
-def get_rule_based_fallback(lead):
-    name = lead.get("name", "there")
-    city = lead.get("city", "your area")
-    segment = lead.get("segment", "no_website")
+def clean_company_name(raw_name):
+    """
+    Cleans company names to conversational tone for pitches.
+    Strips robotic SEO suffixes, category tags, and punctuation.
+    e.g. 'Mahadev Enterprises - Cctv installation, Camera installation...' -> 'Mahadev Enterprises'
+    """
+    if not raw_name:
+        return "there"
+    cleaned = re.split(r"\s*[-|:,]\s*(?:cctv|camera|installation|repair|security|sales|service|dealer|wholesaler)", str(raw_name), flags=re.I)[0].strip()
+    cleaned = re.sub(r"[\-–—:,|.]+$", "", cleaned).strip()
+    return cleaned if len(cleaned) >= 2 else str(raw_name).strip()
 
-    if segment == "no_website":
-        wa = (f"Hi {name},\n"
-              f"Noticed your CCTV business in {city} gets great reviews, but you don't have a direct website yet!\n\n"
-              f"You might be losing direct Google customers or paying high commissions on Justdial. "
-              f"We build complete turnkey setups for CCTV companies:\n"
-              f"👉 Customer Website (1-Click WhatsApp Quotes): {DEMO_URL}\n"
-              f"👉 Operations Admin (Technician & AMC Dispatch): {DEMO_ADMIN_URL}\n\n"
-              f"Open for a quick 10-min walkthrough this week?")
-        subject = f"Direct Customer Website & AMC Admin Panel for {name}"
-        body = (f"Hi {name} Team,\n\n"
-                f"I came across your CCTV business in {city} and saw your positive customer ratings. "
-                f"However, I noticed that potential clients searching Google cannot find a direct website to request CCTV quotes.\n\n"
-                f"Relying solely on local directories means you share leads with 4–5 competitors and pay ongoing commissions.\n\n"
-                f"At Atrya Solutions, we build complete turnkey systems specifically for CCTV and security installers:\n\n"
-                f"1. Customer-Facing Website (captures direct leads with 1-click WhatsApp quotes):\n"
-                f"   👉 Demo: {DEMO_URL}\n\n"
-                f"2. Operations Admin Panel (tracks jobs, AMC maintenance contracts, and technician dispatch):\n"
-                f"   👉 Demo Admin: {DEMO_ADMIN_URL}\n\n"
-                f"We customize and deliver the complete setup in 48 hours.\n\n"
-                f"Would you be open to a brief 10-minute walkthrough this week to see how this can grow your direct inquiries?\n\n"
-                f"Best regards,\n"
-                f"Atrya Solutions Team\n\n"
-                f"Reply STOP and I won't contact you again.")
-    elif segment == "amc_operations":
-        wa = (f"Hi {name},\nSaw your CCTV website in {city}. How do you currently manage your AMC service renewals and technician dispatch?\n"
-              f"We built an operations panel specifically for security installers: {DEMO_ADMIN_URL}\n"
-              f"Worth a quick look?")
-        subject = f"AMC tracking & technician panel for {name}"
-        body = (f"Hi {name},\n\nI came across your website and wanted to reach out.\n\n"
-                f"Most CCTV dealers tell us tracking annual maintenance contracts (AMCs), technician visits, and warranty renewals "
-                f"becomes chaotic on spreadsheets.\n\n"
-                f"We built a specialized operations panel for CCTV teams: {DEMO_ADMIN_URL}\n"
-                f"Would you be open to a quick 10-minute walkthrough to see if it saves your team time?\n\n"
-                f"Reply STOP and I won't contact you again.")
+
+def classify_business_profile(name, category="", query=""):
+    """
+    Classifies the business profile into specific verticals:
+    1. it_hardware_hub (IT systems, computers, laptops, hardware networking)
+    2. brand_distributor (Brand showrooms, wholesalers, distributors like CP Plus, Dahua)
+    3. access_control_security (Biometric attendance, access control, intercom, automation)
+    4. spy_surveillance (Spy cameras, hidden cameras, investigative gear)
+    5. cctv_installer (Core CCTV installation, security cameras, video surveillance)
+    """
+    text = f"{name} {category} {query}".lower()
+    if any(k in text for k in ["spy", "detective", "hidden camera", "gadget"]):
+        return "spy_surveillance"
+    elif any(k in text for k in ["it hub", "infotech", "computer", "laptop", "hardware", "networking", "technologies", "system solution"]):
+        return "it_hardware_hub"
+    elif any(k in text for k in ["cp plus", "dahua", "hikvision", "pramix", "store in", "distributor", "wholesale", "dealer", "showroom"]):
+        return "brand_distributor"
+    elif any(k in text for k in ["biometric", "access control", "intercom", "attendance", "fire alarm", "automation"]):
+        return "access_control_security"
     else:
-        wa = (f"Hi {name},\nTook a look at your CCTV website in {city} and noticed a few things holding back customer enquiries ({lead.get('issues')}).\n"
-              f"We build modern sites with instant WhatsApp quote buttons: {DEMO_URL}\n"
-              f"Open to a quick demo?")
-        subject = f"Improving CCTV quote enquiries for {name}"
-        body = (f"Hi {name},\n\nI was looking up CCTV providers in {city} and checked your website.\n\n"
-                f"I noticed a couple of areas that might be reducing your lead conversion: {lead.get('issues')}.\n\n"
-                f"At Atrya Solutions, we build high-converting websites and AMC management systems for security installers.\n"
-                f"Live demo: {DEMO_URL}\n\n"
-                f"Would you be interested in a brief 10-minute walkthrough?\n\n"
-                f"Reply STOP and I won't contact you again.")
+        return "cctv_installer"
 
-    return {"whatsapp": wa, "email_subject": subject, "email_body": body}
+
+def get_rule_based_fallback(lead, sender_phone=None):
+    """
+    Generates a dedicated, 100% hardcoded B2B outreach pitch tailored specifically
+    to the scraped business profile and its verified digital audit state.
+    Dynamic company name slotting without AI latency or rate limits.
+    """
+    raw_name = lead.get("name", "")
+    name = clean_company_name(raw_name)
+    city = normalize_lead_city(lead.get("city", "India"), lead.get("address", ""))
+    segment = lead.get("segment", "no_website")
+    profile = classify_business_profile(raw_name, lead.get("category", ""), lead.get("search_locality", ""))
+    domain = lead.get("domain") or extract_clean_domain(lead.get("website", "")) or "your website"
+    issues = lead.get("issues", "website optimization")
+
+    # Formulate sender signoff with user's phone number
+    phone_signoff = sender_phone or MY_PHONE_NUMBER or ""
+    if phone_signoff:
+        wa_signoff = f"Reach me on WhatsApp: {phone_signoff}"
+        mail_signoff = f"{SENDER_NAME} (WhatsApp/Call: {phone_signoff})"
+    else:
+        wa_signoff = f"{SENDER_NAME}"
+        mail_signoff = f"{SENDER_NAME} Team"
+
+    # 1. NO WEBSITE SCENARIOS (Losing direct Google searches to Justdial/competitors)
+    if segment == "no_website" or not lead.get("website"):
+        if profile == "it_hardware_hub":
+            wa = (f"Hi {name} team,\n"
+                  f"Saw your IT & networking hub in {city}. Most IT dealers handle CCTV and AMC inquiries, but lose high-margin corporate clients because they don't have a direct quote catalog online.\n\n"
+                  f"We build turnkey systems for IT & CCTV hardware providers:\n"
+                  f"👉 1-Click WhatsApp Quote Website: {DEMO_URL}\n"
+                  f"👉 AMC Maintenance & Technician Dispatch Admin: {DEMO_ADMIN_URL}\n\n"
+                  f"Open for a quick 10-min demo? - {wa_signoff}")
+            subject = f"Direct Corporate Leads & AMC Panel for {name}"
+            body = (f"Hi {name} Team,\n\n"
+                    f"I came across your hardware & networking hub in {city}. Many IT firms handle CCTV and networking installations but lose high-margin corporate clients because they lack a dedicated website showcasing their solutions.\n\n"
+                    f"We build turnkey systems for IT & CCTV hardware providers:\n"
+                    f"1. Instant WhatsApp Quote & Product Catalog: {DEMO_URL}\n"
+                    f"2. AMC Maintenance & Technician Dispatch Admin: {DEMO_ADMIN_URL}\n\n"
+                    f"Would you be open to a quick 10-minute demo to see how this brings direct inquiries without directory commissions?\n\n"
+                    f"Best regards,\n{mail_signoff}\n\nReply STOP and I won't contact you again.")
+
+        elif profile == "brand_distributor":
+            wa = (f"Hi {name},\n"
+                  f"Noticed your security systems store in {city} has strong footfall, but no dedicated web portal for wholesale and installer inquiries!\n\n"
+                  f"We set up branded digital product catalogs with direct WhatsApp quote buttons:\n"
+                  f"👉 Customer Website: {DEMO_URL}\n"
+                  f"👉 Warranty & Technician Dispatch Admin: {DEMO_ADMIN_URL}\n\n"
+                  f"Worth a quick 10-min walkthrough? - {wa_signoff}")
+            subject = f"Online Dealer Catalog & Dispatch Panel for {name}"
+            body = (f"Hi {name} Management,\n\n"
+                    f"I came across your security systems store in {city}. While you have great local reputation, potential buyers searching Google for CCTV wholesale pricing and package installation cannot find an official portal.\n\n"
+                    f"We build complete digital setups for security dealers:\n"
+                    f"👉 Interactive Website with 1-click WhatsApp Quotes: {DEMO_URL}\n"
+                    f"👉 Warranty & Technician Dispatch Admin: {DEMO_ADMIN_URL}\n\n"
+                    f"Could we connect for a brief 10-minute walkthrough this week?\n\n"
+                    f"Best regards,\n{mail_signoff}\n\nReply STOP and I won't contact you again.")
+
+        elif profile == "access_control_security":
+            wa = (f"Hi {name},\n"
+                  f"Came across your security & biometric systems business in {city}. Commercial offices searching for attendance & access control setups need instant quote forms and WhatsApp pricing.\n\n"
+                  f"We build turnkey setups for security specialists:\n"
+                  f"👉 1-Click WhatsApp Quotes: {DEMO_URL}\n"
+                  f"👉 AMC Renewal & Technician Dispatch Panel: {DEMO_ADMIN_URL}\n\n"
+                  f"Can I show you a quick 10-min demo? - {wa_signoff}")
+            subject = f"Corporate Lead Capture & AMC System for {name}"
+            body = (f"Hi {name} Team,\n\n"
+                    f"I was reviewing biometric and security solution providers in {city}. Corporate clients looking for access control, biometric attendance, and surveillance installations prefer requesting quotes online directly.\n\n"
+                    f"We help security specialists launch turnkey digital setups:\n"
+                    f"1. Corporate Website with 1-click WhatsApp Quotes: {DEMO_URL}\n"
+                    f"2. AMC Service & Technician Dispatch Panel: {DEMO_ADMIN_URL}\n\n"
+                    f"Would you have 10 minutes this week for a quick walkthrough?\n\n"
+                    f"Best regards,\n{mail_signoff}\n\nReply STOP and I won't contact you again.")
+
+        else: # Standard cctv_installer or spy_surveillance
+            wa = (f"Hi {name},\n"
+                  f"Noticed your CCTV installation business in {city} gets great reviews, but potential customers searching Google can't find a direct website for quote inquiries!\n\n"
+                  f"Relying only on directories means paying high commissions and sharing leads with competitors. We build complete turnkey setups for CCTV companies:\n"
+                  f"👉 Customer Website (1-Click WhatsApp Quotes): {DEMO_URL}\n"
+                  f"👉 Operations Admin (Technician & AMC Dispatch): {DEMO_ADMIN_URL}\n\n"
+                  f"Open for a quick 10-min walkthrough this week? - {wa_signoff}")
+            subject = f"Direct Customer Website & AMC Admin Panel for {name}"
+            body = (f"Hi {name} Team,\n\n"
+                    f"I came across your CCTV business in {city} and saw your positive customer ratings. "
+                    f"However, I noticed that potential clients searching Google cannot find a direct website to request CCTV quotes.\n\n"
+                    f"Relying solely on local directories means you share leads with 4–5 competitors and pay ongoing commissions.\n\n"
+                    f"At Atrya Solutions, we build complete turnkey systems specifically for CCTV and security installers:\n\n"
+                    f"1. Customer-Facing Website (captures direct leads with 1-click WhatsApp quotes):\n"
+                    f"   👉 Demo: {DEMO_URL}\n\n"
+                    f"2. Operations Admin Panel (tracks jobs, AMC maintenance contracts, and technician dispatch):\n"
+                    f"   👉 Demo Admin: {DEMO_ADMIN_URL}\n\n"
+                    f"We customize and deliver the complete setup in 48 hours.\n\n"
+                    f"Would you be open to a brief 10-minute walkthrough this week to see how this can grow your direct inquiries?\n\n"
+                    f"Best regards,\n{mail_signoff}\n\nReply STOP and I won't contact you again.")
+
+    # 2. BROKEN OR INSECURE WEBSITES (HTTP error 403, 404, 409, ConnectionError, SSL expired)
+    elif segment in ("broken_or_insecure", "unreachable", "needs_urgent_revamp") or any(k in issues.lower() for k in ["error", "unreachable", "ssl", "refused", "expired"]):
+        wa = (f"Hi {name},\n"
+              f"Checked your website ({domain}) in {city} and noticed it's currently showing an issue ({issues}), causing potential customers to bounce!\n\n"
+              f"We build fast, secure mobile sites with instant WhatsApp quote buttons: {DEMO_URL}\n"
+              f"We're offering a free revamp to get your site back to converting leads.\n\n"
+              f"Open for a quick 10-min chat? - {wa_signoff}")
+        subject = f"Fixing {name} website ({issues[:40]}) + Free Revamp"
+        body = (f"Hi {name} Team,\n\n"
+                f"I was looking up security providers in {city} and tried visiting your website ({domain}).\n\n"
+                f"I noticed visitors are running into an issue: {issues}. When customers see an error or security warning, they immediately go to a competitor.\n\n"
+                f"At Atrya Solutions, we build high-converting websites for CCTV & security dealers:\n"
+                f"👉 Live Demo: {DEMO_URL}\n"
+                f"👉 Ops & AMC Panel: {DEMO_ADMIN_URL}\n\n"
+                f"We'd love to offer a free revamp to get your digital presence fixed and capturing leads. Open for a brief 10-minute call this week?\n\n"
+                f"Best regards,\n{mail_signoff}\n\nReply STOP and I won't contact you again.")
+
+    # 3. OUTDATED / NEEDS UPGRADE WEBSITES (Slow load time, no mobile viewport, no quote form, no WhatsApp widget)
+    elif segment in ("outdated_site", "needs_upgrade"):
+        wa = (f"Hi {name},\n"
+              f"Took a look at your website in {city}. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization ({issues}).\n\n"
+              f"Check how modern CCTV sites convert mobile visitors: {DEMO_URL}\n"
+              f"We also provide an AMC technician management panel: {DEMO_ADMIN_URL}\n\n"
+              f"Open for a quick 10-min walkthrough? - {wa_signoff}")
+        subject = f"Upgrading customer quote conversion for {name}"
+        body = (f"Hi {name} Team,\n\n"
+                f"I checked out your website while researching CCTV providers in {city}. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms ({issues}).\n\n"
+                f"We build high-converting setups specifically for security installers:\n"
+                f"👉 Customer Website Demo: {DEMO_URL}\n"
+                f"👉 Technician & AMC Renewal Admin: {DEMO_ADMIN_URL}\n\n"
+                f"Would you be open to a quick 10-minute walkthrough to see the upgrade?\n\n"
+                f"Best regards,\n{mail_signoff}\n\nReply STOP and I won't contact you again.")
+
+    # 4. HEALTHY SITES -> FOCUS ON AMC CONTRACTS & TECHNICIAN DISPATCH ADMIN
+    else:
+        wa = (f"Hi {name},\n"
+              f"Saw your website in {city}—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\n"
+              f"We built a specialized operations panel for CCTV installers: {DEMO_ADMIN_URL}\n"
+              f"Automates renewal alerts and job dispatch.\n\n"
+              f"Worth a quick 10-min look? - {wa_signoff}")
+        subject = f"AMC Renewals & Technician Dispatch Panel for {name}"
+        body = (f"Hi {name} Team,\n\n"
+                f"I came across your website and wanted to reach out. Your digital presence is well established!\n\n"
+                f"Most established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\n"
+                f"We built an operations panel specifically for CCTV and security teams: {DEMO_ADMIN_URL}\n"
+                f"It automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\n"
+                f"Would you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\n"
+                f"Best regards,\n{mail_signoff}\n\nReply STOP and I won't contact you again.")
+
+    return {"whatsapp": wa.strip(), "email_subject": subject.strip(), "email_body": body.strip()}
 
 
 ENABLE_LLM = False  # External LLM is disconnected by default. Enable via --enable-llm if needed.
 
 
-def pitch(lead, use_llm=None):
-    # Zero-waste caching check: if pitch is already generated, reuse it
-    if lead.get("whatsapp_pitch") and lead.get("email_subject"):
+def pitch(lead, use_llm=None, sender_phone=None, force=False):
+    # If not forcing regeneration and pitch already exists, reuse it
+    if not force and lead.get("whatsapp_pitch") and lead.get("email_subject"):
         if not lead.get("whatsapp_click_link") and lead.get("whatsapp_number"):
             lead["whatsapp_click_link"] = make_whatsapp_chat_url(lead.get("whatsapp_number"), lead["whatsapp_pitch"])
         lead["outreach_status"] = "PITCH_DRAFTED"
@@ -1129,8 +1258,8 @@ def pitch(lead, use_llm=None):
         data = llm_rotator.call_with_failover(PITCH_SYSTEM_PROMPT, prompt)
 
     if not data:
-        # Fast, deterministic rule-based pitch generation (zero network delay, zero rate limits)
-        data = get_rule_based_fallback(lead)
+        # Dedicated hardcoded pitch engine with dynamic name & sender phone slotting
+        data = get_rule_based_fallback(lead, sender_phone=sender_phone)
 
     whatsapp_msg = data.get("whatsapp", "").strip()
     lead["whatsapp_pitch"] = whatsapp_msg
@@ -1578,6 +1707,8 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
     .badge-low {{ background: #14532d; color: #bbf7d0; }}
     .btn-wa {{ display: inline-flex; align-items: center; gap: 6px; background: #15803d; color: #fff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 600; transition: background 0.2s; white-space: nowrap; }}
     .btn-wa:hover {{ background: #16a34a; }}
+    .btn-mail {{ display: inline-flex; align-items: center; gap: 4px; background: #2563eb; color: #fff; padding: 6px 10px; border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 600; transition: background 0.2s; white-space: nowrap; }}
+    .btn-mail:hover {{ background: #1d4ed8; }}
     .btn-pitch {{ background: #334155; border: 1px solid #475569; color: #f8fafc; padding: 6px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; transition: background 0.2s; white-space: nowrap; }}
     .btn-pitch:hover {{ background: #475569; }}
     .link {{ color: #38bdf8; text-decoration: none; }}
@@ -1603,7 +1734,10 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
     <div class="header">
       <div>
         <div class="title">CCTV Lead Intelligence Dossier</div>
-        <div class="subtitle">Discovered, Audited & Enriched Leads with 1-Click WhatsApp & Demo Outreach</div>
+        <div class="subtitle">Discovered, Audited & Enriched Leads with 1-Click WhatsApp & Mail Delivery</div>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <button class="btn-wa" onclick="openAutoDispatchModal()" style="padding: 8px 14px; font-size: 12px; cursor: pointer;">⚡ Auto-Dispatch Queue</button>
       </div>
     </div>
 
@@ -1657,13 +1791,17 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
     </div>
   </div>
 
-  <!-- Modal for Pitch View & 1-Click Copy -->
+  <!-- Modal for Pitch View & Direct Launch -->
   <div id="pitchModal" class="modal-overlay" onclick="closePitch(event)">
     <div class="modal-box" onclick="event.stopPropagation()">
       <div class="modal-header">
         <div>
           <div class="modal-title" id="mCompanyName">Company Outreach Pack</div>
           <div style="font-size: 12px; color: #94a3b8; margin-top: 4px;" id="mDetails">Target Lead Pitch</div>
+          <div style="display: flex; gap: 8px; margin-top: 10px;" id="mDirectActions">
+            <a id="mWaLink" href="#" target="_blank" class="btn-wa">💬 Send WhatsApp</a>
+            <a id="mMailLink" href="#" class="btn-mail">✉️ Send Email</a>
+          </div>
         </div>
         <button class="close-btn" onclick="closePitch()">&times;</button>
       </div>
@@ -1694,9 +1832,33 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
     </div>
   </div>
 
+  <!-- Modal for Auto-Dispatch Queue -->
+  <div id="dispatchModal" class="modal-overlay" onclick="closeAutoDispatchModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">⚡ Automated WhatsApp Dispatch Queue</div>
+          <div style="font-size: 12px; color: #94a3b8; margin-top: 4px;">Delivers tailored pitch messages sequentially via WhatsApp</div>
+        </div>
+        <button class="close-btn" onclick="closeAutoDispatchModal()">&times;</button>
+      </div>
+      <div style="padding: 12px 0;">
+        <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 12px;">This automated queue opens WhatsApp conversations sequentially for prospects in the current filtered view with a safe delay.</p>
+        <div id="dispatchStatus" style="font-size: 13px; color: #38bdf8; font-weight: 600; margin-bottom: 14px;">Ready to dispatch.</div>
+        <div style="display:flex; gap:10px;">
+          <button id="btnStartQueue" class="btn-wa" onclick="startDispatchQueue()" style="padding: 10px 18px; font-size: 13px; cursor: pointer;">🚀 Launch WhatsApp Blast</button>
+          <button class="filter-btn" onclick="stopDispatchQueue()" style="padding: 10px 18px; cursor: pointer;">⏹️ Pause</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     const leads = {leads_json};
     let currentFilter = 'all';
+    let dispatchTimer = null;
+    let dispatchIndex = 0;
+    let dispatchQueue = [];
 
     function escapeHtml(str) {{
       if (str === null || str === undefined) return '';
@@ -1715,12 +1877,9 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
       document.getElementById('noWebsiteCount').textContent = leads.filter(l => l.site_status === 'no_website' || !l.website).length;
     }}
 
-    function renderTable() {{
+    function getFilteredLeads() {{
       const query = document.getElementById('searchInput').value.toLowerCase().trim();
-      const tbody = document.getElementById('tableBody');
-      tbody.innerHTML = '';
-
-      const filtered = leads.filter(l => {{
+      return leads.filter(l => {{
         if (currentFilter === 'high' && l.lead_priority !== 'High') return false;
         if (currentFilter === 'whatsapp' && !l.whatsapp_number) return false;
         if (currentFilter === 'email' && !l.email) return false;
@@ -1732,6 +1891,12 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
         }}
         return true;
       }});
+    }}
+
+    function renderTable() {{
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = '';
+      const filtered = getFilteredLeads();
 
       if (!filtered.length) {{
         tbody.innerHTML = '<tr><td colspan="9" class="empty">No matching companies found.</td></tr>';
@@ -1750,7 +1915,16 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
 
         let waBtn = '<span style="color:#64748b">—</span>';
         if (l.whatsapp_click_link && l.whatsapp_click_link.startsWith('https://wa.me/')) {{
-          waBtn = `<a href="${{encodeURI(l.whatsapp_click_link)}}" target="_blank" rel="noopener noreferrer" class="btn-wa">💬 Chat</a>`;
+          waBtn = `<a href="${{encodeURI(l.whatsapp_click_link)}}" target="_blank" rel="noopener noreferrer" class="btn-wa">💬 WA</a>`;
+        }}
+
+        let mailBtn = '<span style="color:#64748b">—</span>';
+        if (l.email) {{
+          const cleanEmail = l.email.split(';')[0].trim();
+          if (cleanEmail && cleanEmail.includes('@')) {{
+            const mailtoHref = `mailto:${{encodeURIComponent(cleanEmail)}}?subject=${{encodeURIComponent(l.email_subject || 'Quick CCTV Demo')}}&body=${{encodeURIComponent(l.email_body || '')}}`;
+            mailBtn = `<a href="${{mailtoHref}}" class="btn-mail">✉️ Mail</a>`;
+          }}
         }}
 
         const pitchBtn = `<button class="btn-pitch" onclick="openPitch(${{leads.indexOf(l)}})">📋 Pitch</button>`;
@@ -1768,7 +1942,7 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
           <td>${{siteLink}}</td>
           <td><small>${{safeEmails}}</small></td>
           <td><small style="color:#cbd5e1">${{escapeHtml(l.issues || 'None')}}</small></td>
-          <td><div style="display:flex;gap:6px;align-items:center;">${{waBtn}} ${{pitchBtn}}</div></td>
+          <td><div style="display:flex;gap:5px;align-items:center;">${{waBtn}} ${{mailBtn}} ${{pitchBtn}}</div></td>
         `;
         tbody.appendChild(tr);
       }});
@@ -1782,11 +1956,78 @@ def export_html_dashboard(leads, filename="leads_dashboard.html"):
       document.getElementById('mWaPitch').textContent = l.whatsapp_pitch || 'No pitch drafted.';
       document.getElementById('mEmailSubj').textContent = l.email_subject || 'No subject.';
       document.getElementById('mEmailBody').textContent = l.email_body || 'No email drafted.';
+
+      const waBtn = document.getElementById('mWaLink');
+      if (l.whatsapp_click_link) {{
+        waBtn.href = l.whatsapp_click_link;
+        waBtn.style.display = 'inline-flex';
+      }} else {{
+        waBtn.style.display = 'none';
+      }}
+
+      const mailBtn = document.getElementById('mMailLink');
+      if (l.email) {{
+        const cleanEmail = l.email.split(';')[0].trim();
+        mailBtn.href = `mailto:${{encodeURIComponent(cleanEmail)}}?subject=${{encodeURIComponent(l.email_subject || 'Quick CCTV Demo')}}&body=${{encodeURIComponent(l.email_body || '')}}`;
+        mailBtn.style.display = 'inline-flex';
+      }} else {{
+        mailBtn.style.display = 'none';
+      }}
+
       document.getElementById('pitchModal').classList.add('active');
     }}
 
     function closePitch(e) {{
       document.getElementById('pitchModal').classList.remove('active');
+    }}
+
+    function openAutoDispatchModal() {{
+      const currentList = getFilteredLeads().filter(l => l.whatsapp_click_link);
+      dispatchQueue = currentList;
+      dispatchIndex = 0;
+      document.getElementById('dispatchStatus').textContent = `Queue contains ${{dispatchQueue.length}} WhatsApp-ready prospects.`;
+      document.getElementById('dispatchModal').classList.add('active');
+    }}
+
+    function closeAutoDispatchModal() {{
+      stopDispatchQueue();
+      document.getElementById('dispatchModal').classList.remove('active');
+    }}
+
+    function startDispatchQueue() {{
+      if (!dispatchQueue.length) {{
+        document.getElementById('dispatchStatus').textContent = 'No WhatsApp prospects in current view.';
+        return;
+      }}
+      document.getElementById('btnStartQueue').disabled = true;
+      runNextInQueue();
+    }}
+
+    function runNextInQueue() {{
+      if (dispatchIndex >= dispatchQueue.length) {{
+        document.getElementById('dispatchStatus').textContent = `🎉 All ${{dispatchQueue.length}} prospects dispatched!`;
+        document.getElementById('btnStartQueue').disabled = false;
+        return;
+      }}
+
+      const prospect = dispatchQueue[dispatchIndex];
+      document.getElementById('dispatchStatus').textContent = `Opening chat for ${{prospect.name}} (${{dispatchIndex + 1}}/${{dispatchQueue.length}})...`;
+      if (prospect.whatsapp_click_link) {{
+        window.open(prospect.whatsapp_click_link, '_blank');
+      }}
+
+      dispatchIndex++;
+      dispatchTimer = setTimeout(runNextInQueue, 3500);
+    }}
+
+    function stopDispatchQueue() {{
+      if (dispatchTimer) {{
+        clearTimeout(dispatchTimer);
+        dispatchTimer = null;
+      }}
+      document.getElementById('dispatchStatus').textContent = `Queue paused at ${{dispatchIndex}}/${{dispatchQueue.length}}.`;
+      const startBtn = document.getElementById('btnStartQueue');
+      if (startBtn) startBtn.disabled = false;
     }}
 
     function copyText(elementId, btn) {{
@@ -1940,6 +2181,8 @@ def main():
     parser.add_argument("--reset", action="store_true", help="Start fresh and overwrite existing database")
     parser.add_argument("--enable-llm", action="store_true", help="Enable experimental external LLM API calls (default: False, LLM is disconnected)")
     parser.add_argument("--skip-pitch", action="store_true", help="Skip outreach pitch drafting")
+    parser.add_argument("--my-number", type=str, default="", help="Your phone number for outreach signoff (e.g. '+919876543210')")
+    parser.add_argument("--force-pitch", action="store_true", help="Force regenerate hardcoded pitches for existing leads even if pitch is already cached")
     args = parser.parse_args()
 
     global ENABLE_LLM
@@ -2019,15 +2262,22 @@ def main():
 
     # Phase 3: Outreach Pitch Generation
     if not args.skip_pitch:
-        # Find leads that don't have pitches yet
-        unpitched_leads = [l for l in master_leads if not l.get("whatsapp_pitch")]
-        top_unpitched = unpitched_leads[:args.pitch_top]
+        sender_phone = args.my_number or MY_PHONE_NUMBER or ""
+        if args.force_pitch:
+            prospects_to_pitch = master_leads[:args.pitch_top]
+        else:
+            unpitched_leads = [l for l in master_leads if not l.get("whatsapp_pitch")]
+            prospects_to_pitch = unpitched_leads[:args.pitch_top]
 
-        if top_unpitched:
-            mode_desc = "Multi-LLM Rotating Pool" if ENABLE_LLM else "Fast Template Engine (LLM Disconnected)"
-            print(f"\n[*] Generating outreach pitches for {len(top_unpitched)} new prospects [{mode_desc}]...")
+        if prospects_to_pitch:
+            mode_desc = "Multi-LLM Rotating Pool" if ENABLE_LLM else "Dedicated Hardcoded Pitch Engine (LLM Disconnected)"
+            print(f"\n[*] Generating outreach pitches for {len(prospects_to_pitch)} prospects [{mode_desc}]...")
+
+            def _pitch_worker(item):
+                return pitch(item, sender_phone=sender_phone, force=args.force_pitch)
+
             with ThreadPoolExecutor(max_workers=args.workers_pitch) as executor:
-                pitched_results = list(executor.map(pitch, top_unpitched))
+                pitched_results = list(executor.map(_pitch_worker, prospects_to_pitch))
                 for pl in pitched_results:
                     lead_db.upsert(pl)
 

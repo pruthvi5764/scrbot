@@ -73,3 +73,45 @@ For every 6 hours:
 schedule:
   - cron: "0 */6 * * *"
 ```
+
+---
+
+## 🚀 Automated Outreach Delivery (WhatsApp & Email)
+
+The pipeline generates **dedicated, hardcoded, high-converting pitches** (no external AI required) that automatically slot in the clean company name and match the business profile:
+- **CCTV Installers**: High-margin commercial lead capture + 48h website & AMC panel.
+- **IT & Hardware Hubs**: B2B quote catalog for computers & CCTV without directory commissions.
+- **Brand Showrooms & Wholesalers**: Digital dealer product catalog with direct WhatsApp quote buttons.
+- **Biometric & Access Control**: Corporate lead forms for attendance & security systems.
+- **Spy & Surveillance**: Dedicated gadget & covert camera quote landing page.
+
+### 1. Delivery via Interactive Dashboard (`leads_dashboard.html`)
+- **1-Click WhatsApp**: Click `💬 WhatsApp` on any row to open WhatsApp Web/App pre-filled with the tailored message.
+- **1-Click Email**: Click `✉️ Mail` to launch your default mail client with pre-filled subject and body.
+- **Auto-Dispatch Queue**: Click **⚡ Auto-Dispatch Queue** in the top header to queue and send messages consecutively with an automatic delay.
+
+### 2. Delivery via Command Line (`dispatch_outreach.py`)
+Run the automated delivery script directly from your terminal:
+
+```bash
+# Preview outreach without sending (Dry Run)
+python dispatch_outreach.py --channel whatsapp --limit 10 --dry-run
+
+# Sequentially open WhatsApp tabs for top 25 prospects
+python dispatch_outreach.py --channel whatsapp --limit 25 --delay 5
+
+# Send cold emails via SMTP (requires SMTP_USER & SMTP_PASSWORD in .env)
+python dispatch_outreach.py --channel email --limit 20
+```
+
+### 3. Configuring Your Number
+In your `.env` file, add:
+```ini
+MY_PHONE_NUMBER=+91XXXXXXXXXX
+SENDER_NAME="Atrya Solutions"
+```
+Or pass it directly:
+```bash
+python cctv_leadgen.py --target 50 --pitch-top 25 --my-number "+919876543210" --force-pitch
+```
+
