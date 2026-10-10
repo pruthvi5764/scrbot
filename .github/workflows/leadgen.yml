@@ -20,10 +20,10 @@ on:
         description: "Append to existing leads (resume)"
         type: boolean
         default: true
-      enable_llm:
-        description: "Enable experimental external LLM calls (default: false, LLM disconnected)"
+      dispatch_outreach:
+        description: "Auto-dispatch outreach (WhatsApp & Email)"
         type: boolean
-        default: false
+        default: true
 
   # Automatic daily schedule at 9:30 AM IST (4:00 AM UTC)
   schedule:
@@ -54,21 +54,16 @@ jobs:
         run: |
           python -m unittest test_cctv_leadgen.py
 
-      - name: Run Lead Discovery, Audit & Pitch Engine
+      - name: Run Lead Discovery, Audit & Pitch Engine (Non-AI Fast Pipeline)
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-          GEMINI_KEYS: ${{ secrets.GEMINI_KEYS }}
-          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL || 'gemini-2.5-flash' }}
-          GROQ_KEYS: ${{ secrets.GROQ_KEYS }}
-          GROQ_MODEL: ${{ secrets.GROQ_MODEL || 'openai/gpt-oss-120b' }}
-          OPENAI_KEYS: ${{ secrets.OPENAI_KEYS }}
-          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || 'gpt-4o-mini' }}
+          MY_PHONE_NUMBER: ${{ secrets.MY_PHONE_NUMBER || '+919353489736' }}
+          SENDER_NAME: ${{ secrets.SENDER_NAME || 'Atrya Solutions' }}
         run: |
           TARGET="${{ github.event.inputs.target || '50' }}"
           PITCH_TOP="${{ github.event.inputs.pitch_top || '25' }}"
           CITIES="${{ github.event.inputs.cities || '' }}"
           RESUME="${{ github.event.inputs.resume || 'true' }}"
-          ENABLE_LLM="${{ github.event.inputs.enable_llm || 'false' }}"
 
           ARGS=("--target" "$TARGET" "--pitch-top" "$PITCH_TOP")
 
@@ -80,12 +75,29 @@ jobs:
             ARGS+=("--resume")
           fi
 
-          if [ "$ENABLE_LLM" = "true" ]; then
-            ARGS+=("--enable-llm")
-          fi
-
           echo "[*] Executing: python cctv_leadgen.py ${ARGS[*]}"
           python cctv_leadgen.py "${ARGS[@]}"
+
+      - name: Automated Outreach Dispatch (WhatsApp & Email)
+        if: ${{ github.event.inputs.dispatch_outreach != 'false' }}
+        env:
+          MY_PHONE_NUMBER: ${{ secrets.MY_PHONE_NUMBER || '+919353489736' }}
+          SENDER_NAME: ${{ secrets.SENDER_NAME || 'Atrya Solutions' }}
+          WHATSAPP_GATEWAY_URL: ${{ secrets.WHATSAPP_GATEWAY_URL }}
+          GREEN_API_INSTANCE_ID: ${{ secrets.GREEN_API_INSTANCE_ID }}
+          GREEN_API_TOKEN: ${{ secrets.GREEN_API_TOKEN }}
+          ULTRAMSG_INSTANCE_ID: ${{ secrets.ULTRAMSG_INSTANCE_ID }}
+          ULTRAMSG_TOKEN: ${{ secrets.ULTRAMSG_TOKEN }}
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_WHATSAPP_FROM: ${{ secrets.TWILIO_WHATSAPP_FROM }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        run: |
+          echo "[*] Executing Automated Outreach Dispatcher..."
+          python dispatch_outreach.py --channel both --limit 25 || true
 
       - name: Upload Output Spreadsheets as Artifacts
         uses: actions/upload-artifact@v4

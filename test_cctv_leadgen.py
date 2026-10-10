@@ -238,7 +238,7 @@ class TestCCTVLeadGen(unittest.TestCase):
         }
         res = get_rule_based_fallback(lead, sender_phone="+919988776655")
         self.assertIn("MY CHOICE IT HUB", res["whatsapp"])
-        self.assertIn("+919988776655", res["whatsapp"])
+        self.assertIn("Atrya Solutions", res["whatsapp"])
         self.assertIn("+919988776655", res["email_body"])
 
 

@@ -520,7 +520,8 @@ def extract_clean_domain(url):
 def make_whatsapp_chat_url(whatsapp_number, pitch_text):
     if not whatsapp_number:
         return ""
-    encoded_text = urllib.parse.quote(pitch_text or "Hello, I wanted to reach out regarding your CCTV business.")
+    clean_text = (pitch_text or "Hello, I wanted to reach out regarding your CCTV business.").replace(" \\n ", "\n").replace("\\n", "\n").strip()
+    encoded_text = urllib.parse.quote(clean_text)
     return f"https://wa.me/{whatsapp_number}?text={encoded_text}"
 
 
@@ -1100,14 +1101,13 @@ def get_rule_based_fallback(lead, sender_phone=None):
     domain = lead.get("domain") or extract_clean_domain(lead.get("website", "")) or "your website"
     issues = lead.get("issues", "website optimization")
 
-    # Formulate sender signoff with user's phone number
+    # Formulate sender signoff
     phone_signoff = sender_phone or MY_PHONE_NUMBER or ""
+    wa_signoff = SENDER_NAME or "Atrya Solutions"
     if phone_signoff:
-        wa_signoff = f"Reach me on WhatsApp: {phone_signoff}"
-        mail_signoff = f"{SENDER_NAME} (WhatsApp/Call: {phone_signoff})"
+        mail_signoff = f"{wa_signoff} (WhatsApp/Call: {phone_signoff})"
     else:
-        wa_signoff = f"{SENDER_NAME}"
-        mail_signoff = f"{SENDER_NAME} Team"
+        mail_signoff = f"{wa_signoff} Team"
 
     # 1. NO WEBSITE SCENARIOS (Losing direct Google searches to Justdial/competitors)
     if segment == "no_website" or not lead.get("website"):
@@ -1584,6 +1584,10 @@ def load_existing_database(csv_filename="leads.csv", json_filename="company_deta
                     if not is_indian_entity(addr, phone, lat, lon):
                         continue
                     row_dict = dict(row)
+                    if row_dict.get("whatsapp_pitch"):
+                        row_dict["whatsapp_pitch"] = row_dict["whatsapp_pitch"].replace(" \\n ", "\n").replace("\\n", "\n").strip()
+                    if row_dict.get("email_body"):
+                        row_dict["email_body"] = row_dict["email_body"].replace(" \\n ", "\n").replace("\\n", "\n").strip()
                     row_dict["city"] = normalize_lead_city(row_dict.get("city", ""), addr)
                     row_dict["place_id"] = resolve_clean_place_id(
                         row_dict.get("place_id"),
@@ -2073,14 +2077,13 @@ def export_company_data(leads, csv_filename="leads.csv", json_filename="company_
     3. Interactive HTML Dashboard (searchable table with 1-click WhatsApp buttons)
     4. Deep JSON Dossier (structured metadata)
     """
-    # 1. Clean leads so each CSV record is strictly 1 single horizontal line
+    # 1. Prepare leads for standard CSV export with clean unescaped text
     clean_csv_leads = []
     for l in leads:
         row_copy = {}
         for col in COLS:
             val = str(l.get(col, "") or "")
-            # Sanitize newlines so CSV text viewers show 1 clean row per lead
-            val_clean = val.replace("\r\n", " \\n ").replace("\n", " \\n ").replace("\r", " ").strip()
+            val_clean = val.replace(" \\n ", "\n").replace("\\n", "\n").strip()
             row_copy[col] = val_clean
         clean_csv_leads.append(row_copy)
 
