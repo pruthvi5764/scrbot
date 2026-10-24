@@ -13511,6 +13511,65 @@
     "scraped_at": "2026-10-23 09:03:59"
   },
   {
+    "place_id": "ChIJ0RfLL-HP5zsRnvCbf8yCJXY",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJ0RfLL-HP5zsRnvCbf8yCJXY",
+      "name": "BK ELECTRONICS",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "Flat no. 302, Palai House, Shankar matham road, Central, Matunga East, Mumbai, Maharashtra 400019, India",
+      "pincode": "400019",
+      "city": "Mumbai",
+      "search_zone": "Mumbai",
+      "coordinates": {
+        "latitude": "19.0281038",
+        "longitude": "72.85452719999999"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=8513354485439656094&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "5",
+      "reviews": "44",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "098201 86379",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919820186379",
+      "whatsapp_click_to_chat": "https://wa.me/919820186379?text=Hi%20BK%20ELECTRONICS%2C%0ANoticed%20your%20security%20systems%20store%20in%20Mumbai%20has%20strong%20footfall%2C%20but%20no%20dedicated%20web%20portal%20for%20wholesale%20and%20installer%20inquiries%21%0A%0AWe%20set%20up%20branded%20digital%20product%20catalogs%20with%20direct%20WhatsApp%20quote%20buttons%3A%0A%F0%9F%91%89%20Customer%20Website%3A%20https%3A//atryasolutions.netlify.app/%0A%F0%9F%91%89%20Warranty%20%26%20Technician%20Dispatch%20Admin%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AWorth%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [],
+      "emails": [],
+      "website": "",
+      "domain": "",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "High",
+      "need_score": 100,
+      "site_status": "no_website",
+      "segment": "no_website",
+      "audit_issues": "No official website (relies only on directories or social media)",
+      "ssl_status": "none",
+      "mobile_friendly": "No",
+      "page_speed_sec": "0.0",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "No",
+      "cms_platform": "None",
+      "copyright_year": ""
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi BK ELECTRONICS,\nNoticed your security systems store in Mumbai has strong footfall, but no dedicated web portal for wholesale and installer inquiries!\n\nWe set up branded digital product catalogs with direct WhatsApp quote buttons:\n👉 Customer Website: https://atryasolutions.netlify.app/\n👉 Warranty & Technician Dispatch Admin: https://atryasolutions.netlify.app/admin\n\nWorth a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Online Dealer Catalog & Dispatch Panel for BK ELECTRONICS",
+      "email_body": "Hi BK ELECTRONICS Management,\n\nI came across your security systems store in Mumbai. While you have great local reputation, potential buyers searching Google for CCTV wholesale pricing and package installation cannot find an official portal.\n\nWe build complete digital setups for security dealers:\n👉 Interactive Website with 1-click WhatsApp Quotes: https://atryasolutions.netlify.app/\n👉 Warranty & Technician Dispatch Admin: https://atryasolutions.netlify.app/admin\n\nCould we connect for a brief 10-minute walkthrough this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-10-24 08:36:45"
+  },
+  {
     "place_id": "ChIJEeVJTmUVrjsRGy_6nJzHAp8",
     "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
@@ -14335,6 +14394,65 @@
       "email_body": "Hi Royal security systems Team,\n\nI was looking up security providers in Mumbai and tried visiting your website (royalsecuritysystems.com).\n\nI noticed visitors are running into an issue: not served over HTTPS (insecure connection); HTTP error 403; not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget. When customers see an error or security warning, they immediately go to a competitor.\n\nAt Atrya Solutions, we build high-converting websites for CCTV & security dealers:\n👉 Live Demo: https://atryasolutions.netlify.app/\n👉 Ops & AMC Panel: https://atryasolutions.netlify.app/admin\n\nWe'd love to offer a free revamp to get your digital presence fixed and capturing leads. Open for a brief 10-minute call this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-20 09:06:26"
+  },
+  {
+    "place_id": "ChIJRfC66egXrjsR90IJjVSpQeY",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJRfC66egXrjsR90IJjVSpQeY",
+      "name": "PlanetWork Technologies",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "Shivakrupa, 406, 9th Main Rd, HRBR Layout 1st Block, Balaji Layout, HRBR Layout, Kalyan Nagar, Bengaluru, Karnataka 560043, India",
+      "pincode": "560043",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru",
+      "coordinates": {
+        "latitude": "13.0201052",
+        "longitude": "77.64750459999999"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=16591728682818159351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "4.9",
+      "reviews": "31",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "091104 28165",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919110428165",
+      "whatsapp_click_to_chat": "https://wa.me/919110428165?text=Hi%20PlanetWork%20Technologies%2C%0AChecked%20your%20website%20%28bit.ly%29%20in%20Bengaluru%20and%20noticed%20it%27s%20currently%20showing%20an%20issue%20%28HTTP%20error%20403%3B%20not%20mobile-friendly%20%28missing%20viewport%20tag%29%3B%20no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%29%2C%20causing%20potential%20customers%20to%20bounce%21%0A%0AWe%20build%20fast%2C%20secure%20mobile%20sites%20with%20instant%20WhatsApp%20quote%20buttons%3A%20https%3A//atryasolutions.netlify.app/%0AWe%27re%20offering%20a%20free%20revamp%20to%20get%20your%20site%20back%20to%20converting%20leads.%0A%0AOpen%20for%20a%20quick%2010-min%20chat%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [],
+      "emails": [],
+      "website": "https://bit.ly/3sf9UCn",
+      "domain": "bit.ly",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "High",
+      "need_score": 99,
+      "site_status": "needs_urgent_revamp",
+      "segment": "broken_or_insecure",
+      "audit_issues": "HTTP error 403; not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget",
+      "ssl_status": "valid_https",
+      "mobile_friendly": "No",
+      "page_speed_sec": "1.56",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "No",
+      "cms_platform": "Custom / HTML",
+      "copyright_year": ""
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi PlanetWork Technologies,\nChecked your website (bit.ly) in Bengaluru and noticed it's currently showing an issue (HTTP error 403; not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget), causing potential customers to bounce!\n\nWe build fast, secure mobile sites with instant WhatsApp quote buttons: https://atryasolutions.netlify.app/\nWe're offering a free revamp to get your site back to converting leads.\n\nOpen for a quick 10-min chat? - Atrya Solutions",
+      "email_subject": "Fixing PlanetWork Technologies website (HTTP error 403; not mobile-friendly (mis) + Free Revamp",
+      "email_body": "Hi PlanetWork Technologies Team,\n\nI was looking up security providers in Bengaluru and tried visiting your website (bit.ly).\n\nI noticed visitors are running into an issue: HTTP error 403; not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget. When customers see an error or security warning, they immediately go to a competitor.\n\nAt Atrya Solutions, we build high-converting websites for CCTV & security dealers:\n👉 Live Demo: https://atryasolutions.netlify.app/\n👉 Ops & AMC Panel: https://atryasolutions.netlify.app/admin\n\nWe'd love to offer a free revamp to get your digital presence fixed and capturing leads. Open for a brief 10-minute call this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-10-24 08:36:45"
   },
   {
     "place_id": "cid_13760439922089000441",
@@ -18410,6 +18528,65 @@
     "scraped_at": "2026-10-21 09:06:31"
   },
   {
+    "place_id": "ChIJVVVVVURmUjoRJsblLQrQnro",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJVVVVVURmUjoRJsblLQrQnro",
+      "name": "Prama Hikvision India Private Ltd.",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "No : 13, Easr, 9, Bishop Wallers Ave W, CIT Colony, Mylapore, Chennai, Tamil Nadu 600004, India",
+      "pincode": "600004",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru Jayanagar",
+      "coordinates": {
+        "latitude": "13.0436344",
+        "longitude": "80.26139529999999"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=13447414279513163302&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "3.7",
+      "reviews": "141",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "070104 75320",
+      "phone_type": "Mobile",
+      "whatsapp_number": "917010475320",
+      "whatsapp_click_to_chat": "https://wa.me/917010475320?text=Hi%20Prama%20Hikvision%20India%20Private%20Ltd%2C%0AChecked%20your%20website%20%28hikvision.com%29%20in%20Bengaluru%20and%20noticed%20it%27s%20currently%20showing%20an%20issue%20%28not%20served%20over%20HTTPS%20%28insecure%20connection%29%3B%20not%20mobile-friendly%20%28missing%20viewport%20tag%29%3B%20no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%29%2C%20causing%20potential%20customers%20to%20bounce%21%0A%0AWe%20build%20fast%2C%20secure%20mobile%20sites%20with%20instant%20WhatsApp%20quote%20buttons%3A%20https%3A//atryasolutions.netlify.app/%0AWe%27re%20offering%20a%20free%20revamp%20to%20get%20your%20site%20back%20to%20converting%20leads.%0A%0AOpen%20for%20a%20quick%2010-min%20chat%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [],
+      "emails": [],
+      "website": "http://www.hikvision.com/",
+      "domain": "hikvision.com",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "High",
+      "need_score": 75,
+      "site_status": "needs_urgent_revamp",
+      "segment": "broken_or_insecure",
+      "audit_issues": "not served over HTTPS (insecure connection); not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget",
+      "ssl_status": "insecure_http",
+      "mobile_friendly": "No",
+      "page_speed_sec": "0.36",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "No",
+      "cms_platform": "Custom / HTML",
+      "copyright_year": ""
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Prama Hikvision India Private Ltd,\nChecked your website (hikvision.com) in Bengaluru and noticed it's currently showing an issue (not served over HTTPS (insecure connection); not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget), causing potential customers to bounce!\n\nWe build fast, secure mobile sites with instant WhatsApp quote buttons: https://atryasolutions.netlify.app/\nWe're offering a free revamp to get your site back to converting leads.\n\nOpen for a quick 10-min chat? - Atrya Solutions",
+      "email_subject": "Fixing Prama Hikvision India Private Ltd website (not served over HTTPS (insecure connecti) + Free Revamp",
+      "email_body": "Hi Prama Hikvision India Private Ltd Team,\n\nI was looking up security providers in Bengaluru and tried visiting your website (hikvision.com).\n\nI noticed visitors are running into an issue: not served over HTTPS (insecure connection); not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget. When customers see an error or security warning, they immediately go to a competitor.\n\nAt Atrya Solutions, we build high-converting websites for CCTV & security dealers:\n👉 Live Demo: https://atryasolutions.netlify.app/\n👉 Ops & AMC Panel: https://atryasolutions.netlify.app/admin\n\nWe'd love to offer a free revamp to get your digital presence fixed and capturing leads. Open for a brief 10-minute call this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-10-24 08:36:45"
+  },
+  {
     "place_id": "ChIJAwA0OyUVrjsR4utIggYs0WQ",
     "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
@@ -20948,7 +21125,7 @@
   },
   {
     "place_id": "ChIJBYFm4qI9rjsRBosvpQm2Evs",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJBYFm4qI9rjsRBosvpQm2Evs",
       "name": "CMS TECHNOLOGIES - Wholesalers for Firewalls, all Networks devices, Mac laptops, CCTV, softwares",
@@ -20970,7 +21147,7 @@
       "primary_phone": "088676 72565",
       "phone_type": "Mobile",
       "whatsapp_number": "918867672565",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/918867672565?text=Hi%20CMS%20TECHNOLOGIES%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28not%20served%20over%20HTTPS%20%28insecure%20connection%29%3B%20no%20online%20enquiry%20or%20quote%20form%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+918867672565",
         "8867672565"
@@ -21004,16 +21181,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi CMS TECHNOLOGIES,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (not served over HTTPS (insecure connection); no online enquiry or quote form).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for CMS TECHNOLOGIES",
+      "email_body": "Hi CMS TECHNOLOGIES Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (not served over HTTPS (insecure connection); no online enquiry or quote form).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-22 09:08:02"
   },
   {
     "place_id": "ChIJj8ILCDcRrjsRBDsU8Yp8cX4",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJj8ILCDcRrjsRBDsU8Yp8cX4",
       "name": "Lurid Technologies Private Limited",
@@ -21035,7 +21212,7 @@
       "primary_phone": "099023 88188",
       "phone_type": "Mobile",
       "whatsapp_number": "919902388188",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919902388188?text=Hi%20Lurid%20Technologies%20Private%20Limited%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%3B%20outdated%20footer%20copyright%20%282017%29%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "9902388188"
       ],
@@ -21067,16 +21244,16 @@
       "copyright_year": "2017"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Lurid Technologies Private Limited,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; no direct WhatsApp contact widget; outdated footer copyright (2017)).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Lurid Technologies Private Limited",
+      "email_body": "Hi Lurid Technologies Private Limited Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; no direct WhatsApp contact widget; outdated footer copyright (2017)).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-22 09:08:02"
   },
   {
     "place_id": "ChIJRcJD8U0UrjsRW2khuvuxKbo",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJRcJD8U0UrjsRW2khuvuxKbo",
       "name": "Globe Detective Agency, Investigation & Security",
@@ -21098,7 +21275,7 @@
       "primary_phone": "080 2571 7906",
       "phone_type": "Landline",
       "whatsapp_number": "",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "",
       "alternate_phones": [
         "6666666667"
       ],
@@ -21130,10 +21307,10 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Globe Detective Agency, Investigation & Security,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (not served over HTTPS (insecure connection); no direct WhatsApp contact widget).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Globe Detective Agency, Investigation & Security",
+      "email_body": "Hi Globe Detective Agency, Investigation & Security Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (not served over HTTPS (insecure connection); no direct WhatsApp contact widget).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-16 08:43:05"
   },
@@ -21204,7 +21381,7 @@
   },
   {
     "place_id": "ChIJ-yxfPQoWrjsR91kpWeChmr4",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJ-yxfPQoWrjsR91kpWeChmr4",
       "name": "CLUMAXX TECH SOLUTIONS",
@@ -21226,7 +21403,7 @@
       "primary_phone": "096116 78422",
       "phone_type": "Mobile",
       "whatsapp_number": "919611678422",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919611678422?text=Hi%20CLUMAXX%20TECH%20SOLUTIONS%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20outdated%20footer%20copyright%20%282023%29%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91 9611678422",
         "6250000004",
@@ -21260,16 +21437,16 @@
       "copyright_year": "2023"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi CLUMAXX TECH SOLUTIONS,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; outdated footer copyright (2023)).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for CLUMAXX TECH SOLUTIONS",
+      "email_body": "Hi CLUMAXX TECH SOLUTIONS Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; outdated footer copyright (2023)).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-12 11:36:52"
   },
   {
     "place_id": "ChIJ2WgdxS4VrjsRpqbk97BzS7M",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJ2WgdxS4VrjsRpqbk97BzS7M",
       "name": "Adishwar Electronics - Best Electronics Dealers in Bangalore",
@@ -21291,7 +21468,7 @@
       "primary_phone": "076765 56644",
       "phone_type": "Mobile",
       "whatsapp_number": "917676556644",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/917676556644?text=Hi%20Adishwar%20Electronics%20-%20Best%20Electronics%20Dealers%20in%20Bangalore%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28slow%20load%20time%20%285.2s%29%3B%20no%20online%20enquiry%20or%20quote%20form%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "7676556644"
       ],
@@ -21321,16 +21498,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Adishwar Electronics - Best Electronics Dealers in Bangalore,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (slow load time (5.2s); no online enquiry or quote form).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Adishwar Electronics - Best Electronics Dealers in Bangalore",
+      "email_body": "Hi Adishwar Electronics - Best Electronics Dealers in Bangalore Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (slow load time (5.2s); no online enquiry or quote form).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-12 11:36:51"
   },
   {
     "place_id": "ChIJuQMzRug_rjsRBeUCqG9u6JA",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJuQMzRug_rjsRBeUCqG9u6JA",
       "name": "InspireOn Inc",
@@ -21352,7 +21529,7 @@
       "primary_phone": "099455 96679",
       "phone_type": "Mobile",
       "whatsapp_number": "919945596679",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919945596679?text=Hi%20InspireOn%20Inc%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28slow%20load%20time%20%287.3s%29%3B%20no%20online%20enquiry%20or%20quote%20form%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91 9886656679",
         "+91 9945596679",
@@ -21386,16 +21563,16 @@
       "copyright_year": "2024"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi InspireOn Inc,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (slow load time (7.3s); no online enquiry or quote form).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for InspireOn Inc",
+      "email_body": "Hi InspireOn Inc Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (slow load time (7.3s); no online enquiry or quote form).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-12 11:36:52"
   },
   {
     "place_id": "ChIJZ1BejLE_rjsRRPVOGWxRJEA",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJZ1BejLE_rjsRRPVOGWxRJEA",
       "name": "Sun Security Services",
@@ -21417,7 +21594,7 @@
       "primary_phone": "070266 24232",
       "phone_type": "Mobile",
       "whatsapp_number": "917026624232",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/917026624232?text=Hi%20Sun%20Security%20Services%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20outdated%20footer%20copyright%20%282015%29%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+917026624232",
         "7026624232",
@@ -21451,16 +21628,16 @@
       "copyright_year": "2015"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Sun Security Services,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; outdated footer copyright (2015)).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Sun Security Services",
+      "email_body": "Hi Sun Security Services Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; outdated footer copyright (2015)).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-15 08:47:43"
   },
   {
     "place_id": "ChIJW9JAyrQVrjsR9uJ0qcLV4OM",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJW9JAyrQVrjsR9uJ0qcLV4OM",
       "name": "SRS Guarding And Facility Management Pvt. Ltd.",
@@ -21482,7 +21659,7 @@
       "primary_phone": "095131 99924",
       "phone_type": "Mobile",
       "whatsapp_number": "919513199924",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919513199924?text=Hi%20SRS%20Guarding%20And%20Facility%20Management%20Pvt.%20Ltd%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28slow%20load%20time%20%286.0s%29%3B%20outdated%20footer%20copyright%20%282020%29%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91 9513308368",
         "+919591999877",
@@ -21516,16 +21693,16 @@
       "copyright_year": "2020"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi SRS Guarding And Facility Management Pvt. Ltd,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (slow load time (6.0s); outdated footer copyright (2020)).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for SRS Guarding And Facility Management Pvt. Ltd",
+      "email_body": "Hi SRS Guarding And Facility Management Pvt. Ltd Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (slow load time (6.0s); outdated footer copyright (2020)).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-16 08:43:05"
   },
   {
     "place_id": "ChIJb3Mw3QZzrjsRMR-ytjCebCc",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJb3Mw3QZzrjsRMR-ytjCebCc",
       "name": "AutoSec Systems",
@@ -21547,7 +21724,7 @@
       "primary_phone": "070101 00524",
       "phone_type": "Mobile",
       "whatsapp_number": "917010100524",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/917010100524?text=Hi%20AutoSec%20Systems%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20outdated%20footer%20copyright%20%282016%29%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+917010100524",
         "+919884580511",
@@ -21581,16 +21758,16 @@
       "copyright_year": "2016"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi AutoSec Systems,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; outdated footer copyright (2016)).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for AutoSec Systems",
+      "email_body": "Hi AutoSec Systems Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; outdated footer copyright (2016)).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-17 08:14:12"
   },
   {
     "place_id": "ChIJgXmT9k0WrjsRXkTU19k_fz4",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJgXmT9k0WrjsRXkTU19k_fz4",
       "name": "Express Solutionz",
@@ -21612,7 +21789,7 @@
       "primary_phone": "097384 50396",
       "phone_type": "Mobile",
       "whatsapp_number": "919738450396",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919738450396?text=Hi%20Express%20Solutionz%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20outdated%20footer%20copyright%20%282023%29%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+919738450396",
         "+919738452043",
@@ -21647,16 +21824,16 @@
       "copyright_year": "2023"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Express Solutionz,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; outdated footer copyright (2023)).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Express Solutionz",
+      "email_body": "Hi Express Solutionz Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; outdated footer copyright (2023)).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-19 09:33:19"
   },
   {
     "place_id": "ChIJe0a8b-AVrjsRNG-BUPZAzQk",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJe0a8b-AVrjsRNG-BUPZAzQk",
       "name": "Acme Computers",
@@ -21678,7 +21855,7 @@
       "primary_phone": "080 2221 7533",
       "phone_type": "Landline",
       "whatsapp_number": "",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "",
       "alternate_phones": [
         "8042032722",
         "8175552644",
@@ -21712,10 +21889,10 @@
       "copyright_year": "2022"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Acme Computers,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; outdated footer copyright (2022)).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Acme Computers",
+      "email_body": "Hi Acme Computers Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; outdated footer copyright (2022)).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-21 09:06:31"
   },
@@ -22147,7 +22324,7 @@
   },
   {
     "place_id": "ChIJpafjFkgXrjsRErbs_kokRb8",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJpafjFkgXrjsRErbs_kokRb8",
       "name": "VD CCTV camera & Security System",
@@ -22169,7 +22346,7 @@
       "primary_phone": "073536 82037",
       "phone_type": "Mobile",
       "whatsapp_number": "917353682037",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/917353682037?text=Hi%20VD%20CCTV%20camera%20%26%20Security%20System%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [],
       "emails": [
         "vdsolution@gmail.com"
@@ -22199,16 +22376,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi VD CCTV camera & Security System,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for VD CCTV camera & Security System",
+      "email_body": "Hi VD CCTV camera & Security System Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-11 10:31:43"
   },
   {
     "place_id": "ChIJu8MnzaY_rjsRwd6uJlNS1bU",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJu8MnzaY_rjsRwd6uJlNS1bU",
       "name": "JS CCTV SOLUTION",
@@ -22230,7 +22407,7 @@
       "primary_phone": "086604 19798",
       "phone_type": "Mobile",
       "whatsapp_number": "918660419798",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/918660419798?text=Hi%20JS%20CCTV%20SOLUTION%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [],
       "emails": [],
       "website": "https://jscctvsolution.com/",
@@ -22258,16 +22435,16 @@
       "copyright_year": ""
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi JS CCTV SOLUTION,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for JS CCTV SOLUTION",
+      "email_body": "Hi JS CCTV SOLUTION Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-11 10:31:43"
   },
   {
     "place_id": "ChIJV91c-o8XrjsRvF_w84NzJx4",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJV91c-o8XrjsRvF_w84NzJx4",
       "name": "KBN CCTV & security system",
@@ -22289,7 +22466,7 @@
       "primary_phone": "074837 02101",
       "phone_type": "Mobile",
       "whatsapp_number": "917483702101",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/917483702101?text=Hi%20KBN%20CCTV%20%26%20security%20system%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "6390977444",
         "6936656282",
@@ -22323,16 +22500,16 @@
       "copyright_year": ""
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi KBN CCTV & security system,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for KBN CCTV & security system",
+      "email_body": "Hi KBN CCTV & security system Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-11 10:31:43"
   },
   {
     "place_id": "ChIJZWgdk20-rjsR4nOzNQxlAeo",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJZWgdk20-rjsR4nOzNQxlAeo",
       "name": "Tektronics Solutions Bangalore",
@@ -22354,7 +22531,7 @@
       "primary_phone": "097313 39635",
       "phone_type": "Mobile",
       "whatsapp_number": "919731339635",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919731339635?text=Hi%20Tektronics%20Solutions%20Bangalore%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20direct%20WhatsApp%20contact%20widget%3B%20outdated%20footer%20copyright%20%282023%29%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91 8310213221",
         "+91 9731339635",
@@ -22388,16 +22565,16 @@
       "copyright_year": "2023"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Tektronics Solutions Bangalore,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no direct WhatsApp contact widget; outdated footer copyright (2023)).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Tektronics Solutions Bangalore",
+      "email_body": "Hi Tektronics Solutions Bangalore Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no direct WhatsApp contact widget; outdated footer copyright (2023)).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-11 10:31:45"
   },
   {
     "place_id": "ChIJax2ilMYVrjsRcbFSKnKtqcQ",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJax2ilMYVrjsRcbFSKnKtqcQ",
       "name": "V Care Infotech CCTV",
@@ -22419,7 +22596,7 @@
       "primary_phone": "088674 78362",
       "phone_type": "Mobile",
       "whatsapp_number": "918867478362",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/918867478362?text=Hi%20V%20Care%20Infotech%20CCTV%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+918867478362",
         "6047265154",
@@ -22453,16 +22630,16 @@
       "copyright_year": ""
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi V Care Infotech CCTV,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for V Care Infotech CCTV",
+      "email_body": "Hi V Care Infotech CCTV Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-12 11:36:51"
   },
   {
     "place_id": "ChIJnf_zP3lzrjsRUhBLAi9574Q",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJnf_zP3lzrjsRUhBLAi9574Q",
       "name": "Securspy Pvt Ltd | Best and Top Quality | CCTV | VDP | Wi-Fi MESH | Biomatric | Solar Products | Installer | Bengaluru",
@@ -22484,7 +22661,7 @@
       "primary_phone": "096323 94942",
       "phone_type": "Mobile",
       "whatsapp_number": "919632394942",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919632394942?text=Hi%20Securspy%20Pvt%20Ltd%20%7C%20Best%20and%20Top%20Quality%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [],
       "emails": [
         "info@securspy.com"
@@ -22514,16 +22691,16 @@
       "copyright_year": ""
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Securspy Pvt Ltd | Best and Top Quality,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Securspy Pvt Ltd | Best and Top Quality",
+      "email_body": "Hi Securspy Pvt Ltd | Best and Top Quality Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-12 11:36:51"
   },
   {
     "place_id": "ChIJgzKKfL4_rjsRO5rZzjdxxc8",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJgzKKfL4_rjsRO5rZzjdxxc8",
       "name": "Achinthya info",
@@ -22545,7 +22722,7 @@
       "primary_phone": "097319 92123",
       "phone_type": "Mobile",
       "whatsapp_number": "919731992123",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919731992123?text=Hi%20Achinthya%20info%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28not%20served%20over%20HTTPS%20%28insecure%20connection%29%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+918550827923"
       ],
@@ -22577,16 +22754,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Achinthya info,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (not served over HTTPS (insecure connection)).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Achinthya info",
+      "email_body": "Hi Achinthya info Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (not served over HTTPS (insecure connection)).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-12 11:36:51"
   },
   {
     "place_id": "ChIJK3zJqvMVrjsR44oCKkv3JA0",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJK3zJqvMVrjsR44oCKkv3JA0",
       "name": "Dahua Service Centre",
@@ -22608,7 +22785,7 @@
       "primary_phone": "098104 07319",
       "phone_type": "Mobile",
       "whatsapp_number": "919810407319",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919810407319?text=Hi%20Dahua%20Service%20Centre%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20direct%20WhatsApp%20contact%20widget%3B%20outdated%20footer%20copyright%20%282010%29%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "8800012758"
       ],
@@ -22640,16 +22817,16 @@
       "copyright_year": "2010"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Dahua Service Centre,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no direct WhatsApp contact widget; outdated footer copyright (2010)).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Dahua Service Centre",
+      "email_body": "Hi Dahua Service Centre Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no direct WhatsApp contact widget; outdated footer copyright (2010)).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-12 11:36:53"
   },
   {
     "place_id": "ChIJeV81mZgVrjsRco-fZqoXZ2U",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJeV81mZgVrjsRco-fZqoXZ2U",
       "name": "Eoxys Smart Solutions Private Limited",
@@ -22671,7 +22848,7 @@
       "primary_phone": "089719 00040",
       "phone_type": "Mobile",
       "whatsapp_number": "918971900040",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/918971900040?text=Hi%20Eoxys%20Smart%20Solutions%20Private%20Limited%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [],
       "emails": [],
       "website": "http://www.esec.co.in/",
@@ -22699,16 +22876,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Eoxys Smart Solutions Private Limited,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Eoxys Smart Solutions Private Limited",
+      "email_body": "Hi Eoxys Smart Solutions Private Limited Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:52"
   },
   {
     "place_id": "ChIJrx7-GUltrjsR_OlQYO23_ck",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJrx7-GUltrjsR_OlQYO23_ck",
       "name": "Star Vision Solutions Biometric & CCTV Installation (On-site Service Available) - ಸಿಸಿಟಿವಿ",
@@ -22730,7 +22907,7 @@
       "primary_phone": "096867 26855",
       "phone_type": "Mobile",
       "whatsapp_number": "919686726855",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919686726855?text=Hi%20Star%20Vision%20Solutions%20Biometric%20%26%20CCTV%20Installation%20%28On-site%20Service%20Available%29%20-%20%E0%B2%B8%E0%B2%BF%E0%B2%B8%E0%B2%BF%E0%B2%9F%E0%B2%BF%E0%B2%B5%E0%B2%BF%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+918553580855"
       ],
@@ -22762,16 +22939,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Star Vision Solutions Biometric & CCTV Installation (On-site Service Available) - ಸಿಸಿಟಿವಿ,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for Star Vision Solutions Biometric & CCTV Installation (On-site Service Available) - ಸಿಸಿಟಿವಿ",
+      "email_body": "Hi Star Vision Solutions Biometric & CCTV Installation (On-site Service Available) - ಸಿಸಿಟಿವಿ Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:52"
   },
   {
     "place_id": "ChIJszfwZ3MVrjsRSAuULcrFUtA",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJszfwZ3MVrjsRSAuULcrFUtA",
       "name": "ISAS SMART SOLUTIONS PVT. LTD.",
@@ -22793,7 +22970,7 @@
       "primary_phone": "096111 44714",
       "phone_type": "Mobile",
       "whatsapp_number": "919611144714",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919611144714?text=Hi%20ISAS%20SMART%20SOLUTIONS%20PVT.%20LTD%2C%0ATook%20a%20look%20at%20your%20website%20in%20Bengaluru.%20You%20have%20great%20reviews%2C%20but%20the%20site%20is%20missing%201-click%20WhatsApp%20quote%20buttons%20and%20mobile%20optimization%20%28no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%29.%0A%0ACheck%20how%20modern%20CCTV%20sites%20convert%20mobile%20visitors%3A%20https%3A//atryasolutions.netlify.app/%0AWe%20also%20provide%20an%20AMC%20technician%20management%20panel%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AOpen%20for%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91 9611144714",
         "6907579955",
@@ -22827,10 +23004,10 @@
       "copyright_year": "2024"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi ISAS SMART SOLUTIONS PVT. LTD,\nTook a look at your website in Bengaluru. You have great reviews, but the site is missing 1-click WhatsApp quote buttons and mobile optimization (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nCheck how modern CCTV sites convert mobile visitors: https://atryasolutions.netlify.app/\nWe also provide an AMC technician management panel: https://atryasolutions.netlify.app/admin\n\nOpen for a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Upgrading customer quote conversion for ISAS SMART SOLUTIONS PVT. LTD",
+      "email_body": "Hi ISAS SMART SOLUTIONS PVT. LTD Team,\n\nI checked out your website while researching CCTV providers in Bengaluru. You have solid customer ratings, but the site could capture significantly more inquiries with a direct WhatsApp quote widget and mobile lead forms (no online enquiry or quote form; no direct WhatsApp contact widget).\n\nWe build high-converting setups specifically for security installers:\n👉 Customer Website Demo: https://atryasolutions.netlify.app/\n👉 Technician & AMC Renewal Admin: https://atryasolutions.netlify.app/admin\n\nWould you be open to a quick 10-minute walkthrough to see the upgrade?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:52"
   },
@@ -31119,6 +31296,71 @@
       "email_body": null
     },
     "scraped_at": "2026-10-22 09:08:05"
+  },
+  {
+    "place_id": "ChIJRQpItzoTrjsR8N5JXM3p3pQ",
+    "outreach_status": "NEW",
+    "company_profile": {
+      "place_id": "ChIJRQpItzoTrjsR8N5JXM3p3pQ",
+      "name": "KINGSMEN (IND) SECURITY SERVICE PRIVATE LIMITED | SECURITY SERVICE IN BANGALORE | SECURITY AND HOUSEKEEPING IN BANGALORE",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "Novel MSR Building, park, Subbaiah Reddy Colony, Marathahalli Village, Marathahalli, Bengaluru, Karnataka 560037, India",
+      "pincode": "560037",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru",
+      "coordinates": {
+        "latitude": "12.956857999999999",
+        "longitude": "77.7000884"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=10727268430669012720&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "4.8",
+      "reviews": "236",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "099161 07029",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919916107029",
+      "whatsapp_click_to_chat": null,
+      "alternate_phones": [
+        "6120418764",
+        "6339091020",
+        "6479478315"
+      ],
+      "emails": [
+        "kingsmen.ind@gmail.com"
+      ],
+      "website": "https://www.kingsmen-ind.com/",
+      "domain": "kingsmen-ind.com",
+      "social_media": {
+        "facebook": "https://www.facebook.com/wix",
+        "instagram": "",
+        "linkedin": "https://www.linkedin.com/company/wix-com",
+        "youtube": "",
+        "twitter": "https://twitter.com/Wix"
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "Medium",
+      "need_score": 15,
+      "site_status": "healthy",
+      "segment": "amc_operations",
+      "audit_issues": "outdated footer copyright (2019)",
+      "ssl_status": "valid_https",
+      "mobile_friendly": "Yes",
+      "page_speed_sec": "0.21",
+      "has_enquiry_form": "Yes",
+      "has_whatsapp_widget": "Yes",
+      "cms_platform": "Wix",
+      "copyright_year": "2019"
+    },
+    "outreach_pack": {
+      "outreach_status": "NEW",
+      "whatsapp_pitch": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "scraped_at": "2026-10-24 08:36:45"
   },
   {
     "place_id": "ChIJGXum8gs9rjsRoJCCsTo1F5M",
