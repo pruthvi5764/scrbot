@@ -13924,6 +13924,65 @@
     "scraped_at": "2026-10-26 09:38:18"
   },
   {
+    "place_id": "ChIJgXy3or635zsRIIhQkGCLIqc",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJgXy3or635zsRIIhQkGCLIqc",
+      "name": "Future Eyes - CCTV Camera || Biometric ||Fire_alarm system||Installation in Mumbai",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "Shop No. 03, No, Behram Baug Rd, opposite Three Star Bakery, Bhim Nagar, Jogeshwari West, Mumbai, Maharashtra 400102, India",
+      "pincode": "400102",
+      "city": "Mumbai",
+      "search_zone": "Mumbai",
+      "coordinates": {
+        "latitude": "19.143839399999997",
+        "longitude": "72.8369079"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=12043341600396445728&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "4.9",
+      "reviews": "53",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "090047 87395",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919004787395",
+      "whatsapp_click_to_chat": "https://wa.me/919004787395?text=Hi%20Future%20Eyes%2C%0ANoticed%20your%20security%20systems%20store%20in%20Mumbai%20has%20strong%20footfall%2C%20but%20no%20dedicated%20web%20portal%20for%20wholesale%20and%20installer%20inquiries%21%0A%0AWe%20set%20up%20branded%20digital%20product%20catalogs%20with%20direct%20WhatsApp%20quote%20buttons%3A%0A%F0%9F%91%89%20Customer%20Website%3A%20https%3A//atryasolutions.netlify.app/%0A%F0%9F%91%89%20Warranty%20%26%20Technician%20Dispatch%20Admin%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AWorth%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [],
+      "emails": [],
+      "website": "",
+      "domain": "",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "High",
+      "need_score": 100,
+      "site_status": "no_website",
+      "segment": "no_website",
+      "audit_issues": "No official website (relies only on directories or social media)",
+      "ssl_status": "none",
+      "mobile_friendly": "No",
+      "page_speed_sec": "0.0",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "No",
+      "cms_platform": "None",
+      "copyright_year": ""
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Future Eyes,\nNoticed your security systems store in Mumbai has strong footfall, but no dedicated web portal for wholesale and installer inquiries!\n\nWe set up branded digital product catalogs with direct WhatsApp quote buttons:\n👉 Customer Website: https://atryasolutions.netlify.app/\n👉 Warranty & Technician Dispatch Admin: https://atryasolutions.netlify.app/admin\n\nWorth a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Online Dealer Catalog & Dispatch Panel for Future Eyes",
+      "email_body": "Hi Future Eyes Management,\n\nI came across your security systems store in Mumbai. While you have great local reputation, potential buyers searching Google for CCTV wholesale pricing and package installation cannot find an official portal.\n\nWe build complete digital setups for security dealers:\n👉 Interactive Website with 1-click WhatsApp Quotes: https://atryasolutions.netlify.app/\n👉 Warranty & Technician Dispatch Admin: https://atryasolutions.netlify.app/admin\n\nCould we connect for a brief 10-minute walkthrough this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-10-27 09:34:51"
+  },
+  {
     "place_id": "ChIJEeVJTmUVrjsRGy_6nJzHAp8",
     "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
@@ -26816,7 +26875,7 @@
   },
   {
     "place_id": "ChIJ662HoJMZrjsRMyzEIVDZBS0",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJ662HoJMZrjsRMyzEIVDZBS0",
       "name": "Bruch cctv security systems",
@@ -26838,7 +26897,7 @@
       "primary_phone": "098800 67616",
       "phone_type": "Mobile",
       "whatsapp_number": "919880067616",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919880067616?text=Hi%20Bruch%20cctv%20security%20systems%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91-9880067616",
         "7606708560",
@@ -26872,16 +26931,16 @@
       "copyright_year": "2024"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Bruch cctv security systems,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Bruch cctv security systems",
+      "email_body": "Hi Bruch cctv security systems Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-12 11:36:51"
   },
   {
     "place_id": "ChIJbxCi-nQXrjsRp0cRLJ58kss",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJbxCi-nQXrjsRp0cRLJ58kss",
       "name": "Onfocus",
@@ -26903,7 +26962,7 @@
       "primary_phone": "080 4979 2513",
       "phone_type": "Landline",
       "whatsapp_number": "",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "",
       "alternate_phones": [
         "+91 8553090042",
         "+91 8904595312",
@@ -26938,16 +26997,16 @@
       "copyright_year": "2023"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Onfocus,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Onfocus",
+      "email_body": "Hi Onfocus Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-12 11:36:53"
   },
   {
     "place_id": "ChIJhWJqELpsrjsRjspDsVRup5o",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJhWJqELpsrjsRjspDsVRup5o",
       "name": "Secure Service Plus",
@@ -26969,7 +27028,7 @@
       "primary_phone": "099026 70055",
       "phone_type": "Mobile",
       "whatsapp_number": "919902670055",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919902670055?text=Hi%20Secure%20Service%20Plus%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91-9902670055",
         "7159651455",
@@ -27003,16 +27062,16 @@
       "copyright_year": "2016"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Secure Service Plus,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Secure Service Plus",
+      "email_body": "Hi Secure Service Plus Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:52"
   },
   {
     "place_id": "ChIJAanIQtxtrjsRT_AtIIzmPzs",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJAanIQtxtrjsRT_AtIIzmPzs",
       "name": "As Infotech",
@@ -27034,7 +27093,7 @@
       "primary_phone": "072045 77884",
       "phone_type": "Mobile",
       "whatsapp_number": "917204577884",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/917204577884?text=Hi%20As%20Infotech%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "6448908352",
         "6448941253",
@@ -27069,16 +27128,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi As Infotech,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for As Infotech",
+      "email_body": "Hi As Infotech Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:52"
   },
   {
     "place_id": "ChIJaXX9iRYVrjsRkikUroizTfM",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJaXX9iRYVrjsRkikUroizTfM",
       "name": "MAXINCORP | CCTV & IT Solutions",
@@ -27100,7 +27159,7 @@
       "primary_phone": "098144 98166",
       "phone_type": "Mobile",
       "whatsapp_number": "919814498166",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919814498166?text=Hi%20MAXINCORP%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91 9814498166",
         "+919814498166",
@@ -27134,16 +27193,16 @@
       "copyright_year": "2017"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi MAXINCORP,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for MAXINCORP",
+      "email_body": "Hi MAXINCORP Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:53"
   },
   {
     "place_id": "ChIJ-Uxl6kU9rjsRfw2Tw89PmWM",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJ-Uxl6kU9rjsRfw2Tw89PmWM",
       "name": "Biomax Security - Biometric attendance machine, Time fingerprint, face recognition system Bengaluru",
@@ -27165,7 +27224,7 @@
       "primary_phone": "072270 52932",
       "phone_type": "Mobile",
       "whatsapp_number": "917227052932",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/917227052932?text=Hi%20Biomax%20Security%20-%20Biometric%20attendance%20machine%2C%20Time%20fingerprint%2C%20face%20recognition%20system%20Bengaluru%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+917227044264",
         "7227044264",
@@ -27199,16 +27258,16 @@
       "copyright_year": ""
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Biomax Security - Biometric attendance machine, Time fingerprint, face recognition system Bengaluru,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Biomax Security - Biometric attendance machine, Time fingerprint, face recognition system Bengaluru",
+      "email_body": "Hi Biomax Security - Biometric attendance machine, Time fingerprint, face recognition system Bengaluru Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:53"
   },
   {
     "place_id": "ChIJN_eDzDsVrjsRTx8JwlntN6E",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJN_eDzDsVrjsRTx8JwlntN6E",
       "name": "Perfect Secure It World",
@@ -27230,7 +27289,7 @@
       "primary_phone": "090193 99284",
       "phone_type": "Mobile",
       "whatsapp_number": "919019399284",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919019399284?text=Hi%20Perfect%20Secure%20It%20World%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "9019399284"
       ],
@@ -27260,16 +27319,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Perfect Secure It World,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Perfect Secure It World",
+      "email_body": "Hi Perfect Secure It World Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:53"
   },
   {
     "place_id": "ChIJV0EQecUVrjsRTt0Fot-6vTY",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJV0EQecUVrjsRTt0Fot-6vTY",
       "name": "INTELLIN CONTROLS PRIVATE LIMITED",
@@ -27291,7 +27350,7 @@
       "primary_phone": "0120 524 4345",
       "phone_type": "Landline",
       "whatsapp_number": "",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "",
       "alternate_phones": [
         "6013071898",
         "6274509802",
@@ -27323,16 +27382,16 @@
       "copyright_year": ""
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi INTELLIN CONTROLS PRIVATE LIMITED,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for INTELLIN CONTROLS PRIVATE LIMITED",
+      "email_body": "Hi INTELLIN CONTROLS PRIVATE LIMITED Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:52"
   },
   {
     "place_id": "ChIJAcmjuTZrrjsRlXRuddmm_xY",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJAcmjuTZrrjsRlXRuddmm_xY",
       "name": "Electrolivetech - All computer, CCTV, Biometric, Electronics Services Center and Tech Solution",
@@ -27354,7 +27413,7 @@
       "primary_phone": "096060 98888",
       "phone_type": "Mobile",
       "whatsapp_number": "919606098888",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919606098888?text=Hi%20Electrolivetech%20-%20All%20computer%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91-9606098888"
       ],
@@ -27386,16 +27445,16 @@
       "copyright_year": ""
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Electrolivetech - All computer,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Electrolivetech - All computer",
+      "email_body": "Hi Electrolivetech - All computer Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:54"
   },
   {
     "place_id": "ChIJl7hu030jUYsR7f-Y3xu496A",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJl7hu030jUYsR7f-Y3xu496A",
       "name": "Raksha ITech Solutions",
@@ -27417,7 +27476,7 @@
       "primary_phone": "088678 05014",
       "phone_type": "Mobile",
       "whatsapp_number": "918867805014",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/918867805014?text=Hi%20Raksha%20ITech%20Solutions%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "8867805014",
         "9035653316"
@@ -27448,16 +27507,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Raksha ITech Solutions,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Raksha ITech Solutions",
+      "email_body": "Hi Raksha ITech Solutions Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:52"
   },
   {
     "place_id": "ChIJM60kZIE_rjsR7PjUzFFa5lM",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJM60kZIE_rjsR7PjUzFFa5lM",
       "name": "SAFECORE INTEGRATED SOLUTIONS",
@@ -27479,7 +27538,7 @@
       "primary_phone": "",
       "phone_type": "None",
       "whatsapp_number": "",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "",
       "alternate_phones": [
         "+91 8310904562",
         "+918310904562",
@@ -27511,16 +27570,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi SAFECORE INTEGRATED SOLUTIONS,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for SAFECORE INTEGRATED SOLUTIONS",
+      "email_body": "Hi SAFECORE INTEGRATED SOLUTIONS Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:53"
   },
   {
     "place_id": "ChIJK4MHDL8SrjsRPqPZzMmJpP8",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJK4MHDL8SrjsRPqPZzMmJpP8",
       "name": "ZKThub",
@@ -27542,7 +27601,7 @@
       "primary_phone": "082960 09733",
       "phone_type": "Mobile",
       "whatsapp_number": "918296009733",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/918296009733?text=Hi%20ZKThub%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91 8296009733",
         "+918296009733"
@@ -27573,16 +27632,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi ZKThub,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for ZKThub",
+      "email_body": "Hi ZKThub Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:52"
   },
   {
     "place_id": "ChIJjzrRyNIRrjsRmJjyHwo_qbk",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJjzrRyNIRrjsRmJjyHwo_qbk",
       "name": "Biometric Access India Pvt Ltd |ZKTeco Distributor|",
@@ -27604,7 +27663,7 @@
       "primary_phone": "090357 36221",
       "phone_type": "Mobile",
       "whatsapp_number": "919035736221",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919035736221?text=Hi%20Biometric%20Access%20India%20Pvt%20Ltd%20%7CZKTeco%20Distributor%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91-9035736221",
         "+919035736221",
@@ -27638,16 +27697,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Biometric Access India Pvt Ltd |ZKTeco Distributor,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Biometric Access India Pvt Ltd |ZKTeco Distributor",
+      "email_body": "Hi Biometric Access India Pvt Ltd |ZKTeco Distributor Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:52"
   },
   {
     "place_id": "ChIJk2YBY_kRrjsRxWrVeWJ5cHQ",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJk2YBY_kRrjsRxWrVeWJ5cHQ",
       "name": "YVM CCTV Installation Laptop Service",
@@ -27669,7 +27728,7 @@
       "primary_phone": "063631 07696",
       "phone_type": "Mobile",
       "whatsapp_number": "916363107696",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/916363107696?text=Hi%20YVM%20CCTV%20Installation%20Laptop%20Service%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+916363107696",
         "6363107696",
@@ -27701,16 +27760,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi YVM CCTV Installation Laptop Service,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for YVM CCTV Installation Laptop Service",
+      "email_body": "Hi YVM CCTV Installation Laptop Service Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:54"
   },
   {
     "place_id": "ChIJo-7rQawVrjsR-8tuh-dVjd4",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJo-7rQawVrjsR-8tuh-dVjd4",
       "name": "Techky IT services | CCTV INSTALLATION | IT NETWORKING | UPS/ INVERTER",
@@ -27732,7 +27791,7 @@
       "primary_phone": "093806 72608",
       "phone_type": "Mobile",
       "whatsapp_number": "919380672608",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919380672608?text=Hi%20Techky%20IT%20services%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "9380672608",
         "9859035301"
@@ -27763,16 +27822,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Techky IT services,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Techky IT services",
+      "email_body": "Hi Techky IT services Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-13 11:21:54"
   },
   {
     "place_id": "ChIJLzULUXBrrjsR1l9xsPLySEA",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJLzULUXBrrjsR1l9xsPLySEA",
       "name": "VK secure solution",
@@ -27794,7 +27853,7 @@
       "primary_phone": "091082 23244",
       "phone_type": "Mobile",
       "whatsapp_number": "919108223244",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919108223244?text=Hi%20VK%20secure%20solution%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91 9108223244",
         "+919108223244",
@@ -27828,16 +27887,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi VK secure solution,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for VK secure solution",
+      "email_body": "Hi VK secure solution Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-14 09:14:58"
   },
   {
     "place_id": "ChIJE8R9PncWrjsR2mOqYZi1XKk",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJE8R9PncWrjsR2mOqYZi1XKk",
       "name": "Bharat Systems",
@@ -27859,7 +27918,7 @@
       "primary_phone": "099019 78461",
       "phone_type": "Mobile",
       "whatsapp_number": "919901978461",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919901978461?text=Hi%20Bharat%20Systems%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91 8105765264",
         "+917795381698",
@@ -27894,16 +27953,16 @@
       "copyright_year": "2020"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Bharat Systems,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Bharat Systems",
+      "email_body": "Hi Bharat Systems Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-14 09:14:57"
   },
   {
     "place_id": "ChIJ-31YcR8TrjsRBG-XgA9zLXE",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJ-31YcR8TrjsRBG-XgA9zLXE",
       "name": "AapthyTech Solutions",
@@ -27925,7 +27984,7 @@
       "primary_phone": "098805 14830",
       "phone_type": "Mobile",
       "whatsapp_number": "919880514830",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919880514830?text=Hi%20AapthyTech%20Solutions%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91 9880514830",
         "+919880514830",
@@ -27959,16 +28018,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi AapthyTech Solutions,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for AapthyTech Solutions",
+      "email_body": "Hi AapthyTech Solutions Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-14 09:14:57"
   },
   {
     "place_id": "ChIJG-P6i8EQrjsR6FS9d_UiVcQ",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJG-P6i8EQrjsR6FS9d_UiVcQ",
       "name": "Silmaga Security Private Limited",
@@ -27990,7 +28049,7 @@
       "primary_phone": "090197 53509",
       "phone_type": "Mobile",
       "whatsapp_number": "919019753509",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919019753509?text=Hi%20Silmaga%20Security%20Private%20Limited%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "9019753509"
       ],
@@ -28020,16 +28079,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Silmaga Security Private Limited,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Silmaga Security Private Limited",
+      "email_body": "Hi Silmaga Security Private Limited Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-14 09:14:57"
   },
   {
     "place_id": "ChIJK_U-At0XrjsR431NfOPKdpo",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJK_U-At0XrjsR431NfOPKdpo",
       "name": "Vardhaman Electronics Since 1984",
@@ -28051,7 +28110,7 @@
       "primary_phone": "099454 79307",
       "phone_type": "Mobile",
       "whatsapp_number": "919945479307",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919945479307?text=Hi%20Vardhaman%20Electronics%20Since%201984%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "6545935650",
         "6545947990",
@@ -28085,16 +28144,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Vardhaman Electronics Since 1984,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Vardhaman Electronics Since 1984",
+      "email_body": "Hi Vardhaman Electronics Since 1984 Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-14 09:14:58"
   },
   {
     "place_id": "ChIJq9yOROAVrjsR3biLm-A48nE",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJq9yOROAVrjsR3biLm-A48nE",
       "name": "Balaji Computer Inc",
@@ -28116,7 +28175,7 @@
       "primary_phone": "098440 02613",
       "phone_type": "Mobile",
       "whatsapp_number": "919844002613",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919844002613?text=Hi%20Balaji%20Computer%20Inc%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91 8892383155",
         "+91 9844002613",
@@ -28150,16 +28209,16 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Balaji Computer Inc,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Balaji Computer Inc",
+      "email_body": "Hi Balaji Computer Inc Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-14 09:14:59"
   },
   {
     "place_id": "ChIJF51gWKUXrjsRo93t_dnedKA",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJF51gWKUXrjsRo93t_dnedKA",
       "name": "Warden Security Systems Pvt Ltd",
@@ -28181,7 +28240,7 @@
       "primary_phone": "098807 02765",
       "phone_type": "Mobile",
       "whatsapp_number": "919880702765",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919880702765?text=Hi%20Warden%20Security%20Systems%20Pvt%20Ltd%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91-7204031323",
         "+91-7204031324",
@@ -28216,16 +28275,16 @@
       "copyright_year": "2025"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Warden Security Systems Pvt Ltd,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Warden Security Systems Pvt Ltd",
+      "email_body": "Hi Warden Security Systems Pvt Ltd Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-14 09:14:57"
   },
   {
     "place_id": "ChIJ88rixmYXrjsRvpTR_-sN3Iw",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJ88rixmYXrjsRvpTR_-sN3Iw",
       "name": "Compu-Trust Solutions (CTS)",
@@ -28247,7 +28306,7 @@
       "primary_phone": "093800 72783",
       "phone_type": "Mobile",
       "whatsapp_number": "919380072783",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919380072783?text=Hi%20Compu-Trust%20Solutions%20%28CTS%29%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "+91-9380072783",
         "9380072783",
@@ -28281,16 +28340,16 @@
       "copyright_year": ""
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Compu-Trust Solutions (CTS),\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Compu-Trust Solutions (CTS)",
+      "email_body": "Hi Compu-Trust Solutions (CTS) Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-14 09:15:00"
   },
   {
     "place_id": "ChIJw8aDFvIUrjsRm-eYylmkwnc",
-    "outreach_status": "NEW",
+    "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
       "place_id": "ChIJw8aDFvIUrjsRm-eYylmkwnc",
       "name": "NSS Security Systems Pvt. Ltd.",
@@ -28312,7 +28371,7 @@
       "primary_phone": "099450 09091",
       "phone_type": "Mobile",
       "whatsapp_number": "919945009091",
-      "whatsapp_click_to_chat": null,
+      "whatsapp_click_to_chat": "https://wa.me/919945009091?text=Hi%20NSS%20Security%20Systems%20Pvt.%20Ltd%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
       "alternate_phones": [
         "6337359566",
         "8700259833",
@@ -28346,10 +28405,10 @@
       "copyright_year": "2026"
     },
     "outreach_pack": {
-      "outreach_status": "NEW",
-      "whatsapp_pitch": null,
-      "email_subject": null,
-      "email_body": null
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi NSS Security Systems Pvt. Ltd,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for NSS Security Systems Pvt. Ltd",
+      "email_body": "Hi NSS Security Systems Pvt. Ltd Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-14 09:14:57"
   },
@@ -31965,6 +32024,71 @@
     "scraped_at": "2026-10-25 08:56:04"
   },
   {
+    "place_id": "ChIJ1aCXnmkXrjsRVloy2_vALbE",
+    "outreach_status": "NEW",
+    "company_profile": {
+      "place_id": "ChIJ1aCXnmkXrjsRVloy2_vALbE",
+      "name": "RBS NETWORK SOLUTIONS",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "GF, 5th A Cross Rd, RMV, Bhoopasandra, R.M.V. 2nd Stage, Bengaluru, Karnataka 560094, India",
+      "pincode": "560094",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru SP Road",
+      "coordinates": {
+        "latitude": "13.041643299999999",
+        "longitude": "77.57917859999999"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=12767072706612058710&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "5",
+      "reviews": "3",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "093539 61667",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919353961667",
+      "whatsapp_click_to_chat": null,
+      "alternate_phones": [
+        "+91 7892554609",
+        "+91-9353961667",
+        "6378722484"
+      ],
+      "emails": [
+        "rbsnetworks2025@gmail.com"
+      ],
+      "website": "http://www.rbsnetworksolutionsblr.com/",
+      "domain": "rbsnetworksolutionsblr.com",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "Medium",
+      "need_score": 15,
+      "site_status": "healthy",
+      "segment": "amc_operations",
+      "audit_issues": "no online enquiry or quote form",
+      "ssl_status": "valid_https",
+      "mobile_friendly": "Yes",
+      "page_speed_sec": "0.33",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "Yes",
+      "cms_platform": "Custom / HTML",
+      "copyright_year": "2025"
+    },
+    "outreach_pack": {
+      "outreach_status": "NEW",
+      "whatsapp_pitch": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "scraped_at": "2026-10-27 09:34:51"
+  },
+  {
     "place_id": "ChIJGXum8gs9rjsRoJCCsTo1F5M",
     "outreach_status": "NEW",
     "company_profile": {
@@ -33372,6 +33496,69 @@
       "email_body": null
     },
     "scraped_at": "2026-10-26 09:38:18"
+  },
+  {
+    "place_id": "ChIJk5icmtzR5zsRKi3fDc2UIDw",
+    "outreach_status": "NEW",
+    "company_profile": {
+      "place_id": "ChIJk5icmtzR5zsRKi3fDc2UIDw",
+      "name": "Camera Care mumbai",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "Ground Floor, Bachubhai Building, AG 4, Dr Dadabhai Naoroji Rd, inside Mamta Photo, Borabazar Precinct, Fort, Mumbai, Maharashtra 400001, India",
+      "pincode": "400001",
+      "city": "Mumbai",
+      "search_zone": "Mumbai",
+      "coordinates": {
+        "latitude": "18.9374418",
+        "longitude": "72.8344462"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=4332626449952353578&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "4.9",
+      "reviews": "156",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "098203 26432",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919820326432",
+      "whatsapp_click_to_chat": null,
+      "alternate_phones": [
+        "6666666667",
+        "7142857143",
+        "8461538462"
+      ],
+      "emails": [],
+      "website": "https://cameracaremumbai.com/",
+      "domain": "cameracaremumbai.com",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "Medium",
+      "need_score": 10,
+      "site_status": "healthy",
+      "segment": "amc_operations",
+      "audit_issues": "no direct WhatsApp contact widget",
+      "ssl_status": "valid_https",
+      "mobile_friendly": "Yes",
+      "page_speed_sec": "4.19",
+      "has_enquiry_form": "Yes",
+      "has_whatsapp_widget": "No",
+      "cms_platform": "WordPress",
+      "copyright_year": "2026"
+    },
+    "outreach_pack": {
+      "outreach_status": "NEW",
+      "whatsapp_pitch": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "scraped_at": "2026-10-27 09:34:51"
   },
   {
     "place_id": "cid_16943958218051604871",
