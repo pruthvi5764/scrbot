@@ -41533,5 +41533,70 @@
       "email_body": "Hi S.S.R Solutions Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-11-02 11:58:59"
+  },
+  {
+    "place_id": "ChIJFWR7NLQ9rjsRG8aZbSYmlZQ",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJFWR7NLQ9rjsRG8aZbSYmlZQ",
+      "name": "EYE N SPY SOLUTIONS",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "1st Floor, EYE N SPY SOLUTIONS, 201, 13th Main Rd, Vrushabhavathi Nagar, CHBS Layout, Nanjappa Layout, Kamakshipalya, Bengaluru, Karnataka 560079, India",
+      "pincode": "560079",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru Jayanagar",
+      "coordinates": {
+        "latitude": "12.9729561",
+        "longitude": "77.53017179999999"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=10706505635632629275&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "5",
+      "reviews": "15",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "088928 11503",
+      "phone_type": "Mobile",
+      "whatsapp_number": "918892811503",
+      "whatsapp_click_to_chat": "https://wa.me/918892811503?text=Hi%20EYE%20N%20SPY%20SOLUTIONS%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [
+        "+918892811503",
+        "8892811503"
+      ],
+      "emails": [
+        "info@eyenspy.co.in",
+        "you@example.com"
+      ],
+      "website": "https://www.eyenspy.co.in/",
+      "domain": "eyenspy.co.in",
+      "social_media": {
+        "facebook": "https://www.facebook.com/share/19i2bSUpri/",
+        "instagram": "https://www.instagram.com/eyenspy",
+        "linkedin": "https://www.linkedin.com/in/naveen-c-122739393",
+        "youtube": "https://youtube.com/@eyenspysolutions",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "Medium",
+      "need_score": 0,
+      "site_status": "healthy",
+      "segment": "amc_operations",
+      "audit_issues": "website appears functional and updated",
+      "ssl_status": "valid_https",
+      "mobile_friendly": "Yes",
+      "page_speed_sec": "0.52",
+      "has_enquiry_form": "Yes",
+      "has_whatsapp_widget": "Yes",
+      "cms_platform": "Custom / HTML",
+      "copyright_year": "2026"
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi EYE N SPY SOLUTIONS,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for EYE N SPY SOLUTIONS",
+      "email_body": "Hi EYE N SPY SOLUTIONS Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-11-09 12:29:14"
   }
 ]
