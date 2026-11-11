@@ -14927,6 +14927,65 @@
     "scraped_at": "2026-11-08 11:01:47"
   },
   {
+    "place_id": "ChIJpUIk5SQjrjsRNGAWXLpmxPA",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJpUIk5SQjrjsRNGAWXLpmxPA",
+      "name": "SWASTIK SAFETY SOLUTIONS",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "1st Main St, Nanjappa Layout, Chamundeswari Layout, Vidyaranyapura, Bengaluru, Karnataka 560097, India",
+      "pincode": "560097",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru",
+      "coordinates": {
+        "latitude": "13.0671096",
+        "longitude": "77.5597768"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=17349104615132913716&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "4.9",
+      "reviews": "39",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "085708 38662",
+      "phone_type": "Mobile",
+      "whatsapp_number": "918570838662",
+      "whatsapp_click_to_chat": "https://wa.me/918570838662?text=Hi%20SWASTIK%20SAFETY%20SOLUTIONS%2C%0ANoticed%20your%20security%20systems%20store%20in%20Bengaluru%20has%20strong%20footfall%2C%20but%20no%20dedicated%20web%20portal%20for%20wholesale%20and%20installer%20inquiries%21%0A%0AWe%20set%20up%20branded%20digital%20product%20catalogs%20with%20direct%20WhatsApp%20quote%20buttons%3A%0A%F0%9F%91%89%20Customer%20Website%3A%20https%3A//atryasolutions.netlify.app/%0A%F0%9F%91%89%20Warranty%20%26%20Technician%20Dispatch%20Admin%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AWorth%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [],
+      "emails": [],
+      "website": "",
+      "domain": "",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "High",
+      "need_score": 100,
+      "site_status": "no_website",
+      "segment": "no_website",
+      "audit_issues": "No official website (relies only on directories or social media)",
+      "ssl_status": "none",
+      "mobile_friendly": "No",
+      "page_speed_sec": "0.0",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "No",
+      "cms_platform": "None",
+      "copyright_year": ""
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi SWASTIK SAFETY SOLUTIONS,\nNoticed your security systems store in Bengaluru has strong footfall, but no dedicated web portal for wholesale and installer inquiries!\n\nWe set up branded digital product catalogs with direct WhatsApp quote buttons:\n👉 Customer Website: https://atryasolutions.netlify.app/\n👉 Warranty & Technician Dispatch Admin: https://atryasolutions.netlify.app/admin\n\nWorth a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Online Dealer Catalog & Dispatch Panel for SWASTIK SAFETY SOLUTIONS",
+      "email_body": "Hi SWASTIK SAFETY SOLUTIONS Management,\n\nI came across your security systems store in Bengaluru. While you have great local reputation, potential buyers searching Google for CCTV wholesale pricing and package installation cannot find an official portal.\n\nWe build complete digital setups for security dealers:\n👉 Interactive Website with 1-click WhatsApp Quotes: https://atryasolutions.netlify.app/\n👉 Warranty & Technician Dispatch Admin: https://atryasolutions.netlify.app/admin\n\nCould we connect for a brief 10-minute walkthrough this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-11-11 11:40:52"
+  },
+  {
     "place_id": "ChIJEeVJTmUVrjsRGy_6nJzHAp8",
     "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
@@ -15810,6 +15869,65 @@
       "email_body": "Hi PlanetWork Technologies Team,\n\nI was looking up security providers in Bengaluru and tried visiting your website (bit.ly).\n\nI noticed visitors are running into an issue: HTTP error 403; not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget. When customers see an error or security warning, they immediately go to a competitor.\n\nAt Atrya Solutions, we build high-converting websites for CCTV & security dealers:\n👉 Live Demo: https://atryasolutions.netlify.app/\n👉 Ops & AMC Panel: https://atryasolutions.netlify.app/admin\n\nWe'd love to offer a free revamp to get your digital presence fixed and capturing leads. Open for a brief 10-minute call this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-10-24 08:36:45"
+  },
+  {
+    "place_id": "ChIJ8XVq9zy35zsREXdVEZGrXrU",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJ8XVq9zy35zsREXdVEZGrXrU",
+      "name": "Unisecure Systems",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "B005 Gnd Floor,SV Road Jogeshwari west Mumbai Maharashtra 400102 IN, Captain Sawat Marg, Shastri Nagar, Jogeshwari West, Mumbai, Maharashtra 400102, India",
+      "pincode": "400102",
+      "city": "Mumbai",
+      "search_zone": "Mumbai",
+      "coordinates": {
+        "latitude": "19.139358899999998",
+        "longitude": "72.84303280000002"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=13069071808225179409&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "4",
+      "reviews": "7",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "098198 48856",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919819848856",
+      "whatsapp_click_to_chat": "https://wa.me/919819848856?text=Hi%20Unisecure%20Systems%2C%0AChecked%20your%20website%20%28unisecure.in%29%20in%20Mumbai%20and%20noticed%20it%27s%20currently%20showing%20an%20issue%20%28not%20served%20over%20HTTPS%20%28insecure%20connection%29%3B%20HTTP%20error%20403%3B%20not%20mobile-friendly%20%28missing%20viewport%20tag%29%3B%20no%20online%20enquiry%20or%20quote%20form%3B%20no%20direct%20WhatsApp%20contact%20widget%29%2C%20causing%20potential%20customers%20to%20bounce%21%0A%0AWe%20build%20fast%2C%20secure%20mobile%20sites%20with%20instant%20WhatsApp%20quote%20buttons%3A%20https%3A//atryasolutions.netlify.app/%0AWe%27re%20offering%20a%20free%20revamp%20to%20get%20your%20site%20back%20to%20converting%20leads.%0A%0AOpen%20for%20a%20quick%2010-min%20chat%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [],
+      "emails": [],
+      "website": "http://www.unisecure.in/",
+      "domain": "unisecure.in",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "High",
+      "need_score": 99,
+      "site_status": "needs_urgent_revamp",
+      "segment": "broken_or_insecure",
+      "audit_issues": "not served over HTTPS (insecure connection); HTTP error 403; not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget",
+      "ssl_status": "insecure_http",
+      "mobile_friendly": "No",
+      "page_speed_sec": "0.34",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "No",
+      "cms_platform": "Custom / HTML",
+      "copyright_year": ""
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Unisecure Systems,\nChecked your website (unisecure.in) in Mumbai and noticed it's currently showing an issue (not served over HTTPS (insecure connection); HTTP error 403; not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget), causing potential customers to bounce!\n\nWe build fast, secure mobile sites with instant WhatsApp quote buttons: https://atryasolutions.netlify.app/\nWe're offering a free revamp to get your site back to converting leads.\n\nOpen for a quick 10-min chat? - Atrya Solutions",
+      "email_subject": "Fixing Unisecure Systems website (not served over HTTPS (insecure connecti) + Free Revamp",
+      "email_body": "Hi Unisecure Systems Team,\n\nI was looking up security providers in Mumbai and tried visiting your website (unisecure.in).\n\nI noticed visitors are running into an issue: not served over HTTPS (insecure connection); HTTP error 403; not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget. When customers see an error or security warning, they immediately go to a competitor.\n\nAt Atrya Solutions, we build high-converting websites for CCTV & security dealers:\n👉 Live Demo: https://atryasolutions.netlify.app/\n👉 Ops & AMC Panel: https://atryasolutions.netlify.app/admin\n\nWe'd love to offer a free revamp to get your digital presence fixed and capturing leads. Open for a brief 10-minute call this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-11-11 11:40:52"
   },
   {
     "place_id": "ChIJl045J-IVrjsR0-ow6gzOSLY",
