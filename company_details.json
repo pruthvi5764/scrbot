@@ -19470,6 +19470,65 @@
     "scraped_at": "2026-11-07 10:52:53"
   },
   {
+    "place_id": "ChIJx-lRqMYVrjsRZsI9cNHOHZI",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJx-lRqMYVrjsRZsI9cNHOHZI",
+      "name": "Automation & Energy Solutions",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "Automation & Energy Solutions, 965,14th Cross Road, 964, 16th Main Rd, Siddanna Layout, Banashankari 2nd Stage, Banashankari, Bengaluru, Karnataka 560070, India",
+      "pincode": "560070",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru Jayanagar",
+      "coordinates": {
+        "latitude": "12.928353399999999",
+        "longitude": "77.5663747"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=10528798902788670054&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "5",
+      "reviews": "4",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "090199 24922",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919019924922",
+      "whatsapp_click_to_chat": "https://wa.me/919019924922?text=Hi%20Automation%20%26%20Energy%20Solutions%2C%0AChecked%20your%20website%20%28automationataes.in%29%20in%20Bengaluru%20and%20noticed%20it%27s%20currently%20showing%20an%20issue%20%28website%20unreachable%20%28ConnectionError%29%29%2C%20causing%20potential%20customers%20to%20bounce%21%0A%0AWe%20build%20fast%2C%20secure%20mobile%20sites%20with%20instant%20WhatsApp%20quote%20buttons%3A%20https%3A//atryasolutions.netlify.app/%0AWe%27re%20offering%20a%20free%20revamp%20to%20get%20your%20site%20back%20to%20converting%20leads.%0A%0AOpen%20for%20a%20quick%2010-min%20chat%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [],
+      "emails": [],
+      "website": "http://automationataes.in/",
+      "domain": "automationataes.in",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "High",
+      "need_score": 85,
+      "site_status": "unreachable",
+      "segment": "broken_or_insecure",
+      "audit_issues": "website unreachable (ConnectionError)",
+      "ssl_status": "none",
+      "mobile_friendly": "No",
+      "page_speed_sec": "0.0",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "No",
+      "cms_platform": "None",
+      "copyright_year": ""
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Automation & Energy Solutions,\nChecked your website (automationataes.in) in Bengaluru and noticed it's currently showing an issue (website unreachable (ConnectionError)), causing potential customers to bounce!\n\nWe build fast, secure mobile sites with instant WhatsApp quote buttons: https://atryasolutions.netlify.app/\nWe're offering a free revamp to get your site back to converting leads.\n\nOpen for a quick 10-min chat? - Atrya Solutions",
+      "email_subject": "Fixing Automation & Energy Solutions website (website unreachable (ConnectionError)) + Free Revamp",
+      "email_body": "Hi Automation & Energy Solutions Team,\n\nI was looking up security providers in Bengaluru and tried visiting your website (automationataes.in).\n\nI noticed visitors are running into an issue: website unreachable (ConnectionError). When customers see an error or security warning, they immediately go to a competitor.\n\nAt Atrya Solutions, we build high-converting websites for CCTV & security dealers:\n👉 Live Demo: https://atryasolutions.netlify.app/\n👉 Ops & AMC Panel: https://atryasolutions.netlify.app/admin\n\nWe'd love to offer a free revamp to get your digital presence fixed and capturing leads. Open for a brief 10-minute call this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-11-12 12:08:33"
+  },
+  {
     "place_id": "ChIJXXm2R2k8rjsRD7vpyKyK8hU",
     "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
