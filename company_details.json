@@ -42087,5 +42087,70 @@
       "email_body": "Hi J D Computer Gallary Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-11-13 11:51:40"
+  },
+  {
+    "place_id": "ChIJVzR2Vms9rjsRmR5J5XFAEjI",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJVzR2Vms9rjsRmR5J5XFAEjI",
+      "name": "ARM HOME AUTOMATION",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "46 CROSS, 58 /B, 10th Main Rd, RAMMANDIR ROAD, 4th Block, Rajajinagar, Bengaluru, Karnataka 560010, India",
+      "pincode": "560010",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru",
+      "coordinates": {
+        "latitude": "12.9883929",
+        "longitude": "77.5560895"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=3608017109399445145&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "4.9",
+      "reviews": "19",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "098445 35363",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919844535363",
+      "whatsapp_click_to_chat": "https://wa.me/919844535363?text=Hi%20ARM%20HOME%20AUTOMATION%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [
+        "+91-7829535363",
+        "+91-9945981867",
+        "+917829535363"
+      ],
+      "emails": [
+        "armhomeautomation@gmail.com"
+      ],
+      "website": "http://www.armhomeautomation.in/",
+      "domain": "armhomeautomation.in",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "Medium",
+      "need_score": 0,
+      "site_status": "healthy",
+      "segment": "amc_operations",
+      "audit_issues": "website appears functional and updated",
+      "ssl_status": "valid_https",
+      "mobile_friendly": "Yes",
+      "page_speed_sec": "1.23",
+      "has_enquiry_form": "Yes",
+      "has_whatsapp_widget": "Yes",
+      "cms_platform": "Custom / HTML",
+      "copyright_year": ""
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi ARM HOME AUTOMATION,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for ARM HOME AUTOMATION",
+      "email_body": "Hi ARM HOME AUTOMATION Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-11-14 11:11:28"
   }
 ]
