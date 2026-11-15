@@ -15045,6 +15045,65 @@
     "scraped_at": "2026-11-13 11:51:40"
   },
   {
+    "place_id": "ChIJOckzn28VrjsR4hi80lKaP2Q",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJOckzn28VrjsR4hi80lKaP2Q",
+      "name": "MSK UDHYOG",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "No.103A(1), 1st floor, A.M.Lane, thiglarpet, Sadar Patrappa Rd, beside Nagarathpet Main Road, 3rd Cross, Dodpete, Nagarathpete, Bengaluru, Karnataka 560002, India",
+      "pincode": "560002",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru Jayanagar",
+      "coordinates": {
+        "latitude": "12.965197",
+        "longitude": "77.58327229999999"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=7223662007839103202&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "5",
+      "reviews": "6",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "095661 35019",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919566135019",
+      "whatsapp_click_to_chat": "https://wa.me/919566135019?text=Hi%20MSK%20UDHYOG%2C%0ANoticed%20your%20security%20systems%20store%20in%20Bengaluru%20has%20strong%20footfall%2C%20but%20no%20dedicated%20web%20portal%20for%20wholesale%20and%20installer%20inquiries%21%0A%0AWe%20set%20up%20branded%20digital%20product%20catalogs%20with%20direct%20WhatsApp%20quote%20buttons%3A%0A%F0%9F%91%89%20Customer%20Website%3A%20https%3A//atryasolutions.netlify.app/%0A%F0%9F%91%89%20Warranty%20%26%20Technician%20Dispatch%20Admin%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AWorth%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [],
+      "emails": [],
+      "website": "",
+      "domain": "",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "High",
+      "need_score": 100,
+      "site_status": "no_website",
+      "segment": "no_website",
+      "audit_issues": "No official website (relies only on directories or social media)",
+      "ssl_status": "none",
+      "mobile_friendly": "No",
+      "page_speed_sec": "0.0",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "No",
+      "cms_platform": "None",
+      "copyright_year": ""
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi MSK UDHYOG,\nNoticed your security systems store in Bengaluru has strong footfall, but no dedicated web portal for wholesale and installer inquiries!\n\nWe set up branded digital product catalogs with direct WhatsApp quote buttons:\n👉 Customer Website: https://atryasolutions.netlify.app/\n👉 Warranty & Technician Dispatch Admin: https://atryasolutions.netlify.app/admin\n\nWorth a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Online Dealer Catalog & Dispatch Panel for MSK UDHYOG",
+      "email_body": "Hi MSK UDHYOG Management,\n\nI came across your security systems store in Bengaluru. While you have great local reputation, potential buyers searching Google for CCTV wholesale pricing and package installation cannot find an official portal.\n\nWe build complete digital setups for security dealers:\n👉 Interactive Website with 1-click WhatsApp Quotes: https://atryasolutions.netlify.app/\n👉 Warranty & Technician Dispatch Admin: https://atryasolutions.netlify.app/admin\n\nCould we connect for a brief 10-minute walkthrough this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-11-15 11:50:45"
+  },
+  {
     "place_id": "ChIJEeVJTmUVrjsRGy_6nJzHAp8",
     "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
@@ -35193,6 +35252,72 @@
       "email_body": "Hi Mann Electronic Security LLP Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-11-02 11:58:59"
+  },
+  {
+    "place_id": "ChIJ222Dpd8NrjsRbeqScUoG-kE",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJ222Dpd8NrjsRbeqScUoG-kE",
+      "name": "Shutterent",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "Nagondanahalli, Whitefield, Bengaluru, Karnataka 560066, India",
+      "pincode": "560066",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru Whitefield",
+      "coordinates": {
+        "latitude": "12.973444299999999",
+        "longitude": "77.77055880000002"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=4754119273445780077&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "4.8",
+      "reviews": "166",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "090080 26933",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919008026933",
+      "whatsapp_click_to_chat": "https://wa.me/919008026933?text=Hi%20Shutterent%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [
+        "+91 9008026933",
+        "+919008026933",
+        "8590555563"
+      ],
+      "emails": [
+        "info@shutterent.com",
+        "shutter.rent@gmail.com"
+      ],
+      "website": "https://shutterent.com/",
+      "domain": "shutterent.com",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "Medium",
+      "need_score": 15,
+      "site_status": "healthy",
+      "segment": "amc_operations",
+      "audit_issues": "no online enquiry or quote form",
+      "ssl_status": "valid_https",
+      "mobile_friendly": "Yes",
+      "page_speed_sec": "0.55",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "Yes",
+      "cms_platform": "WordPress",
+      "copyright_year": "2026"
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Shutterent,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Shutterent",
+      "email_body": "Hi Shutterent Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-11-15 11:50:45"
   },
   {
     "place_id": "ChIJGXum8gs9rjsRoJCCsTo1F5M",
