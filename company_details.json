@@ -16107,6 +16107,65 @@
     "scraped_at": "2026-11-11 11:40:52"
   },
   {
+    "place_id": "ChIJdXkDSKYXrjsRGEuwojEc_Mw",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJdXkDSKYXrjsRGEuwojEc_Mw",
+      "name": "Eagle Eye Surveillance & Network Solutions",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "No.21/1, Near Bus Stop, RT Nagar Post Post IN, 4th Main Rd, near Bus Stop, RT Nagar, Sultanpalya, Bengaluru, Karnataka 560032, India",
+      "pincode": "560032",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru SP Road",
+      "coordinates": {
+        "latitude": "13.025611999999999",
+        "longitude": "77.60424019999999"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=14770711877376822040&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "5",
+      "reviews": "4",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "",
+      "phone_type": "None",
+      "whatsapp_number": "",
+      "whatsapp_click_to_chat": "",
+      "alternate_phones": [],
+      "emails": [],
+      "website": "http://www.eagleeyesolutions.in/",
+      "domain": "eagleeyesolutions.in",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "High",
+      "need_score": 99,
+      "site_status": "needs_urgent_revamp",
+      "segment": "broken_or_insecure",
+      "audit_issues": "not served over HTTPS (insecure connection); HTTP error 403; not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget",
+      "ssl_status": "insecure_http",
+      "mobile_friendly": "No",
+      "page_speed_sec": "0.07",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "No",
+      "cms_platform": "Custom / HTML",
+      "copyright_year": ""
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Eagle Eye Surveillance & Network Solutions,\nChecked your website (eagleeyesolutions.in) in Bengaluru and noticed it's currently showing an issue (not served over HTTPS (insecure connection); HTTP error 403; not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget), causing potential customers to bounce!\n\nWe build fast, secure mobile sites with instant WhatsApp quote buttons: https://atryasolutions.netlify.app/\nWe're offering a free revamp to get your site back to converting leads.\n\nOpen for a quick 10-min chat? - Atrya Solutions",
+      "email_subject": "Fixing Eagle Eye Surveillance & Network Solutions website (not served over HTTPS (insecure connecti) + Free Revamp",
+      "email_body": "Hi Eagle Eye Surveillance & Network Solutions Team,\n\nI was looking up security providers in Bengaluru and tried visiting your website (eagleeyesolutions.in).\n\nI noticed visitors are running into an issue: not served over HTTPS (insecure connection); HTTP error 403; not mobile-friendly (missing viewport tag); no online enquiry or quote form; no direct WhatsApp contact widget. When customers see an error or security warning, they immediately go to a competitor.\n\nAt Atrya Solutions, we build high-converting websites for CCTV & security dealers:\n👉 Live Demo: https://atryasolutions.netlify.app/\n👉 Ops & AMC Panel: https://atryasolutions.netlify.app/admin\n\nWe'd love to offer a free revamp to get your digital presence fixed and capturing leads. Open for a brief 10-minute call this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-11-18 12:37:38"
+  },
+  {
     "place_id": "ChIJl045J-IVrjsR0-ow6gzOSLY",
     "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
@@ -42519,5 +42578,68 @@
       "email_body": "Hi ARM HOME AUTOMATION Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
     },
     "scraped_at": "2026-11-14 11:11:28"
+  },
+  {
+    "place_id": "ChIJydhDh-4VrjsRkYYl3p0e6gk",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJydhDh-4VrjsRkYYl3p0e6gk",
+      "name": "Sai Sri Durga Infotech Pvt.Ltd",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "19, Maharashtra Mahila Vidyalaya Rd, Vishweshwarapura, Basavanagudi, Bengaluru, Karnataka 560004, India",
+      "pincode": "560004",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru Jayanagar",
+      "coordinates": {
+        "latitude": "12.949983",
+        "longitude": "77.5761473"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=714417154277344913&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "4.3",
+      "reviews": "52",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "098440 62114",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919844062114",
+      "whatsapp_click_to_chat": "https://wa.me/919844062114?text=Hi%20Sai%20Sri%20Durga%20Infotech%20Pvt.Ltd%2C%0ASaw%20your%20website%20in%20Bengaluru%E2%80%94looks%20solid%21%20How%20does%20your%20team%20currently%20manage%20annual%20maintenance%20contracts%20%28AMCs%29%2C%20warranty%20tracking%2C%20and%20technician%20dispatch%3F%0A%0AWe%20built%20a%20specialized%20operations%20panel%20for%20CCTV%20installers%3A%20https%3A//atryasolutions.netlify.app/admin%0AAutomates%20renewal%20alerts%20and%20job%20dispatch.%0A%0AWorth%20a%20quick%2010-min%20look%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [
+        "+919844062114"
+      ],
+      "emails": [
+        "nanjunda@saisridurga.com"
+      ],
+      "website": "https://saisridurga.com/",
+      "domain": "saisridurga.com",
+      "social_media": {
+        "facebook": "https://www.facebook.com/ssdinfotech",
+        "instagram": "https://www.instagram.com/saisridurgainfotech/",
+        "linkedin": "https://www.linkedin.com/company/sai-sri-durga-infotech-pvt-ltd/",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "Medium",
+      "need_score": 0,
+      "site_status": "healthy",
+      "segment": "amc_operations",
+      "audit_issues": "website appears functional and updated",
+      "ssl_status": "valid_https",
+      "mobile_friendly": "Yes",
+      "page_speed_sec": "1.17",
+      "has_enquiry_form": "Yes",
+      "has_whatsapp_widget": "Yes",
+      "cms_platform": "WordPress",
+      "copyright_year": "2024"
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Sai Sri Durga Infotech Pvt.Ltd,\nSaw your website in Bengaluru—looks solid! How does your team currently manage annual maintenance contracts (AMCs), warranty tracking, and technician dispatch?\n\nWe built a specialized operations panel for CCTV installers: https://atryasolutions.netlify.app/admin\nAutomates renewal alerts and job dispatch.\n\nWorth a quick 10-min look? - Atrya Solutions",
+      "email_subject": "AMC Renewals & Technician Dispatch Panel for Sai Sri Durga Infotech Pvt.Ltd",
+      "email_body": "Hi Sai Sri Durga Infotech Pvt.Ltd Team,\n\nI came across your website and wanted to reach out. Your digital presence is well established!\n\nMost established security dealers tell us that as installation volume grows, tracking AMC maintenance renewals, warranty dates, and technician schedules on spreadsheets becomes chaotic.\n\nWe built an operations panel specifically for CCTV and security teams: https://atryasolutions.netlify.app/admin\nIt automates service reminders, tracks jobs, and keeps contract renewals on schedule.\n\nWould you be open to a quick 10-minute walkthrough to see if it saves your team hours every week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-11-18 12:37:38"
   }
 ]
