@@ -15517,6 +15517,65 @@
     "scraped_at": "2026-11-22 12:15:34"
   },
   {
+    "place_id": "ChIJrVt7r_4NrjsRC8pdy6zhVDE",
+    "outreach_status": "PITCH_DRAFTED",
+    "company_profile": {
+      "place_id": "ChIJrVt7r_4NrjsRC8pdy6zhVDE",
+      "name": "Alpha Systems",
+      "category": "CCTV & Security Systems Dealer",
+      "address": "zp complex, 324, Immadihalli Main Rd, Meersab Compound, Whitefield, Bengaluru, Karnataka 560066, India",
+      "pincode": "560066",
+      "city": "Bengaluru",
+      "search_zone": "Bengaluru Whitefield",
+      "coordinates": {
+        "latitude": "12.9696624",
+        "longitude": "77.7506101"
+      },
+      "google_maps_url": "https://maps.google.com/?cid=3554714138164709899&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": "4.5",
+      "reviews": "137",
+      "business_status": "OPERATIONAL"
+    },
+    "contacts": {
+      "primary_phone": "099868 62735",
+      "phone_type": "Mobile",
+      "whatsapp_number": "919986862735",
+      "whatsapp_click_to_chat": "https://wa.me/919986862735?text=Hi%20Alpha%20Systems%2C%0ANoticed%20your%20security%20systems%20store%20in%20Bengaluru%20has%20strong%20footfall%2C%20but%20no%20dedicated%20web%20portal%20for%20wholesale%20and%20installer%20inquiries%21%0A%0AWe%20set%20up%20branded%20digital%20product%20catalogs%20with%20direct%20WhatsApp%20quote%20buttons%3A%0A%F0%9F%91%89%20Customer%20Website%3A%20https%3A//atryasolutions.netlify.app/%0A%F0%9F%91%89%20Warranty%20%26%20Technician%20Dispatch%20Admin%3A%20https%3A//atryasolutions.netlify.app/admin%0A%0AWorth%20a%20quick%2010-min%20walkthrough%3F%20-%20Atrya%20Solutions",
+      "alternate_phones": [],
+      "emails": [],
+      "website": "",
+      "domain": "",
+      "social_media": {
+        "facebook": "",
+        "instagram": "",
+        "linkedin": "",
+        "youtube": "",
+        "twitter": ""
+      }
+    },
+    "digital_audit": {
+      "lead_priority": "High",
+      "need_score": 100,
+      "site_status": "no_website",
+      "segment": "no_website",
+      "audit_issues": "No official website (relies only on directories or social media)",
+      "ssl_status": "none",
+      "mobile_friendly": "No",
+      "page_speed_sec": "0.0",
+      "has_enquiry_form": "No",
+      "has_whatsapp_widget": "No",
+      "cms_platform": "None",
+      "copyright_year": ""
+    },
+    "outreach_pack": {
+      "outreach_status": "PITCH_DRAFTED",
+      "whatsapp_pitch": "Hi Alpha Systems,\nNoticed your security systems store in Bengaluru has strong footfall, but no dedicated web portal for wholesale and installer inquiries!\n\nWe set up branded digital product catalogs with direct WhatsApp quote buttons:\n👉 Customer Website: https://atryasolutions.netlify.app/\n👉 Warranty & Technician Dispatch Admin: https://atryasolutions.netlify.app/admin\n\nWorth a quick 10-min walkthrough? - Atrya Solutions",
+      "email_subject": "Online Dealer Catalog & Dispatch Panel for Alpha Systems",
+      "email_body": "Hi Alpha Systems Management,\n\nI came across your security systems store in Bengaluru. While you have great local reputation, potential buyers searching Google for CCTV wholesale pricing and package installation cannot find an official portal.\n\nWe build complete digital setups for security dealers:\n👉 Interactive Website with 1-click WhatsApp Quotes: https://atryasolutions.netlify.app/\n👉 Warranty & Technician Dispatch Admin: https://atryasolutions.netlify.app/admin\n\nCould we connect for a brief 10-minute walkthrough this week?\n\nBest regards,\nAtrya Solutions (WhatsApp/Call: +919353489736)\n\nReply STOP and I won't contact you again."
+    },
+    "scraped_at": "2026-11-23 14:00:29"
+  },
+  {
     "place_id": "ChIJEeVJTmUVrjsRGy_6nJzHAp8",
     "outreach_status": "PITCH_DRAFTED",
     "company_profile": {
